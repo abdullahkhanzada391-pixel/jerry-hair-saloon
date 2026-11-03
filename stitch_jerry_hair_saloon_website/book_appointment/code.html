@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;background-color:#131313;color:#e5e2e1;}body{overscroll-behavior-y:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@100..900&family=Hanken+Grotesk:wght@100..900&display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-primary-container":"#636565","on-surface-variant":"#c4c7c8","secondary-fixed":"#e3e2e7","tertiary-fixed":"#e4e2e4","secondary":"#c6c6cb","error":"#ffb4ab","surface-dim":"#131313","on-secondary-container":"#b5b4ba","surface-variant":"#353534","surface-container-lowest":"#0e0e0e","inverse-on-surface":"#313030","primary-fixed":"#e2e2e2","on-error-container":"#ffdad6","on-tertiary-container":"#656466","surface-container":"#201f1f","secondary-fixed-dim":"#c6c6cb","surface-tint":"#c6c6c7","on-background":"#e5e2e1","inverse-surface":"#e5e2e1","primary-fixed-dim":"#c6c6c7","surface":"#131313","background":"#131313","tertiary":"#ffffff","surface-bright":"#3a3939","surface-container-highest":"#353534","primary-container":"#e2e2e2","outline":"#8e9192","on-primary-fixed":"#1a1c1c","inverse-primary":"#5d5f5f","secondary-container":"#46464b","on-surface":"#e5e2e1","on-tertiary-fixed-variant":"#474649","outline-variant":"#444748","surface-container-high":"#2a2a2a","on-tertiary-fixed":"#1b1b1d","surface-container-low":"#1c1b1b","on-error":"#690005","on-primary-fixed-variant":"#454747","on-tertiary":"#303032","on-primary":"#2f3131","primary":"#ffffff","tertiary-fixed-dim":"#c8c6c8","on-secondary-fixed-variant":"#46464b","on-secondary-fixed":"#1a1b1f","tertiary-container":"#e4e2e4","on-secondary":"#2f3034","error-container":"#93000a"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.5rem","space-sm":"0.5rem","space-xl":"2.5rem","gutter":"1.5rem","margin-mobile":"1.25rem","margin":"3rem","space-md":"1rem","gutter-mobile":"1rem","space-xs":"0.25rem"},"fontFamily":{"headline-lg":["Bodoni Moda"],"body-sm":["Hanken Grotesk"],"body-lg":["Hanken Grotesk"],"headline-sm":["Hanken Grotesk"],"body-md":["Hanken Grotesk"],"headline-lg-mobile":["Bodoni Moda"],"label-caps":["Hanken Grotesk"],"label-md":["Hanken Grotesk"],"display-hero-mobile":["Bodoni Moda"],"display-hero":["Bodoni Moda"],"headline-md":["Bodoni Moda"]},"fontSize":{"headline-lg":["36px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"26px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"26px","letterSpacing":"0.02em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"22px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg-mobile":["28px",{"lineHeight":"34px","letterSpacing":"0em","fontWeight":"600"}],"label-caps":["11px",{"lineHeight":"16px","letterSpacing":"0.15em","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"display-hero-mobile":["38px",{"lineHeight":"44px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"32px","letterSpacing":"0em","fontWeight":"600"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface text-on-surface antialiased"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 px-gutter-mobile flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="Jerry Hair Saloon Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XOCZGvbK6Ab2eDglHm3NLg8_MygZAdFxpBP-o3aZna3-28uaK1W-MAQ-lIilSf1OHzqawVIhfP6_Av-yk2ADlKuNuql3PqT6zkZod1UVcup55yma-fqwBa8W-ZlssdF_PqXpSI5F3GRXoaNHx-tLYhquPf6TPjO_pxU_SuPn8kOwOj2cN4iv9XCW1tnYXWIX42SDpmiBHazJAQRaIorXUPNJpUsXWWlc2bc1d4-n02Ug"/><div class="flex flex-col"><div class="flex items-center gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary uppercase tracking-wider">Jerry Hair Saloon</span><span class="font-label-caps text-label-caps text-on-surface-variant font-normal opacity-75">| Book Appointment</span></div><span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Est. 8 Years • 117 Neelum Block, Iqbal Town</span></div></div><div class="flex items-center gap-space-xs"><a aria-label="Call Barber Shop" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-primary transition-colors" href="tel:+92000000000"><span class="material-symbols-outlined text-[20px]">call</span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-20 pb-24 bg-surface min-h-screen"><div class="flex flex-col w-full px-gutter-mobile space-y-space-md">
+<!-- Subtle Editorial Banner & Location Badge -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs bg-surface-container-low px-space-sm py-1">
+<span class="material-symbols-outlined text-[15px] text-on-surface-variant">location_on</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">117 Neelum Block, Iqbal Town, Lahore</span>
+</div>
+<div class="flex items-center gap-1 bg-surface-container px-space-xs py-1">
+<span class="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-primary uppercase">Chairs Live</span>
+</div>
+</div>
+<!-- Step Progress Indicator -->
+<div class="bg-surface-container p-space-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Protocol Flow</span>
+<span class="font-label-caps text-label-caps text-primary tracking-widest">Step 02 of 04</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5">
+<div class="flex flex-col gap-1">
+<div class="h-1 bg-primary"></div>
+<span class="font-label-caps text-label-caps text-primary truncate">1. Service</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-1 bg-primary"></div>
+<span class="font-label-caps text-label-caps text-primary truncate">2. Barber</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-1 bg-surface-variant"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant truncate">3. Schedule</span>
+</div>
+<div class="flex flex-col gap-1">
+<div class="h-1 bg-surface-variant"></div>
+<span class="font-label-caps text-label-caps text-on-surface-variant truncate">4. Confirm</span>
+</div>
+</div>
+</div>
+<!-- Specialist Barber Selector -->
+<section class="space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">Select Specialist</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Craft Mastery</span>
+</div>
+<!-- Horizontal Barber Slider -->
+<div class="flex gap-space-sm overflow-x-auto pb-2 -mx-gutter-mobile px-gutter-mobile no-scrollbar" id="barber-carousel">
+<!-- Barber 1: Jerry (Selected) -->
+<button class="barber-card shrink-0 w-60 bg-surface-container text-left transition-all p-space-sm flex flex-col justify-between relative group" data-barber="Jerry" data-role="Founder & Master Craftsman" type="button">
+<div class="absolute top-space-xs right-space-xs bg-primary text-on-primary px-1.5 py-0.5">
+<span class="font-label-caps text-label-caps uppercase font-semibold">Selected</span>
+</div>
+<div class="flex gap-space-sm items-center">
+<img class="w-14 h-14 object-cover grayscale brightness-110" data-alt="Monochrome portrait of Jerry, master Pakistani barber with sharp groomed beard and classic black tailored apron, standing in high-contrast editorial noir barber studio with vintage leather chair in background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAem_I91RG83kBK2IN1Sb4FWxKPJbzuL7Bf0XmX6pFtBDxsZx568_fAeoFhmCoxGACgjierD_-tglXza-uiONsViXTwyZfhr6muENEYrjZVOPfKu3Oqq4Gcg0LMc57tBxc7m9bIMV6d9cVInI-Tzb_usXBQajeUtzaspmuFM9DoSWjyRc6P6sCmpjr-tNo43cGEXc1jzHTXBeqlYxb4mrIqI2CN03L94CBO4Am8US_g"/>
+<div class="min-w-0 flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight truncate">Jerry</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider truncate">Master Craftsman</p>
+<p class="font-body-sm text-body-sm text-secondary truncate mt-0.5">8+ Yrs • Blade & Scissor</p>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container-high px-space-xs py-1 flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-primary">Chair #01 Active</span>
+<span class="material-symbols-outlined text-[16px] text-primary">verified</span>
+</div>
+</button>
+<!-- Barber 2: Tariq -->
+<button class="barber-card shrink-0 w-60 bg-surface-container-low text-left transition-all p-space-sm flex flex-col justify-between opacity-80 hover:opacity-100" data-barber="Tariq" data-role="Fade & Beard Specialist" type="button">
+<div class="flex gap-space-sm items-center">
+<img class="w-14 h-14 object-cover grayscale brightness-90" data-alt="Editorial black and white portrait of Tariq, an expert barber in his late twenties holding surgical steel hair clippers in Jerry Hair Saloon Iqbal Town, crisp lighting, high contrast aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgC99WEn4tKoYmNLIThd1dTV1qsVMQmkNfcYfnfUAnQL2qTY8K-eIW8YGcwVE_421z1LDp4hu5X85LS68cjcrrp-TVVO-U62VrNmot6x-wVTlH-lxy6QmFQddqYbadKdbCnpSYzfI_OnVYylQljv-G3bCropQ18jRLYpqP6Vs716y6zxVrvsBxS2u346mbBHnP15UjX8-nlsCqyKWmF4bwIZzwj5KF_1EUZWI_eCv5"/>
+<div class="min-w-0 flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight truncate">Tariq</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider truncate">Fade Specialist</p>
+<p class="font-body-sm text-body-sm text-secondary truncate mt-0.5">5 Yrs • Razor Architecture</p>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container px-space-xs py-1 flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Chair #02 Available</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">content_cut</span>
+</div>
+</button>
+<!-- Barber 3: Adnan -->
+<button class="barber-card shrink-0 w-60 bg-surface-container-low text-left transition-all p-space-sm flex flex-col justify-between opacity-80 hover:opacity-100" data-barber="Adnan" data-role="Head Spa & Therapy Masseuse" type="button">
+<div class="flex gap-space-sm items-center">
+<img class="w-14 h-14 object-cover grayscale brightness-90" data-alt="Black and white close up portrait of Adnan, wellness and head spa barber therapist draping steamed white cotton towel over vintage black leather barber chair in Lahore" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBczEGpxNAKstn7_JLpX6JkjASCQZOKodtPD5KBimaF40elcmAlawQzc53quvuTLrJDYgffnD45qPgxDvVU-bd9_-OpHTVpBy_z0pyHVMyUCfJQnMaKEw2vhJPaH2DxCwJJuD20b9v1CGM4_cde1d7YIUpay4Hw3n01AygRR9kSZpjnzp-GT4gcHHZk5uEp1OCQLiVNSugdmlx-patc5Lg7z3KEF5DjbvD7NFoZAP63"/>
+<div class="min-w-0 flex-1">
+<h3 class="font-headline-sm text-headline-sm text-primary leading-tight truncate">Adnan</h3>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider truncate">Spa & Therapy</p>
+<p class="font-body-sm text-body-sm text-secondary truncate mt-0.5">6 Yrs • Herbal Accupressure</p>
+</div>
+</div>
+<div class="mt-space-sm pt-space-xs bg-surface-container px-space-xs py-1 flex items-center justify-between">
+<span class="font-label-caps text-label-caps text-on-surface-variant">Chair #03 Available</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">spa</span>
+</div>
+</button>
+</div>
+</section>
+<!-- Interactive Date Strip -->
+<section class="space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">Select Date</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">October 2024</span>
+</div>
+<div class="flex gap-2 overflow-x-auto pb-1 -mx-gutter-mobile px-gutter-mobile no-scrollbar" id="date-selector">
+<!-- Date: Today -->
+<button class="date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-primary text-on-primary shrink-0 transition-transform active:scale-95" type="button">
+<span class="font-label-caps text-label-caps uppercase tracking-wider">Today</span>
+<span class="font-headline-md text-headline-md font-semibold leading-none mt-1">24</span>
+<span class="font-label-caps text-label-caps uppercase mt-1 opacity-75">Thu</span>
+</button>
+<!-- Date: Tomorrow -->
+<button class="date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-surface-container text-on-surface shrink-0 transition-transform active:scale-95" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Tmrw</span>
+<span class="font-headline-md text-headline-md font-semibold leading-none mt-1">25</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant mt-1">Fri</span>
+</button>
+<!-- Date: Sat -->
+<button class="date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-surface-container text-on-surface shrink-0 transition-transform active:scale-95" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Weekend</span>
+<span class="font-headline-md text-headline-md font-semibold leading-none mt-1">26</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant mt-1">Sat</span>
+</button>
+<!-- Date: Sun -->
+<button class="date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-surface-container text-on-surface shrink-0 transition-transform active:scale-95" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Weekend</span>
+<span class="font-headline-md text-headline-md font-semibold leading-none mt-1">27</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant mt-1">Sun</span>
+</button>
+<!-- Date: Mon -->
+<button class="date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-surface-container text-on-surface shrink-0 transition-transform active:scale-95" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">Prime</span>
+<span class="font-headline-md text-headline-md font-semibold leading-none mt-1">28</span>
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant mt-1">Mon</span>
+</button>
+</div>
+</section>
+<!-- Precision Time Matrix -->
+<section class="space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">Available Hours</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Pakistan Standard Time</span>
+</div>
+<!-- Morning Session -->
+<div class="space-y-1.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">wb_twilight</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Morning Shift</span>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex items-center justify-between text-on-surface transition-colors hover:bg-surface-container-high" type="button">
+<div>
+<span class="font-headline-sm text-headline-sm tracking-wider block">10:00 AM</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Opening Slot</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">schedule</span>
+</button>
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex items-center justify-between text-on-surface transition-colors hover:bg-surface-container-high" type="button">
+<div>
+<span class="font-headline-sm text-headline-sm tracking-wider block">11:30 AM</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Jerry's Chair</span>
+</div>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">schedule</span>
+</button>
+</div>
+</div>
+<!-- Afternoon Session -->
+<div class="space-y-1.5 pt-1">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">wb_sunny</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Afternoon Shift</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="time-slot p-space-sm bg-primary text-on-primary text-left flex flex-col justify-between" type="button">
+<span class="font-label-caps text-label-caps uppercase opacity-80">Selected</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-wide mt-1">02:00 PM</span>
+</button>
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex flex-col justify-between text-on-surface hover:bg-surface-container-high" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Open</span>
+<span class="font-headline-sm text-headline-sm tracking-wide mt-1">03:30 PM</span>
+</button>
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex flex-col justify-between text-on-surface hover:bg-surface-container-high" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Open</span>
+<span class="font-headline-sm text-headline-sm tracking-wide mt-1">05:00 PM</span>
+</button>
+</div>
+</div>
+<!-- Evening Shift -->
+<div class="space-y-1.5 pt-1">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[14px] text-on-surface-variant">dark_mode</span>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest">Evening & Night Shift</span>
+</div>
+<div class="grid grid-cols-3 gap-2">
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex flex-col justify-between text-on-surface hover:bg-surface-container-high" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Prime</span>
+<span class="font-headline-sm text-headline-sm tracking-wide mt-1">07:00 PM</span>
+</button>
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex flex-col justify-between text-on-surface hover:bg-surface-container-high" type="button">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Prime</span>
+<span class="font-headline-sm text-headline-sm tracking-wide mt-1">08:30 PM</span>
+</button>
+<button class="time-slot p-space-sm bg-surface-container-low text-left flex flex-col justify-between opacity-40 cursor-not-allowed" type="button">
+<span class="font-label-caps text-label-caps uppercase text-error">Booked</span>
+<span class="font-headline-sm text-headline-sm tracking-wide mt-1 line-through text-on-surface-variant">10:00 PM</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Client Information Form -->
+<section class="space-y-space-xs">
+<div class="flex items-baseline justify-between">
+<h2 class="font-headline-sm text-headline-sm text-primary uppercase tracking-wide">Client Ledger</h2>
+<span class="font-label-caps text-label-caps text-on-surface-variant">Step 03 Protocol</span>
+</div>
+<div class="bg-surface-container p-space-md space-y-space-md">
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider block" for="client-name">Full Name</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-space-sm">badge</span>
+<input class="w-full bg-surface-container-lowest text-primary font-body-md text-body-md pl-10 pr-space-sm py-2.5 outline-none placeholder:text-on-surface-variant/40 focus:bg-surface-container-high transition-colors" id="client-name" placeholder="Enter your full name" type="text" value="Hamza Malik"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider block" for="client-phone">Phone Number (Lahore/PK)</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-space-sm">smartphone</span>
+<input class="w-full bg-surface-container-lowest text-primary font-body-md text-body-md pl-10 pr-space-sm py-2.5 outline-none placeholder:text-on-surface-variant/40 focus:bg-surface-container-high transition-colors" id="client-phone" placeholder="03XX XXXXXXX" type="tel" value="+92 300 8472910"/>
+</div>
+</div>
+<div class="space-y-1">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider block" for="client-notes">Craft Notes & Styling Directives (Optional)</label>
+<div class="relative flex items-start">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant absolute left-space-sm top-3">draw</span>
+<textarea class="w-full bg-surface-container-lowest text-primary font-body-md text-body-md pl-10 pr-space-sm py-2.5 outline-none placeholder:text-on-surface-variant/40 focus:bg-surface-container-high transition-colors resize-none" id="client-notes" placeholder="Low skin fade with textured crop on top, hot towel finish." rows="2"></textarea>
+</div>
+</div>
+</div>
+</section>
+<!-- Ledger Summary Card -->
+<section class="bg-surface-container-high p-space-md space-y-space-sm">
+<div class="flex items-center justify-between pb-space-xs bg-surface-container px-space-sm py-1.5">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[18px] text-primary">receipt_long</span>
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-widest">Booking Dossier</span>
+</div>
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase">Neelum Block Stn.</span>
+</div>
+<div class="space-y-2 pt-1">
+<div class="flex justify-between items-baseline">
+<span class="font-body-md text-body-md text-on-surface-variant">Services Selected</span>
+<span class="font-headline-sm text-headline-sm text-primary text-right">Royal Fade + Head Spa</span>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="font-body-md text-body-md text-on-surface-variant">Assigned Master</span>
+<span class="font-headline-sm text-headline-sm text-primary" id="summary-barber">Jerry (Chair #01)</span>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="font-body-md text-body-md text-on-surface-variant">Date & Arrival Slot</span>
+<span class="font-headline-sm text-headline-sm text-primary">Today • 02:00 PM</span>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="font-body-md text-body-md text-on-surface-variant">Session Duration</span>
+<span class="font-headline-sm text-headline-sm text-secondary">Approx. 70 Min</span>
+</div>
+</div>
+<div class="pt-space-xs flex items-center justify-between bg-surface-container-lowest p-space-sm mt-space-sm">
+<div class="flex flex-col">
+<span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Total Investment</span>
+<span class="font-label-caps text-label-caps text-primary opacity-60">Pay at the saloon counter</span>
+</div>
+<span class="font-headline-lg-mobile text-headline-lg-mobile text-primary font-bold">PKR 3,000</span>
+</div>
+</section>
+<!-- Reservation Action & Safety Guarantee -->
+<div class="space-y-space-xs pb-space-lg">
+<button class="w-full bg-primary text-on-primary py-4 px-space-lg flex items-center justify-between transition-transform active:scale-[0.99] group shadow-lg" id="reserve-btn" type="button">
+<div class="flex flex-col text-left">
+<span class="font-label-caps text-label-caps uppercase tracking-widest font-bold">Protocol 4: Execute</span>
+<span class="font-headline-sm text-headline-sm font-semibold tracking-wide">Confirm & Reserve Slot</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[24px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</button>
+<!-- Instant WhatsApp / SMS Guarantee Ribbon -->
+<div class="bg-surface-container-low p-space-sm flex items-center gap-space-sm">
+<div class="w-8 h-8 bg-surface-container-high flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px] text-primary">chat</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-caps text-label-caps text-primary uppercase tracking-wider">Instant Confirmation Dispatch</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Digital token sent to +92 300 8472910 via WhatsApp with live queue tracking.</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  (function () {
+    // Barber selector dynamic handling
+    const barberCards = document.querySelectorAll('.barber-card');
+    const summaryBarber = document.getElementById('summary-barber');
+
+    barberCards.forEach(card => {
+      card.addEventListener('click', () => {
+        barberCards.forEach(c => {
+          c.classList.remove('bg-surface-container', 'opacity-100');
+          c.classList.add('bg-surface-container-low', 'opacity-80');
+          const badge = c.querySelector('.absolute');
+          if (badge) badge.remove();
+        });
+
+        card.classList.remove('bg-surface-container-low', 'opacity-80');
+        card.classList.add('bg-surface-container', 'opacity-100');
+
+        const newBadge = document.createElement('div');
+        newBadge.className = 'absolute top-space-xs right-space-xs bg-primary text-on-primary px-1.5 py-0.5';
+        newBadge.innerHTML = '<span class="font-label-caps text-label-caps uppercase font-semibold">Selected</span>';
+        card.appendChild(newBadge);
+
+        const barberName = card.getAttribute('data-barber') || 'Jerry';
+        if (summaryBarber) {
+          summaryBarber.textContent = barberName + (barberName === 'Jerry' ? ' (Chair #01)' : ' (Specialist Chair)');
+        }
+      });
+    });
+
+    // Date chip selection
+    const dateChips = document.querySelectorAll('.date-chip');
+    dateChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        dateChips.forEach(c => {
+          c.className = 'date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-surface-container text-on-surface shrink-0 transition-transform active:scale-95';
+          const labels = c.querySelectorAll('span');
+          if (labels[0]) labels[0].className = 'font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider';
+          if (labels[2]) labels[2].className = 'font-label-caps text-label-caps uppercase text-on-surface-variant mt-1';
+        });
+
+        chip.className = 'date-chip flex flex-col items-center justify-center min-w-[70px] py-space-sm bg-primary text-on-primary shrink-0 transition-transform active:scale-95';
+        const activeLabels = chip.querySelectorAll('span');
+        if (activeLabels[0]) activeLabels[0].className = 'font-label-caps text-label-caps uppercase tracking-wider';
+        if (activeLabels[2]) activeLabels[2].className = 'font-label-caps text-label-caps uppercase mt-1 opacity-75';
+      });
+    });
+
+    // Time slot toggle
+    const timeSlots = document.querySelectorAll('.time-slot');
+    timeSlots.forEach(slot => {
+      if (slot.classList.contains('cursor-not-allowed')) return;
+      slot.addEventListener('click', () => {
+        timeSlots.forEach(s => {
+          if (!s.classList.contains('cursor-not-allowed')) {
+            s.className = 'time-slot p-space-sm bg-surface-container-low text-left flex flex-col justify-between text-on-surface hover:bg-surface-container-high transition-colors';
+          }
+        });
+        slot.className = 'time-slot p-space-sm bg-primary text-on-primary text-left flex flex-col justify-between transition-colors';
+      });
+    });
+
+    // Confirmation button micro-delight
+    const reserveBtn = document.getElementById('reserve-btn');
+    if (reserveBtn) {
+      reserveBtn.addEventListener('click', function() {
+        const originalContent = this.innerHTML;
+        this.innerHTML = `
+          <div class="flex items-center gap-space-sm py-1">
+            <span class="material-symbols-outlined text-[22px] animate-spin">sync</span>
+            <span class="font-headline-sm text-headline-sm font-semibold uppercase">Reserving Chair #01...</span>
+          </div>
+        `;
+        setTimeout(() => {
+          this.className = "w-full bg-surface-container-high text-primary py-4 px-space-lg flex items-center justify-between";
+          this.innerHTML = `
+            <div class="flex items-center gap-space-sm">
+              <span class="material-symbols-outlined text-[24px] text-primary">check_circle</span>
+              <div class="flex flex-col text-left">
+                <span class="font-label-caps text-label-caps text-primary uppercase tracking-widest font-bold">Locked & Confirmed</span>
+                <span class="font-headline-sm text-headline-sm font-semibold text-primary">Booking Code #JR-8821</span>
+              </div>
+            </div>
+            <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">See you at 02:00 PM</span>
+          `;
+        }, 900);
+      });
+    }
+  })();
+</script></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/80 backdrop-blur-xl shadow-[0_-1px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-semibold"><div class="flex justify-around items-center h-16 px-gutter-mobile"><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-xs text-on-surface-variant hover:text-primary transition-colors" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">content_cut</span><span class="font-label-caps text-label-caps mt-1 uppercase">Home</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-xs text-on-surface-variant hover:text-primary transition-colors" data-path="services" href="#"><span class="material-symbols-outlined text-[22px]">dry_cleaning</span><span class="font-label-caps text-label-caps mt-1 uppercase">Services</span></a><a class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-xs text-on-surface-variant hover:text-primary transition-colors" data-path="gallery" href="#"><span class="material-symbols-outlined text-[22px]">photo_camera</span><span class="font-label-caps text-label-caps mt-1 uppercase">Gallery</span></a><a aria-current="page" class="flex flex-col items-center justify-center min-w-[44px] min-h-[44px] px-space-xs transition-colors text-primary font-semibold" data-path="book-appointment" href="#"><span class="material-symbols-outlined text-[22px]">calendar_today</span><span class="font-label-caps text-label-caps mt-1 uppercase">Book</span></a></div></nav></body></html>

@@ -1,0 +1,3937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>Jerry Hair Saloon | Heritage Luxury Gentlemen's Barber Shop</title>
+  <meta name="description" content="Jerry Hair Saloon - Established 8 years in 117 Neelum Block, Allama Iqbal Town, Lahore. Heritage luxury barbering, bespoke skin tapers, straight razor shaving, and hot towel rituals." />
+
+  <!-- Google Fonts: Bodoni Moda (Editorial Serif) & Hanken Grotesk (Clean Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5.3.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Bootstrap Icons 1.11.3 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+
+  <!-- Google Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- React 18 & ReactDOM 18 UMD -->
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/react@18.3.1/umd/react.production.min.js"></script>
+  <script crossorigin src="https://cdn.jsdelivr.net/npm/react-dom@18.3.1/umd/react-dom.production.min.js"></script>
+
+  <!-- Framer Motion (Motion for React) -->
+  <script src="./framer-motion.js"></script>
+
+  <!-- Babel Standalone for in-browser JSX compilation -->
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.24.4/babel.min.js"></script>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       JERRY HAIR SALOON — HERITAGE LUXURY BARBERSHOP THEME
+       Warm Ivory (#F3EFE6) • Dark Espresso (#24211E) • Antique Gold (#B08A55) • Warm Beige (#D9D0C2)
+       ========================================================================== */
+    :root {
+      --color-ivory: #F3EFE6;
+      --color-espresso: #24211E;
+      --color-gold: #B08A55;
+      --color-gold-hover: #967443;
+      --color-gold-light: #FBF8F2;
+      --color-beige: #D9D0C2;
+      --color-beige-subtle: #E8E1D5;
+      --color-card: #FFFFFF;
+      --color-border: #E0D7C9;
+      --color-border-subtle: #ECE5DA;
+      --color-border-dark: #3A3530;
+      --color-text-primary: #24211E;
+      --color-text-muted: #68615A;
+      --color-text-light: #F3EFE6;
+
+      --font-serif: 'Bodoni Moda', Georgia, serif;
+      --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      background-color: var(--color-ivory) !important;
+      color: var(--color-text-primary) !important;
+      font-family: var(--font-sans);
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* Enforce 0px straight-razor sharpness */
+    .btn, .card, .modal-content, .form-control, .input-group-text, 
+    .badge, .alert, .dropdown-menu, .nav-pills .nav-link, .list-group-item,
+    img, .img-fluid, .rounded, .rounded-top, .rounded-bottom, .rounded-start, .rounded-end,
+    .rounded-circle, .rounded-pill, input, select, textarea, button {
+      border-radius: 0px !important;
+    }
+
+    .font-serif { font-family: var(--font-serif); }
+    .font-sans { font-family: var(--font-sans); }
+
+    .display-title {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--color-espresso);
+    }
+
+    .headline-serif {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--color-espresso);
+    }
+
+    .label-caps {
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      line-height: 1.4;
+    }
+
+    .body-muted {
+      color: var(--color-text-muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Custom Scrollbars */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--color-ivory); }
+    ::-webkit-scrollbar-thumb { background: var(--color-beige); border: 1px solid var(--color-border); }
+    ::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Backgrounds */
+    .bg-ivory { background-color: var(--color-ivory) !important; }
+    .bg-beige { background-color: var(--color-beige) !important; }
+    .bg-beige-subtle { background-color: var(--color-beige-subtle) !important; }
+    .bg-espresso { background-color: var(--color-espresso) !important; color: var(--color-ivory) !important; }
+    .bg-card { background-color: var(--color-card) !important; }
+    .bg-gold { background-color: var(--color-gold) !important; color: var(--color-espresso) !important; }
+
+    /* Text */
+    .text-espresso { color: var(--color-espresso) !important; }
+    .text-gold { color: var(--color-gold) !important; }
+    .text-muted-heritage { color: var(--color-text-muted) !important; }
+    .text-ivory { color: var(--color-ivory) !important; }
+
+    /* Borders */
+    .border-heritage { border: 1px solid var(--color-border) !important; }
+    .border-heritage-top { border-top: 1px solid var(--color-border) !important; }
+    .border-heritage-bottom { border-bottom: 1px solid var(--color-border) !important; }
+    .border-dark-section { border: 1px solid var(--color-border-dark) !important; }
+
+    /* Heritage Buttons */
+    .btn-gold-primary {
+      background-color: var(--color-gold) !important;
+      color: var(--color-espresso) !important;
+      border: 1px solid var(--color-gold) !important;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 12px 24px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 2px 6px rgba(176, 138, 85, 0.25);
+    }
+    .btn-gold-primary:hover, .btn-gold-primary:focus {
+      background-color: var(--color-gold-hover) !important;
+      color: #FFFFFF !important;
+      border-color: var(--color-gold-hover) !important;
+    }
+    .btn-gold-primary:active { transform: scale(0.98); }
+
+    .btn-espresso-primary {
+      background-color: var(--color-espresso) !important;
+      color: var(--color-ivory) !important;
+      border: 1px solid var(--color-espresso) !important;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 12px 24px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-espresso-primary:hover {
+      background-color: var(--color-gold) !important;
+      color: var(--color-espresso) !important;
+      border-color: var(--color-gold) !important;
+    }
+
+    .btn-heritage-outline {
+      background-color: transparent !important;
+      color: var(--color-espresso) !important;
+      border: 1px solid var(--color-espresso) !important;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 12px 24px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-heritage-outline:hover, .btn-heritage-outline:focus {
+      background-color: var(--color-espresso) !important;
+      color: var(--color-ivory) !important;
+      border-color: var(--color-espresso) !important;
+    }
+
+    .btn-gold-outline {
+      background-color: transparent !important;
+      color: var(--color-gold) !important;
+      border: 1px solid var(--color-gold) !important;
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      padding: 12px 24px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .btn-gold-outline:hover {
+      background-color: var(--color-gold) !important;
+      color: var(--color-espresso) !important;
+    }
+
+    .btn-heritage-sm {
+      padding: 8px 16px !important;
+      font-size: 11px !important;
+    }
+
+    /* Chips */
+    .chip-btn {
+      background-color: var(--color-card);
+      color: var(--color-espresso);
+      border: 1px solid var(--color-border);
+      font-family: var(--font-sans);
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 8px 18px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(36, 33, 30, 0.04);
+    }
+    .chip-btn:hover {
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+    .chip-btn.active {
+      background-color: var(--color-espresso);
+      color: var(--color-ivory);
+      border-color: var(--color-espresso);
+      font-weight: 700;
+    }
+
+    /* Service Card */
+    .service-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      padding: 24px;
+      transition: all 0.25s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
+    }
+    .service-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(176, 138, 85, 0.12);
+    }
+    .service-card.selected {
+      border-color: var(--color-gold);
+      background-color: var(--color-gold-light);
+      box-shadow: inset 0 0 0 1px var(--color-gold);
+    }
+
+    /* Gallery Card */
+    .gallery-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
+    }
+    .gallery-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(176, 138, 85, 0.14);
+    }
+    .gallery-card .img-wrapper {
+      overflow: hidden;
+      position: relative;
+      background-color: var(--color-beige);
+      aspect-ratio: 4/3;
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .gallery-card:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Barber Card */
+    .barber-card {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      transition: all 0.25s ease;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
+    }
+    .barber-card:hover {
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(176, 138, 85, 0.12);
+    }
+    .barber-card.active {
+      border-color: var(--color-gold);
+      background-color: var(--color-gold-light);
+    }
+
+    /* Slots and Dates */
+    .slot-btn {
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      color: var(--color-espresso);
+      padding: 12px 16px;
+      font-family: var(--font-sans);
+      text-align: left;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .slot-btn:hover:not(:disabled) {
+      border-color: var(--color-gold);
+      background-color: var(--color-gold-light);
+    }
+    .slot-btn.active {
+      background-color: var(--color-espresso) !important;
+      color: var(--color-ivory) !important;
+      border-color: var(--color-espresso) !important;
+    }
+    .slot-btn.active * { color: var(--color-ivory) !important; }
+    .slot-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+      text-decoration: line-through;
+      background-color: var(--color-beige-subtle);
+    }
+
+    .date-btn {
+      min-width: 80px;
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border);
+      color: var(--color-espresso);
+      padding: 14px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .date-btn:hover { border-color: var(--color-gold); }
+    .date-btn.active {
+      background-color: var(--color-espresso) !important;
+      color: var(--color-ivory) !important;
+      border-color: var(--color-espresso) !important;
+    }
+    .date-btn.active * { color: var(--color-ivory) !important; }
+
+    /* Month Calendar Styles */
+    .calendar-weekdays {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      text-align: center;
+      margin-bottom: 6px;
+    }
+    .calendar-weekday-cell {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 0;
+    }
+    .calendar-days-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+    }
+    .calendar-day-btn {
+      height: 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--color-card);
+      border: 1px solid var(--color-border-subtle);
+      color: var(--color-espresso);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.18s ease;
+      padding: 2px;
+    }
+    .calendar-day-btn:hover:not(:disabled) {
+      border-color: var(--color-gold);
+      background-color: rgba(176, 138, 85, 0.08);
+    }
+    .calendar-day-btn.is-today {
+      border-color: var(--color-gold);
+      font-weight: 700;
+    }
+    .calendar-day-btn .today-dot {
+      position: absolute;
+      bottom: 4px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: var(--color-gold);
+    }
+    .calendar-day-btn.is-selected {
+      background-color: var(--color-espresso) !important;
+      border-color: var(--color-espresso) !important;
+      color: var(--color-ivory) !important;
+      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.2);
+    }
+    .calendar-day-btn.is-selected * {
+      color: var(--color-ivory) !important;
+    }
+    .calendar-day-btn.is-selected .today-dot {
+      background-color: var(--color-gold) !important;
+    }
+    .calendar-day-btn:disabled {
+      opacity: 0.25;
+      cursor: not-allowed;
+      border-color: transparent;
+      background-color: transparent;
+      text-decoration: line-through;
+    }
+    @media (max-width: 576px) {
+      .calendar-day-btn {
+        height: 40px;
+        font-size: 12.5px;
+      }
+      .calendar-days-grid {
+        gap: 4px;
+      }
+    }
+
+    /* Sticky Cart Drawer */
+    .sticky-cart-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1040;
+      background-color: rgba(36, 33, 30, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-top: 1px solid var(--color-gold);
+      padding: 16px 24px;
+      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+      animation: slideUp 0.3s ease-out;
+      color: var(--color-ivory);
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+
+    /* Forms */
+    .heritage-input {
+      background-color: #FFFFFF !important;
+      border: 1px solid var(--color-border) !important;
+      color: var(--color-espresso) !important;
+      font-family: var(--font-sans);
+      font-size: 14px;
+      padding: 12px 16px;
+      transition: border-color 0.2s ease;
+    }
+    .heritage-input:focus {
+      background-color: #FFFFFF !important;
+      border-color: var(--color-gold) !important;
+      outline: none !important;
+      box-shadow: 0 0 0 2px rgba(176, 138, 85, 0.15) !important;
+    }
+    .heritage-input::placeholder { color: #9E968D; }
+
+    /* Pulse */
+    .pulse-indicator {
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-gold);
+      border-radius: 50% !important;
+      display: inline-block;
+      animation: pulseLive 2s infinite ease-in-out;
+    }
+    @keyframes pulseLive {
+      0% { transform: scale(0.95); opacity: 0.6; }
+      50% { transform: scale(1.4); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.6; }
+    }
+
+    /* Nav Tab Link */
+    .nav-tab-link {
+      color: var(--color-espresso);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 18px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      position: relative;
+    }
+    .nav-tab-link:hover { color: var(--color-gold); }
+    .nav-tab-link.active {
+      color: var(--color-gold);
+    }
+    .nav-tab-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 18px;
+      right: 18px;
+      height: 2px;
+      background-color: var(--color-gold);
+    }
+
+    /* Mobile Bottom Nav */
+    .mobile-bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1050;
+      background-color: rgba(243, 239, 230, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--color-border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 8px;
+    }
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-espresso);
+      text-decoration: none;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 12px;
+      transition: color 0.2s ease;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+    .mobile-nav-item i { font-size: 18px; margin-bottom: 2px; }
+    .mobile-nav-item.active { color: var(--color-gold); }
+
+    /* Hero */
+    .hero-wrapper-heritage {
+      position: relative;
+      min-height: 540px;
+      background-color: var(--color-beige);
+      overflow: hidden;
+    }
+    .hero-texture-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 75% 50%, rgba(243, 239, 230, 0.4) 0%, rgba(217, 208, 194, 0.85) 100%);
+      pointer-events: none;
+    }
+
+    /* Lightbox */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 1090;
+      background-color: rgba(36, 33, 30, 0.85);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    @media (max-width: 768px) {
+      body { padding-bottom: 74px; }
+      .display-title { font-size: 32px; }
+    }
+
+    /* Enhanced Smooth Interactive Elevations & Hovers */
+    .service-card, .barber-card, .trust-card, .portfolio-card, .stat-counter-card {
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), 
+                  box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                  border-color 0.3s ease !important;
+      will-change: transform, box-shadow;
+    }
+
+    .service-card:hover, .trust-card:hover, .stat-counter-card:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 14px 28px rgba(36, 33, 30, 0.08) !important;
+      border-color: var(--color-gold) !important;
+    }
+
+    .barber-card:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 16px 36px rgba(176, 138, 85, 0.16) !important;
+      border-color: var(--color-gold) !important;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-5px) !important;
+      box-shadow: 0 16px 32px rgba(36, 33, 30, 0.12) !important;
+      border-color: var(--color-gold) !important;
+    }
+
+    /* Secondary & Icon Micro-Animations inside cards */
+    .service-card:hover .service-icon-box i,
+    .trust-card:hover i {
+      transform: scale(1.15) rotate(4deg);
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .barber-card:hover img {
+      transform: scale(1.035);
+      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Button Subtle Active Feedback */
+    .btn-gold-primary, .btn-heritage-outline {
+      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), 
+                  background-color 0.25s ease, 
+                  color 0.25s ease, 
+                  box-shadow 0.25s ease !important;
+    }
+
+    .btn-gold-primary:active, .btn-heritage-outline:active {
+      transform: scale(0.97) !important;
+    }
+
+    /* Modern Luxury Footer */
+    .modern-luxury-footer {
+      background-color: var(--color-espresso);
+      border-top: 1px solid rgba(176, 138, 85, 0.18);
+      position: relative;
+      color: #D9D0C2;
+    }
+
+    .footer-nav-link {
+      background: none;
+      border: none;
+      padding: 0;
+      color: #D9D0C2;
+      font-size: 13.5px;
+      font-family: inherit;
+      text-align: left;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: inline-block;
+      line-height: 1.8;
+    }
+
+    .footer-nav-link:hover {
+      color: var(--color-gold);
+      transform: translateX(3px);
+    }
+
+    .footer-contact-link {
+      color: #D9D0C2;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact-link:hover {
+      color: var(--color-gold);
+    }
+
+    .footer-social-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(217, 208, 194, 0.2);
+      color: #D9D0C2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .footer-social-icon:hover {
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+      background-color: rgba(176, 138, 85, 0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Responsiveness Enhancements */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    @media (max-width: 991.98px) {
+      body {
+        padding-bottom: 0 !important;
+      }
+      .modern-luxury-footer {
+        padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+      .sticky-cart-bar {
+        bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+        padding: 12px 16px !important;
+      }
+      .mobile-bottom-nav {
+        height: calc(64px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+      }
+    }
+
+    @media (max-width: 576px) {
+      .modern-luxury-footer {
+        padding-top: 40px !important;
+      }
+      .footer-nav-link {
+        padding: 8px 0;
+        font-size: 14px;
+        display: inline-block;
+      }
+      .footer-contact-link {
+        padding: 4px 0;
+        font-size: 14px;
+        display: inline-block;
+      }
+      .footer-social-icon {
+        width: 40px;
+        height: 40px;
+      }
+      .lightbox-backdrop {
+        padding: 12px !important;
+        align-items: flex-start !important;
+        padding-top: 24px !important;
+        padding-bottom: 84px !important;
+      }
+      .trust-card {
+        padding: 12px 8px !important;
+        gap: 8px !important;
+      }
+      .trust-card .fs-4 {
+        font-size: 1.15rem !important;
+      }
+    }
+
+    /* Reduced Motion Compliance */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body class="bg-ivory text-espresso">
+  <div id="root"></div>
+
+  <!-- React Application Source with Babel -->
+  <script type="text/babel">
+    const { useState, useEffect, useRef, useMemo, useCallback } = React;
+
+    // --- DATA STORE ---
+    const serviceCategories = [
+      { id: 'all', label: 'All Services' },
+      { id: 'hair-beard', label: 'Hair & Beard' },
+      { id: 'head-spa', label: 'Head Spa' },
+      { id: 'massages', label: 'Massages' },
+      { id: 'facials', label: 'Facials & Skin' },
+      { id: 'packages', label: 'Master Packages' }
+    ];
+
+    const servicesData = [
+      {
+        id: '1',
+        category: 'hair-beard',
+        categoryLabel: 'Signature Craft',
+        name: 'Signature Fade & Beard Trim',
+        price: 1500,
+        duration: '45 Mins',
+        badge: 'Bestseller',
+        description: 'Sharp edge graduation, zero-gap line-up, steeped eucalyptus hot towel finish, and cold-pressed botanical beard oil treatment.',
+        includes: ['Precision Taper / Fade', 'Zero-Gap Razor Outline', 'Hot Steamed Towel', 'Uppercut Deluxe Clay'],
+        icon: 'bi-scissors'
+      },
+      {
+        id: '2',
+        category: 'hair-beard',
+        categoryLabel: 'Traditional Blade',
+        name: 'Executive Beard & Razor Shave',
+        price: 800,
+        duration: '30 Mins',
+        badge: 'Classic',
+        description: 'Warmed badger-brush sandalwood lather, authentic Japanese steel straight razor edge, and menthol cooling balm treatment.',
+        includes: ['Warm Lather Prep', 'Straight Razor Detail', 'Alum Block Soothe', 'Menthol Balm'],
+        icon: 'bi-gem'
+      },
+      {
+        id: '3',
+        category: 'hair-beard',
+        categoryLabel: 'Barber Heritage',
+        name: 'Royal Hot Towel Straight Shave',
+        price: 700,
+        duration: '25 Mins',
+        badge: null,
+        description: 'Double steamed towel compress, rich shaving foam, single-use surgical blade glide, and rosewater mist astringent.',
+        includes: ['Double Hot Towel', 'Single-use Feather Blade', 'Rosewater Tonic'],
+        icon: 'bi-droplet-half'
+      },
+      {
+        id: '4',
+        category: 'hair-beard',
+        categoryLabel: 'Couture Shear',
+        name: 'Master Scissor Cut & Styling',
+        price: 1000,
+        duration: '35 Mins',
+        badge: null,
+        description: 'Bespoke hand-crafted scissor work tailored to your face structure, hair texture assessment, and matte clay finish.',
+        includes: ['Consultation', 'Shear Architecture', 'Shampoo Wash', 'Texture Powder'],
+        icon: 'bi-scissors'
+      },
+      {
+        id: '5',
+        category: 'head-spa',
+        categoryLabel: 'Follicle Restoration',
+        name: 'Herbal & Steam Head Spa',
+        price: 1800,
+        duration: '40 Mins',
+        badge: 'Popular',
+        description: 'Deep cleansing wild-herb rinse, pressurized micro-mist steam chamber, and scalp tension decompression acupressure massage.',
+        includes: ['Herbal Tea-tree Wash', 'Micro-mist Steam Chamber', 'Cranial Acupressure', 'Tonic Infusion'],
+        icon: 'bi-flower1'
+      },
+      {
+        id: '6',
+        category: 'head-spa',
+        categoryLabel: 'Hydrotherapy',
+        name: 'Japanese Scalp Spa Rinse',
+        price: 2200,
+        duration: '45 Mins',
+        badge: 'Relaxation',
+        description: 'Waterfall halo hydro-infusion, deep follicle clearing scrub, stimulating organic mint essence, and neck decompression.',
+        includes: ['Halo Hydro-flow', 'Mint Scalp Scrub', 'High-frequency Stimulator', 'Hot Neck Pillow'],
+        icon: 'bi-water'
+      },
+      {
+        id: '7',
+        category: 'massages',
+        categoryLabel: 'Targeted Release',
+        name: 'Deep Tissue & Shoulder Relief',
+        price: 2800,
+        duration: '50 Mins',
+        badge: 'Therapy',
+        description: 'Rigorous manual focus on cervical spine, trapezoid tension knots, and lower shoulder fatigue using warm aromatic camphor oils.',
+        includes: ['Cervical Spine Focus', 'Camphor Essential Oil', 'Acupressure Knots Release', 'Heated Compress'],
+        icon: 'bi-hand-index-thumb'
+      },
+      {
+        id: '8',
+        category: 'massages',
+        categoryLabel: 'Full Ritual',
+        name: 'Swedish Head & Body Pressure',
+        price: 3500,
+        duration: '60 Mins',
+        badge: 'Deluxe',
+        description: 'Harmonic gliding strokes, gentle effleurage, and cranial pressure therapy designed for deep nervous system calming and restorative circulation.',
+        includes: ['Full Upper Body Flow', 'Warm Almond Oil', 'Cranial Calming Strokes', 'Herbal Post-tea'],
+        icon: 'bi-heart-pulse'
+      },
+      {
+        id: '9',
+        category: 'facials',
+        categoryLabel: 'Dermal Treatment',
+        name: 'Gold Glow & Charcoal Detox Facial',
+        price: 2500,
+        duration: '45 Mins',
+        badge: 'Top Glow',
+        description: 'Vacuum blackhead pore extraction, volcanic charcoal mud pack, ultrasonic dermabrasion scrub, and a luminous 24k gold essence mist.',
+        includes: ['Ultrasonic Scrub', 'Vacuum Extraction', 'Bamboo Charcoal Mud', '24K Gold Essence'],
+        icon: 'bi-stars'
+      },
+      {
+        id: '10',
+        category: 'facials',
+        categoryLabel: 'Skin Clarifying',
+        name: 'Express Herbal Facial & Polish',
+        price: 1800,
+        duration: '35 Mins',
+        badge: null,
+        description: 'Walnut micro-exfoliation, natural tea-tree and aloe soothing gel mask, followed by gentle face contouring and ice-globe tightening.',
+        includes: ['Exfoliating Scrub', 'Aloe Vera Mask', 'Ice Globe Soothe', 'UV Shield Finish'],
+        icon: 'bi-shield-check'
+      },
+      {
+        id: '11',
+        category: 'packages',
+        categoryLabel: 'All-Inclusive Master Suite',
+        name: 'Royal Grooming Combo',
+        price: 5000,
+        duration: '90 Mins',
+        badge: 'Save PKR 1,600',
+        description: 'The definitive atelier journey: Signature Precision Haircut, Sculpted Beard Razor Lining, Restorative Head Spa Wash, and Mini Ultrasonic Glow Facial.',
+        includes: ['Precision Haircut', 'Hot Towel Shave', 'Steam Scalp Spa', 'Express Detox Facial'],
+        icon: 'bi-award'
+      },
+      {
+        id: '12',
+        category: 'packages',
+        categoryLabel: 'Grand Ceremony Suite',
+        name: "Groom's Bespoke Wedding Suite",
+        price: 8500,
+        duration: '150 Mins',
+        badge: 'VIP Bridegroom',
+        description: 'Complete head-to-toe royal treatment for weddings. Includes signature haircut, luxury beard shaping, deep steam facial, full relaxation massage, and styling consultation.',
+        includes: ['Signature Cut & Beard', '24K Gold Facial Treatment', 'Shoulder & Scalp Therapy', 'Hair Styling & Beard Fixation'],
+        icon: 'bi-suit-club-fill'
+      }
+    ];
+
+    const barbersData = [
+      {
+        id: 'jerry',
+        name: 'Jerry',
+        role: 'Founder & Master Craftsman',
+        chair: 'Chair #01 Active',
+        experience: '8+ Years • Blade & Scissor',
+        rating: 4.98,
+        specialty: 'Precision skin tapers, straight razor edge geometry, executive styling.',
+        avatar: './barber_jerry.jpg?v=v3',
+        fallbackAvatar: './barber 1.jpg'
+      },
+      {
+        id: 'tariq',
+        name: 'Hunain Gori',
+        role: 'Fade & Beard Specialist',
+        chair: 'Chair #02 Available',
+        experience: '5 Years • Razor Architecture',
+        rating: 4.92,
+        specialty: 'High & low skin fades, textured crops, beard sculpting, sharp cheek line-ups.',
+        avatar: './barber_tariq.jpg?v=v3',
+        fallbackAvatar: './barber 2.jpg'
+      },
+      {
+        id: 'adnan',
+        name: 'Adnan',
+        role: 'Head Spa & Therapy Masseuse',
+        chair: 'Chair #03 Available',
+        experience: '6 Years • Herbal Acupressure',
+        rating: 4.95,
+        specialty: 'Herbal steam head spa, cervical tension relief, Swedish pressure points, organic face polishes.',
+        avatar: './barber_adnan.jpg',
+        fallbackAvatar: './barber 3.jpg'
+      }
+    ];
+
+    const galleryCategories = [
+      { id: 'all', label: 'All Portfolio' },
+      { id: 'ambiance', label: 'Studio & Interior' },
+      { id: 'haircuts', label: 'Haircuts & Fades' },
+      { id: 'tools', label: 'Apothecary & Tools' },
+      { id: 'art', label: 'Heritage & Art' }
+    ];
+
+    const galleryData = [
+      {
+        id: 1,
+        type: 'video',
+        video: './gallery_cinematic_experience.mp4',
+        image: './gallery_atelier_studio.jpg',
+        fallback: './barber 2.jpg',
+        title: 'The Gentlemen’s Ritual • Cinematic Motion Reel',
+        category: 'ambiance',
+        tag: 'Cinematic Reel',
+        price: 'Heritage Experience',
+        description: 'An evocative sensory reel capturing master craftsmanship at Jerry Hair Saloon: precision blade graduation, hot towel steaming, artisanal lathering, and bespoke tapers in motion.',
+        stylist: 'Jerry Atelier Craftsmen'
+      },
+      {
+        id: 2,
+        type: 'image',
+        image: './gallery_atelier_studio.jpg',
+        fallback: './barber 2.jpg',
+        title: 'The Main Atelier • Belmont Station Floor',
+        category: 'ambiance',
+        tag: 'Studio Architecture',
+        price: 'Neelum Block Flagship',
+        description: 'Subdued charcoal architecture illuminated by spun copper pendant lamps, bespoke hydraulic recliners, polished stone counters, and calibrated track lighting engineered for flawless cut symmetry.',
+        stylist: 'Atelier Architecture'
+      },
+      {
+        id: 3,
+        type: 'image',
+        image: './gallery_apothecary_shelves.jpg',
+        fallback: './barber 3.jpg',
+        title: 'Curated Apothecary & Steamed Linen Wall',
+        category: 'tools',
+        tag: 'Grooming Armory',
+        price: 'Artisanal Formulations',
+        description: 'Dark-stained floating walnut cabinetry lined with imported American Crew elixirs, botanical grooming tonics, matte pomades, and pyramid-folded triple-steamed Egyptian cotton towels.',
+        stylist: 'Apothecary Dispensary'
+      },
+      {
+        id: 4,
+        type: 'image',
+        image: './gallery_heritage_wall.jpg',
+        fallback: './barber 4.jpg',
+        title: 'The Heritage Wall • Barbering Tribute Archive',
+        category: 'art',
+        tag: 'Heritage Archive',
+        price: 'Curated Exhibition',
+        description: 'A curated monochrome gallery wall honoring timeless barbering lineage: vintage clipper schematics, straight razor geometry, silhouette beard charts, and framed typographic mantras.',
+        stylist: 'Heritage Collection'
+      },
+      {
+        id: 5,
+        type: 'image',
+        title: 'Master Fade & Japanese Shear Detail',
+        category: 'haircuts',
+        tag: 'Master Fade',
+        price: 'PKR 1,500',
+        description: 'Precision zero skin taper blended with Japanese shear weight-reduction technique. Crisp baseline definition and smooth gradient.',
+        image: './barber 1.jpg',
+        fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2uNnG7287JCjICX_B4o57Thcf5FkrqGbTu4Qz3xzefZOD0g-czMHYuSMCdVdGF8a5kCYABiDDBu6GM3zEC4gdQIZvQULqfup9FcjihXHn33kwVGAhzKoEk9-sswQIjlXbRc4tqFFanZ9gBnNXPW3_IQxUIlCP14XUu8Q8gnOqKMReRg5HKq91i6vUdvOUyVcNZzJlHMVIonoNRj1gEZ766XQ88Q4v1Eo4GM9mPXQf8pW1Q7U6MKtMOg',
+        stylist: 'Jerry (Master Craftsman)'
+      },
+      {
+        id: 6,
+        type: 'image',
+        title: 'Surgical Line-Up & Beard Contouring',
+        category: 'art',
+        tag: 'Beard Craft',
+        price: 'PKR 800',
+        description: 'Surgical straight-edge detailing along jawline and mustache lines. Finished with steeped eucalyptus hot towel and nourishing beard oil.',
+        image: './barber 4.jpg',
+        fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYd98UvySPsYFxYxKYGQuI67qMOBKl2Efyg-H0rVE_3ggukV43Tz89HIJUgLu-K_jHVOl49a6IhT3-sbrPGc4XTMVsu4GVuqAUu9xfEILFEjPNVwavopWOuXepnu87vq9NCMVi7FwdmoJBLY0MOB_PCCdq5Osdh9FKz96l2ZDBLoh5j9IbRqhwL-7g8YBs6ssWjjMRZCea5SvD74H-AlH7lyEt9z3KcfYgeYJiDPM2FFJAZYyOSag2NQ',
+        stylist: 'Hunain Gori (Fade Specialist)'
+      },
+      {
+        id: 7,
+        type: 'image',
+        title: 'Steamed Towel Spa & Scalp Therapy',
+        category: 'ambiance',
+        tag: 'Sanctuary',
+        price: 'PKR 1,800',
+        description: 'Decompress in our private treatment area with pressurized herbal micro-mist and soothing cervical acupressure.',
+        image: './barber 5.jpg',
+        fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBczEGpxNAKstn7_JLpX6JkjASCQZOKodtPD5KBimaF40elcmAlawQzc53quvuTLrJDYgffnD45qPgxDvVU-bd9_-OpHTVpBy_z0pyHVMyUCfJQnMaKEw2vhJPaH2DxCwJJuD20b9v1CGM4_cde1d7YIUpay4Hw3n01AygRR9kSZpjnzp-GT4gcHHZk5uEp1OCQLiVNSugdmlx-patc5Lg7z3KEF5DjbvD7NFoZAP63',
+        stylist: 'Adnan (Wellness Specialist)'
+      },
+      {
+        id: 8,
+        type: 'image',
+        title: 'Sterilized Blades & Barbering Armory',
+        category: 'tools',
+        tag: 'Hygiene Protocol',
+        price: 'Medical Grade Protocol',
+        description: 'Hospital-grade UV sterilization between bookings, matched with matte Uppercut clays, sandalwood shaving balms, and fine-tooth carbon combs.',
+        image: './barber 3.jpg',
+        fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFBG59JWbJd_b41jCTrippMfxMok4oTzbFIuEhDL6WC69tmoALZRJXwENQiTmWKpF86GrfNJmHEGY5JnpH3kfQcleTCn5Kq_iDDn1bSPinVkhWOMEeI_TAUTXLcjqS5decP1yHrh-JQ2JhKPeXjsf3uaocVa6E_SAzNzlZCPF-OqefFyUtXScMWKZqadCSV9VzCwg4Ai_Bj6y52cDMVHah_CYtBhutgazUxPsanw12dDyCxodsMIF5AA',
+        stylist: 'Equipment Protocol'
+      },
+      {
+        id: 9,
+        type: 'image',
+        title: 'The Jerry Noir Flagship Signature',
+        category: 'haircuts',
+        tag: 'Editorial Flagship',
+        price: 'Signature',
+        description: 'Epitome of modern luxury grooming in Lahore. Traditional master craft meets contemporary styling perfection.',
+        image: './Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg',
+        fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2uNnG7287JCjICX_B4o57Thcf5FkrqGbTu4Qz3xzefZOD0g-czMHYuSMCdVdGF8a5kCYABiDDBu6GM3zEC4gdQIZvQULqfup9FcjihXHn33kwVGAhzKoEk9-sswQIjlXbRc4tqFFanZ9gBnNXPW3_IQxUIlCP14XUu8Q8gnOqKMReRg5HKq91i6vUdvOUyVcNZzJlHMVIonoNRj1gEZ766XQ88Q4v1Eo4GM9mPXQf8pW1Q7U6MKtMOg',
+        stylist: 'Jerry Atelier Team'
+      }
+    ];
+
+    const reviewsData = [
+      {
+        id: 1,
+        name: 'Hamza Malik',
+        role: 'Resident, Neelum Block',
+        comment: 'Best barber shop in Iqbal Town without question. Jerry has been cutting my hair since 2016. The razor fade and hot towel treatment are unmatched.',
+        rating: 5,
+        date: '3 days ago',
+        service: 'Signature Fade & Beard Trim'
+      },
+      {
+        id: 2,
+        name: 'Usman Ghani',
+        role: 'Moon Market Business Owner',
+        comment: 'The cleanliness and medical-grade sterilization here gives you total peace of mind. Single-use blades, high-end imported clays, and respectful staff.',
+        rating: 5,
+        date: '1 week ago',
+        service: 'Royal Grooming Combo'
+      },
+      {
+        id: 3,
+        name: 'Bilal Farooq',
+        role: 'Architect, Lahore',
+        comment: 'Adnan’s steam head spa and neck acupressure completely cured my migraine tension after a hectic week. Clean aesthetic and serene ambiance.',
+        rating: 5,
+        date: '2 weeks ago',
+        service: 'Herbal & Steam Head Spa'
+      }
+    ];
+
+    // --- SUB-COMPONENTS ---
+    // ==========================================================================
+    // FRAMER MOTION (MOTION FOR REACT) SETUP & ANIMATION PRIMITIVES
+    // ==========================================================================
+    const Motion = window.Motion || {};
+    const motion = Motion.motion || new Proxy({}, {
+      get: (target, prop) => (props) => React.createElement(prop, props)
+    });
+    const AnimatePresence = Motion.AnimatePresence || (({ children }) => children);
+    const useInView = Motion.useInView || (() => true);
+
+    const prefersReducedMotion = () => {
+      return typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    };
+
+    // Smooth Editorial Cubic-Bezier Easing
+    const easeLuxury = [0.22, 1, 0.36, 1];
+
+    // Standard Reveal Variants
+    const fadeInUp = {
+      hidden: { opacity: 0, y: 26 },
+      visible: { 
+        opacity: 1, 
+        y: 0, 
+        transition: { duration: 0.65, ease: easeLuxury } 
+      }
+    };
+
+    const fadeIn = {
+      hidden: { opacity: 0 },
+      visible: { 
+        opacity: 1, 
+        transition: { duration: 0.5, ease: easeLuxury } 
+      }
+    };
+
+    const staggerContainer = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.1,
+          delayChildren: 0.05
+        }
+      }
+    };
+
+    const staggerSlow = {
+      hidden: { opacity: 0 },
+      visible: {
+        opacity: 1,
+        transition: {
+          staggerChildren: 0.14,
+          delayChildren: 0.1
+        }
+      }
+    };
+
+    const cardItemAnim = {
+      hidden: { opacity: 0, y: 22 },
+      visible: { 
+        opacity: 1, 
+        y: 0, 
+        transition: { duration: 0.55, ease: easeLuxury } 
+      }
+    };
+
+    // Animated Counter Component (Triggers only once on viewport entry)
+    function AnimatedCounter({ value, duration = 1.8, prefix = '', suffix = '', decimals = 0 }) {
+      const [count, setCount] = useState(0);
+      const counterRef = useRef(null);
+      const inView = useInView(counterRef, { once: true, margin: '-40px' });
+
+      useEffect(() => {
+        if (!inView) return;
+        if (prefersReducedMotion()) {
+          setCount(value);
+          return;
+        }
+
+        let startTime = null;
+        let frameId;
+        const numericTarget = typeof value === 'number' ? value : parseFloat(value.toString().replace(/,/g, ''));
+
+        const updateCounter = (timestamp) => {
+          if (!startTime) startTime = timestamp;
+          const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+          // Exponential ease out
+          const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const current = numericTarget * ease;
+          setCount(current);
+          if (progress < 1) {
+            frameId = requestAnimationFrame(updateCounter);
+          }
+        };
+
+        frameId = requestAnimationFrame(updateCounter);
+        return () => cancelAnimationFrame(frameId);
+      }, [inView, value, duration]);
+
+      const formatted = decimals > 0 
+        ? count.toFixed(decimals) 
+        : Math.floor(count).toLocaleString();
+
+      return (
+        <span ref={counterRef}>
+          {prefix}{formatted}{suffix}
+        </span>
+      );
+    }
+
+    // Magnetic Button Component (Subtle magnetic movement on desktop, disabled on touch)
+    function MagneticButton({ children, className = '', style = {}, onClick, disabled, strength = 0.18, ...props }) {
+      const btnRef = useRef(null);
+      const [pos, setPos] = useState({ x: 0, y: 0 });
+      
+      const isTouch = useMemo(() => {
+        return typeof window !== 'undefined' && ('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      }, []);
+
+      const handleMouseMove = (e) => {
+        if (isTouch || prefersReducedMotion() || !btnRef.current) return;
+        const rect = btnRef.current.getBoundingClientRect();
+        const x = e.clientX - (rect.left + rect.width / 2);
+        const y = e.clientY - (rect.top + rect.height / 2);
+        setPos({ x: x * strength, y: y * strength });
+      };
+
+      const handleMouseLeave = () => {
+        setPos({ x: 0, y: 0 });
+      };
+
+      return (
+        <motion.button
+          ref={btnRef}
+          className={className}
+          style={style}
+          onClick={onClick}
+          disabled={disabled}
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          animate={{ x: pos.x, y: pos.y }}
+          transition={{ type: 'spring', damping: 15, stiffness: 160, mass: 0.1 }}
+          whileHover={{ scale: 1.025 }}
+          whileTap={{ scale: 0.96 }}
+          {...props}
+        >
+          {children}
+        </motion.button>
+      );
+    }
+
+    // Parallax Box Component (Subtle parallax on selected background elements)
+    function ParallaxBox({ children, className = '', speed = 0.12, style = {} }) {
+      const ref = useRef(null);
+      const [offsetY, setOffsetY] = useState(0);
+
+      useEffect(() => {
+        if (prefersReducedMotion()) return;
+        let ticking = false;
+        const handleScroll = () => {
+          if (!ticking) {
+            window.requestAnimationFrame(() => {
+              if (ref.current) {
+                const rect = ref.current.getBoundingClientRect();
+                const scrolled = window.innerHeight - rect.top;
+                if (scrolled > 0 && rect.bottom > 0) {
+                  setOffsetY((scrolled - window.innerHeight / 2) * speed);
+                }
+              }
+              ticking = false;
+            });
+            ticking = true;
+          }
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+      }, [speed]);
+
+      return (
+        <div 
+          ref={ref} 
+          className={className} 
+          style={{ ...style, transform: `translate3d(0, ${offsetY}px, 0)`, willChange: 'transform' }}
+        >
+          {children}
+        </div>
+      );
+    }
+    function Header({ currentTab, setCurrentTab, onOpenQuickBook, onOpenVipModal }) {
+      return (
+        <header 
+          className="sticky-top border-heritage-bottom" 
+          style={{ 
+            backgroundColor: 'rgba(243, 239, 230, 0.95)', 
+            backdropFilter: 'blur(16px)', 
+            zIndex: 1030 
+          }}
+        >
+          <div className="container-fluid px-3 px-lg-5 py-3 d-flex align-items-center justify-content-between">
+            {/* Brand Logo & Heritage Title */}
+            <div 
+              className="d-flex align-items-center gap-3 cursor-pointer" 
+              onClick={() => setCurrentTab('home')}
+              style={{ cursor: 'pointer' }}
+            >
+              <div 
+                className="d-flex align-items-center justify-content-center border-heritage" 
+                style={{ 
+                  width: '44px', 
+                  height: '44px', 
+                  backgroundColor: 'var(--color-espresso)',
+                  boxShadow: '0 2px 8px rgba(36, 33, 30, 0.12)'
+                }}
+              >
+                <i className="bi bi-scissors fs-5 text-gold"></i>
+              </div>
+              
+              <div className="d-flex flex-column">
+                <div className="d-flex align-items-center gap-2">
+                  <span 
+                    className="font-serif fw-bold text-espresso text-uppercase fs-5" 
+                    style={{ letterSpacing: '0.08em' }}
+                  >
+                    Jerry Hair Saloon
+                  </span>
+                  <span className="label-caps d-none d-md-inline text-muted-heritage" style={{ opacity: 0.8 }}>
+                    | Heritage Atelier
+                  </span>
+                </div>
+                <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                  Est. 8 Years • 117 Neelum Block, Iqbal Town
+                </span>
+              </div>
+            </div>
+
+            {/* Desktop Navigation Tabs */}
+            <nav className="d-none d-lg-flex align-items-center gap-2">
+              <button 
+                className={`nav-tab-link ${currentTab === 'home' ? 'active' : ''}`}
+                onClick={() => setCurrentTab('home')}
+              >
+                <i className="bi bi-house-door text-gold"></i>
+                <span>Home</span>
+              </button>
+              <button 
+                className={`nav-tab-link ${currentTab === 'services' ? 'active' : ''}`}
+                onClick={() => setCurrentTab('services')}
+              >
+                <i className="bi bi-scissors text-gold"></i>
+                <span>Services</span>
+              </button>
+              <button 
+                className={`nav-tab-link ${currentTab === 'gallery' ? 'active' : ''}`}
+                onClick={() => setCurrentTab('gallery')}
+              >
+                <i className="bi bi-camera text-gold"></i>
+                <span>Gallery</span>
+              </button>
+              <button 
+                className={`nav-tab-link ${currentTab === 'booking' ? 'active' : ''}`}
+                onClick={() => setCurrentTab('booking')}
+              >
+                <i className="bi bi-calendar-check text-gold"></i>
+                <span>Book Chair</span>
+              </button>
+            </nav>
+
+            {/* Action Buttons */}
+            <div className="d-flex align-items-center gap-2">
+              <MagneticButton 
+                className="btn btn-heritage-outline btn-heritage-sm d-none d-sm-inline-flex"
+                onClick={onOpenVipModal}
+                title="Jerry VIP Club Privilege"
+              >
+                <i className="bi bi-award text-gold"></i>
+                <span className="d-none d-xl-inline">VIP Club</span>
+              </MagneticButton>
+
+              <a 
+                href="tel:+923001234567" 
+                className="btn btn-heritage-outline btn-heritage-sm"
+                title="Call Barber Desk"
+              >
+                <i className="bi bi-telephone-fill text-gold"></i>
+                <span className="d-none d-md-inline ms-1">+92 300 1234567</span>
+              </a>
+
+              {/* Prominent Gold Book Chair CTA */}
+              <MagneticButton 
+                className="btn btn-gold-primary btn-heritage-sm px-3"
+                onClick={() => setCurrentTab('booking')}
+              >
+                <i className="bi bi-calendar-event"></i>
+                <span>Book Chair</span>
+              </MagneticButton>
+            </div>
+          </div>
+        </header>
+      );
+    }
+
+    function BottomNav({ currentTab, setCurrentTab }) {
+      return (
+        <nav className="mobile-bottom-nav d-lg-none">
+          <button 
+            className={`mobile-nav-item ${currentTab === 'home' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('home')}
+          >
+            <i className="bi bi-house-door"></i>
+            <span>Home</span>
+          </button>
+          <button 
+            className={`mobile-nav-item ${currentTab === 'services' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('services')}
+          >
+            <i className="bi bi-scissors"></i>
+            <span>Services</span>
+          </button>
+          <button 
+            className={`mobile-nav-item ${currentTab === 'gallery' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('gallery')}
+          >
+            <i className="bi bi-camera"></i>
+            <span>Gallery</span>
+          </button>
+          <button 
+            className={`mobile-nav-item ${currentTab === 'booking' ? 'active' : ''}`}
+            onClick={() => setCurrentTab('booking')}
+          >
+            <i className="bi bi-calendar-check"></i>
+            <span>Book</span>
+          </button>
+        </nav>
+      );
+    }
+
+    function Home({ setCurrentTab, onSelectService, onSelectBarber, onOpenVipModal }) {
+      const featured = servicesData.slice(0, 4);
+
+      return (
+        <div className="home-view">
+          {/* Heritage Luxury Hero Section */}
+          <section className="hero-wrapper-heritage position-relative d-flex align-items-center py-5 py-lg-6">
+            <ParallaxBox speed={0.12} className="position-absolute end-0 top-0 bottom-0 col-12 col-lg-6 overflow-hidden d-none d-md-block opacity-75">
+              <img 
+                src="./Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg" 
+                alt="Jerry Hair Saloon Heritage Illustration" 
+                className="w-100 h-100"
+                style={{ 
+                  objectFit: 'cover', 
+                  objectPosition: 'center',
+                  filter: 'sepia(25%) contrast(105%) brightness(95%)',
+                  maskImage: 'linear-gradient(to left, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%)',
+                  WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%)'
+                }}
+                onError={(e) => {
+                  e.target.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2uNnG7287JCjICX_B4o57Thcf5FkrqGbTu4Qz3xzefZOD0g-czMHYuSMCdVdGF8a5kCYABiDDBu6GM3zEC4gdQIZvQULqfup9FcjihXHn33kwVGAhzKoEk9-sswQIjlXbRc4tqFFanZ9gBnNXPW3_IQxUIlCP14XUu8Q8gnOqKMReRg5HKq91i6vUdvOUyVcNZzJlHMVIonoNRj1gEZ766XQ88Q4v1Eo4GM9mPXQf8pW1Q7U6MKtMOg';
+                }}
+              />
+            </ParallaxBox>
+
+            <div className="hero-texture-overlay"></div>
+
+            <div className="container position-relative py-4 py-lg-5" style={{ zIndex: 10 }}>
+              <div className="row">
+                <motion.div 
+                  className="col-12 col-lg-7 col-xl-6"
+                  initial="hidden"
+                  animate="visible"
+                  variants={staggerContainer}
+                >
+                  <motion.h1 
+                    variants={fadeInUp}
+                    className="display-title text-espresso mb-3" 
+                    style={{ fontSize: 'clamp(2.3rem, 5vw, 3.8rem)' }}
+                  >
+                    Master Craftsmanship &amp; Gentlemen's Grooming
+                  </motion.h1>
+
+                  <motion.p 
+                    variants={fadeInUp}
+                    className="body-muted fs-6 mb-4" 
+                    style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7 }}
+                  >
+                    Traditional straight-razor geometry meets contemporary bespoke grooming in Allama Iqbal Town. Steeped eucalyptus hot towels, hospital-grade single-use blades, and tailored tapers crafted for gentlemen of distinction.
+                  </motion.p>
+
+                  <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-3">
+                    <MagneticButton 
+                      className="btn btn-gold-primary px-4 py-3"
+                      onClick={() => {
+                        setCurrentTab('booking');
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                      }}
+                    >
+                      <i className="bi bi-calendar-check fs-6"></i>
+                      <span>Book Appointment</span>
+                    </MagneticButton>
+
+                    <MagneticButton 
+                      className="btn btn-heritage-outline px-4 py-3"
+                      onClick={() => setCurrentTab('services')}
+                    >
+                      <i className="bi bi-card-list fs-6 text-gold"></i>
+                      <span>Explore Menu</span>
+                    </MagneticButton>
+
+                    <a 
+                      href="tel:+923001234567"
+                      className="btn btn-heritage-outline p-3"
+                      title="Direct Phone Line"
+                    >
+                      <i className="bi bi-telephone text-gold"></i>
+                    </a>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Trust Indicators Strip */}
+          <section className="border-heritage-bottom bg-ivory py-4">
+            <div className="container">
+              <motion.div 
+                className="row g-3"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
+                variants={staggerContainer}
+              >
+                <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
+                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                      <i className="bi bi-hourglass-split fs-4 text-gold"></i>
+                    </div>
+                    <div>
+                      <div className="label-caps text-espresso fw-bold">
+                        <AnimatedCounter value={8} suffix="+ YEARS" />
+                      </div>
+                      <div className="body-muted" style={{ fontSize: '12px' }}>Serving Iqbal Town</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
+                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                      <i className="bi bi-star-fill fs-4 text-gold"></i>
+                    </div>
+                    <div>
+                      <div className="label-caps text-espresso fw-bold">
+                        <AnimatedCounter value={4.9} decimals={1} suffix=" ★ RATING" />
+                      </div>
+                      <div className="body-muted" style={{ fontSize: '12px' }}>
+                        <AnimatedCounter value={1200} suffix="+ Verified Clients" />
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
+                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                      <i className="bi bi-scissors fs-4 text-gold"></i>
+                    </div>
+                    <div>
+                      <div className="label-caps text-espresso fw-bold">MASTER BARBERS</div>
+                      <div className="body-muted" style={{ fontSize: '12px' }}>Oiled Blade Precision</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
+                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                      <i className="bi bi-door-open-fill fs-4 text-gold"></i>
+                    </div>
+                    <div>
+                      <div className="label-caps text-espresso fw-bold">10 AM – 11 PM</div>
+                      <div className="body-muted" style={{ fontSize: '12px' }}>Open All 7 Days</div>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Location & Directions */}
+          <section className="py-5 bg-ivory">
+            <div className="container">
+              <div className="border-heritage p-4 p-md-5 bg-card shadow-sm position-relative">
+                <div className="row align-items-center g-4">
+                  <div className="col-12 col-md-8">
+                    <div className="d-flex align-items-center gap-2 mb-2">
+                      <span className="label-caps text-gold fw-bold">Flagship Studio Atelier</span>
+                      <span className="badge bg-espresso text-ivory label-caps py-1 px-2">Now Active</span>
+                    </div>
+                    <h2 className="headline-serif text-espresso fs-3 mb-2">
+                      117 Neelum Block, Allama Iqbal Town, Lahore
+                    </h2>
+                    <p className="body-muted mb-0">
+                      Located right in the prime district of Iqbal Town, adjacent to Moon Market Hub. Features 5 dedicated master barbering stations, private scalp therapy suite, and client parking.
+                    </p>
+                  </div>
+
+                  <div className="col-12 col-md-4 d-flex flex-wrap flex-md-column gap-2 justify-content-md-end">
+                    <a 
+                      href="https://maps.google.com/?q=117+Neelum+Block+Iqbal+Town+Lahore" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="btn btn-gold-primary w-100"
+                    >
+                      <i className="bi bi-geo-alt-fill"></i>
+                      <span>Get Directions</span>
+                    </a>
+                    <a 
+                      href="tel:+923001234567" 
+                      className="btn btn-heritage-outline w-100"
+                    >
+                      <i className="bi bi-headset text-gold"></i>
+                      <span>Call Concierge</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Featured Services */}
+          <section className="py-5 bg-beige-subtle border-heritage-top border-heritage-bottom">
+            <div className="container">
+              <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+                <div>
+                  <span className="label-caps text-gold fw-bold">Couture Service Menu</span>
+                  <h2 className="display-title text-espresso fs-2 mb-0">Signature Grooming</h2>
+                </div>
+                <button 
+                  className="btn btn-heritage-outline btn-heritage-sm mt-3 mt-md-0"
+                  onClick={() => setCurrentTab('services')}
+                >
+                  <span>View All Services</span>
+                  <i className="bi bi-arrow-right text-gold"></i>
+                </button>
+              </div>
+
+              <motion.div 
+                className="row g-4"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
+                variants={staggerContainer}
+              >
+                {featured.map((service) => (
+                  <motion.div key={service.id} className="col-12 col-md-6 col-lg-3" variants={cardItemAnim}>
+                    <div className="service-card h-100">
+                      <div>
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <span className="label-caps text-muted-heritage">{service.categoryLabel}</span>
+                          {service.badge && (
+                            <span className="badge bg-espresso text-ivory label-caps px-2 py-1">
+                              {service.badge}
+                            </span>
+                          )}
+                        </div>
+
+                        <h3 className="headline-serif text-espresso fs-5 mb-2">
+                          {service.name}
+                        </h3>
+                        <p className="body-muted mb-3" style={{ fontSize: '13px' }}>
+                          {service.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-3 border-heritage-top">
+                        <div className="d-flex justify-content-between align-items-center mb-3">
+                          <div>
+                            <span className="label-caps text-muted-heritage d-block" style={{ fontSize: '10px' }}>
+                              <i className="bi bi-clock text-gold me-1"></i>{service.duration}
+                            </span>
+                            <span className="headline-serif text-espresso fs-5 fw-bold">
+                              PKR {service.price.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+
+                        <MagneticButton 
+                          className="btn btn-gold-primary btn-heritage-sm w-100"
+                          onClick={() => {
+                            onSelectService(service);
+                            setCurrentTab('booking');
+                            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                          }}
+                        >
+                          <i className="bi bi-calendar-plus"></i>
+                          <span>Book</span>
+                        </MagneticButton>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Master Barbers */}
+          <section className="py-5 bg-ivory">
+            <div className="container">
+              <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+                <div>
+                  <span className="label-caps text-gold fw-bold">Craft Specialists</span>
+                  <h2 className="display-title text-espresso fs-2 mb-0">Our Master Barbers</h2>
+                </div>
+                <p className="body-muted mb-0 d-none d-md-block" style={{ maxWidth: '420px' }}>
+                  Hand-honed straight razors and surgical discipline across three dedicated specialist chairs.
+                </p>
+              </div>
+
+              <motion.div 
+                className="row g-4"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
+                variants={staggerContainer}
+              >
+                {barbersData.map((barber) => (
+                  <motion.div key={barber.id} className="col-12 col-md-4" variants={cardItemAnim}>
+                    <div className="barber-card h-100 d-flex flex-column justify-content-between p-0 overflow-hidden">
+                      <div>
+                        {/* Master Barber Portrait */}
+                        <div className="position-relative overflow-hidden" style={{ height: '380px', backgroundColor: 'var(--color-beige)' }}>
+                          <img 
+                            src={barber.avatar} 
+                            alt={barber.name} 
+                            className="w-100 h-100"
+                            style={{ objectFit: 'cover', objectPosition: 'center top', filter: 'contrast(104%) brightness(99%)', transition: 'transform 0.5s ease' }}
+                            onError={(e) => { e.target.src = barber.fallbackAvatar; }}
+                          />
+                          <div className="position-absolute top-0 end-0 m-3 px-2 py-1 bg-card border-heritage shadow-sm">
+                            <span className="label-caps text-espresso fw-bold" style={{ fontSize: '10px' }}>
+                              <i className="bi bi-star-fill text-gold me-1"></i>{barber.rating}
+                            </span>
+                          </div>
+                          <div className="position-absolute bottom-0 start-0 m-3 px-2 py-1 bg-espresso text-ivory border-dark-section">
+                            <span className="label-caps text-ivory" style={{ fontSize: '10px' }}>{barber.chair}</span>
+                          </div>
+                        </div>
+
+                        <div className="p-3 p-md-4">
+                          <div className="d-flex justify-content-between align-items-baseline mb-1">
+                            <h3 className="headline-serif text-espresso fs-4 mb-0">{barber.name}</h3>
+                            <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>{barber.experience}</span>
+                          </div>
+                          <span className="label-caps text-gold fw-bold d-block mb-2">
+                            {barber.role}
+                          </span>
+                          <p className="body-muted fs-6 mb-0">
+                            {barber.specialty}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="p-3 p-md-4 pt-0">
+                        <MagneticButton 
+                          className="btn btn-heritage-outline btn-heritage-sm w-100"
+                          onClick={() => {
+                            onSelectBarber(barber);
+                            setCurrentTab('booking');
+                            window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                          }}
+                        >
+                          <span>Book With {barber.name}</span>
+                          <i className="bi bi-arrow-right text-gold"></i>
+                        </MagneticButton>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </section>
+
+          {/* Atmosphere Showcase */}
+          <section className="py-5 bg-beige-subtle border-heritage-top border-heritage-bottom">
+            <div className="container">
+              <div className="row align-items-center g-4 g-lg-5">
+                <div className="col-12 col-lg-6">
+                  <div className="border-heritage overflow-hidden position-relative shadow-sm" style={{ height: '380px' }}>
+                    <img 
+                      src="./barber 2.jpg" 
+                      alt="Jerry Hair Saloon Interior" 
+                      className="w-100 h-100"
+                      style={{ objectFit: 'cover', filter: 'contrast(105%) brightness(95%)' }}
+                      onError={(e) => {
+                        e.target.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDoXWxWkbwXP_ZapvVjmZl42bPmp2Sc55ecSIWMpZ97Th_AkUZeAuclN0liWiOSCetuB0StcPEIC1mWLbUVH56D5iYPc9qmuZs4MMGYg8RYosd8G-D40bZ8sLNbdp1cGNAsbQKTrFSZiph27wdI2-YlyYt2-A2wQ3gdmR5S_ZB6tszkpdPkFEchlAKgUzS1tkfFvCgmjmTN09AP5A7KJPMdDeY9cwVQwTSNefuUA_YPGP41jI2LZQuGzA';
+                      }}
+                    />
+                    <div className="position-absolute top-0 start-0 m-3 px-3 py-1 bg-card border-heritage shadow-sm">
+                      <span className="label-caps text-espresso fw-bold">The Jerry Experience</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-12 col-lg-6">
+                  <span className="label-caps text-gold fw-bold">The Atelier Standard</span>
+                  <h2 className="display-title text-espresso fs-2 mb-3">
+                    Uncompromising Hygiene &amp; Vintage Comfort
+                  </h2>
+                  <p className="body-muted mb-4" style={{ lineHeight: 1.7 }}>
+                    Step into a welcoming grooming sanctuary. Restored hydraulic recliners from vintage barber heritage paired with medical-grade ultraviolet sterilizers and single-use Japanese blades.
+                  </p>
+
+                  <div className="row g-3 mb-4">
+                    <div className="col-4">
+                      <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                        <i className="bi bi-shield-check fs-4 text-gold d-block mb-1"></i>
+                        <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>UV Sanitized</span>
+                      </div>
+                    </div>
+                    <div className="col-4">
+                      <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                        <i className="bi bi-droplet fs-4 text-gold d-block mb-1"></i>
+                        <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>Single Blades</span>
+                      </div>
+                    </div>
+                    <div className="col-4">
+                      <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                        <i className="bi bi-cup-hot fs-4 text-gold d-block mb-1"></i>
+                        <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>House Brew</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <MagneticButton 
+                    className="btn btn-heritage-outline"
+                    onClick={() => setCurrentTab('gallery')}
+                  >
+                    <i className="bi bi-images text-gold"></i>
+                    <span>Explore Studio Gallery</span>
+                  </MagneticButton>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Dark Espresso Section: VIP Pass Banner */}
+          <section className="py-5 bg-espresso position-relative overflow-hidden">
+            <ParallaxBox speed={0.15} className="position-absolute end-0 top-0 bottom-0 col-6 d-none d-lg-block opacity-10 pointer-events-none">
+              <i className="bi bi-scissors" style={{ fontSize: '320px', color: 'var(--color-gold)', position: 'absolute', right: '-40px', top: '10%' }}></i>
+            </ParallaxBox>
+
+            <div className="container position-relative" style={{ zIndex: 2 }}>
+              <div className="border-dark-section p-4 p-md-5 position-relative overflow-hidden" style={{ backgroundColor: '#2E2B27' }}>
+                <div className="row align-items-center">
+                  <div className="col-12 col-lg-8">
+                    <span className="badge bg-gold text-espresso label-caps py-1 px-2 mb-2 fw-bold">
+                      8th Anniversary Privilege
+                    </span>
+                    <h2 className="headline-serif text-ivory fs-3 mb-2">
+                      Jerry VIP Club • Neelum Block Resident Pass
+                    </h2>
+                    <p className="body-muted mb-0" style={{ color: '#D9D0C2' }}>
+                      Exclusive grooming privileges for Allama Iqbal Town residents. Enjoy 20% off all scalp therapies, priority chair reservation during weekend peak hours, and quarterly complimentary beard detailing.
+                    </p>
+                  </div>
+                  <div className="col-12 col-lg-4 text-lg-end mt-4 mt-lg-0">
+                    <MagneticButton 
+                      className="btn btn-gold-primary px-4 py-3"
+                      onClick={onOpenVipModal}
+                    >
+                      <i className="bi bi-ticket-perforated"></i>
+                      <span>Claim Resident Pass</span>
+                    </MagneticButton>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Testimonials */}
+          <section className="py-5 bg-ivory">
+            <div className="container">
+              <div className="d-flex justify-content-between align-items-end mb-4">
+                <div>
+                  <span className="label-caps text-gold fw-bold">Verified Testimonials</span>
+                  <h2 className="display-title text-espresso fs-2 mb-0">Client Dossier</h2>
+                </div>
+                <div className="d-flex align-items-center gap-1 text-espresso">
+                  <span className="headline-serif fs-4 fw-bold">4.9</span>
+                  <div className="text-gold small">
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                    <i className="bi bi-star-fill"></i>
+                  </div>
+                </div>
+              </div>
+
+              <motion.div 
+                className="row g-4"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-40px' }}
+                variants={staggerContainer}
+              >
+                {reviewsData.map((review) => (
+                  <motion.div key={review.id} className="col-12 col-md-4" variants={cardItemAnim}>
+                    <div className="border-heritage p-4 bg-card shadow-sm h-100 d-flex flex-column justify-content-between review-card">
+                      <div>
+                        <div className="d-flex justify-content-between align-items-center mb-2">
+                          <div className="text-gold small">
+                            {[...Array(review.rating)].map((_, i) => (
+                              <i key={i} className="bi bi-star-fill me-1"></i>
+                            ))}
+                          </div>
+                          <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                            {review.date}
+                          </span>
+                        </div>
+                        <p className="body-muted fs-6 mb-3 fst-italic">
+                          "{review.comment}"
+                        </p>
+                      </div>
+
+                      <div className="pt-2 border-heritage-top">
+                        <span className="label-caps text-espresso fw-bold d-block">{review.name}</span>
+                        <span className="body-muted" style={{ fontSize: '12px' }}>
+                          {review.role} • <span className="text-gold">{review.service}</span>
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+          </section>
+        </div>
+      );
+    }
+
+    function Services({ selectedServices, onToggleService, onProceedToBooking }) {
+      const [activeCategory, setActiveCategory] = useState('all');
+      const [searchQuery, setSearchQuery] = useState('');
+
+      const filteredServices = useMemo(() => {
+        return servicesData.filter((service) => {
+          const matchesCategory = activeCategory === 'all' || service.category === activeCategory;
+          const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                service.description.toLowerCase().includes(searchQuery.toLowerCase());
+          return matchesCategory && matchesSearch;
+        });
+      }, [activeCategory, searchQuery]);
+
+      const totalPrice = useMemo(() => {
+        return selectedServices.reduce((sum, item) => sum + item.price, 0);
+      }, [selectedServices]);
+
+      return (
+        <div className="services-view py-5 bg-ivory">
+          <div className="container">
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 pb-3 border-heritage-bottom">
+              <div>
+                <div className="d-flex align-items-center gap-2 mb-1">
+                  <span className="label-caps text-gold fw-bold">Jerry Hair Saloon • Neelum Block</span>
+                  <span className="badge bg-espresso text-ivory label-caps px-2 py-0.5">3 Chairs Active</span>
+                </div>
+                <h1 className="display-title text-espresso fs-2 mb-1">The Craftsman Ledger</h1>
+                <p className="body-muted mb-0">
+                  Master grooming rituals performed with Japanese surgical steel, hot eucalyptus towels, and bespoke apothecary formulations.
+                </p>
+              </div>
+              <span className="label-caps text-muted-heritage mt-2 mt-md-0">
+                Est. 2016 • Allama Iqbal Town
+              </span>
+            </div>
+
+            {/* Sterilization Spotlight Card */}
+            <div className="border-heritage p-4 bg-card mb-5 shadow-sm position-relative overflow-hidden">
+              <div className="row align-items-center g-4">
+                <div className="col-12 col-md-8">
+                  <div className="d-flex align-items-center gap-2 mb-1">
+                    <i className="bi bi-shield-check text-gold fs-5"></i>
+                    <span className="label-caps text-espresso fw-bold">STERILIZATION PROTOCOL</span>
+                  </div>
+                  <h3 className="headline-serif text-espresso fs-4 mb-2">Hospital-Grade Blade &amp; Tool Hygiene</h3>
+                  <p className="body-muted mb-3" style={{ fontSize: '13px', lineHeight: 1.6 }}>
+                    Every customer receives a brand new, sealed single-use surgical razor blade opened right in front of them. Clippers and shears undergo medical ultraviolet autoclaving between appointments.
+                  </p>
+                  <div className="d-flex flex-wrap gap-3">
+                    <span className="label-caps text-espresso d-flex align-items-center gap-1">
+                      <i className="bi bi-check-circle-fill text-gold"></i> Single-Use Razors
+                    </span>
+                    <span className="label-caps text-espresso d-flex align-items-center gap-1">
+                      <i className="bi bi-check-circle-fill text-gold"></i> 70% Isopropyl Prep
+                    </span>
+                    <span className="label-caps text-espresso d-flex align-items-center gap-1">
+                      <i className="bi bi-check-circle-fill text-gold"></i> Uppercut Deluxe Clays
+                    </span>
+                  </div>
+                </div>
+                <div className="col-12 col-md-4 text-md-end">
+                  <div className="border-heritage d-inline-block overflow-hidden shadow-sm" style={{ width: '140px', height: '110px' }}>
+                    <img 
+                      src="./barber 3.jpg" 
+                      alt="Sterilized Tools" 
+                      className="w-100 h-100" 
+                      style={{ objectFit: 'cover', filter: 'contrast(105%)' }}
+                      onError={(e) => {
+                        e.target.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFBG59JWbJd_b41jCTrippMfxMok4oTzbFIuEhDL6WC69tmoALZRJXwENQiTmWKpF86GrfNJmHEGY5JnpH3kfQcleTCn5Kq_iDDn1bSPinVkhWOMEeI_TAUTXLcjqS5decP1yHrh-JQ2JhKPeXjsf3uaocVa6E_SAzNzlZCPF-OqefFyUtXScMWKZqadCSV9VzCwg4Ai_Bj6y52cDMVHah_CYtBhutgazUxPsanw12dDyCxodsMIF5AA';
+                      }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Filter and Search */}
+            <div className="row g-3 align-items-center mb-4">
+              <div className="col-12 col-lg-8">
+                <div className="d-flex gap-2 overflow-x-auto no-scrollbar pb-1">
+                  {serviceCategories.map((cat) => (
+                    <button
+                      key={cat.id}
+                      className={`chip-btn ${activeCategory === cat.id ? 'active' : ''}`}
+                      onClick={() => setActiveCategory(cat.id)}
+                    >
+                      {cat.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="col-12 col-lg-4">
+                <div className="input-group">
+                  <span className="input-group-text bg-card border-heritage text-gold">
+                    <i className="bi bi-search"></i>
+                  </span>
+                  <input 
+                    type="text" 
+                    className="form-control heritage-input" 
+                    placeholder="Search services, fades, spas..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                  {searchQuery && (
+                    <button 
+                      className="btn btn-heritage-outline btn-heritage-sm" 
+                      onClick={() => setSearchQuery('')}
+                    >
+                      <i className="bi bi-x-lg"></i>
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            {/* Clean White Grid */}
+            <motion.div 
+              layout 
+              className="row g-4"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              {filteredServices.map((service) => {
+                const isSelected = selectedServices.some(item => item.id === service.id);
+
+                return (
+                  <motion.div 
+                    layout 
+                    key={service.id} 
+                    className="col-12 col-md-6 col-lg-4"
+                    variants={cardItemAnim}
+                  >
+                    <div className={`service-card h-100 ${isSelected ? 'selected' : ''}`}>
+                      <div>
+                        <div className="d-flex justify-content-between align-items-start mb-2">
+                          <span className="label-caps text-muted-heritage">{service.categoryLabel}</span>
+                          {service.badge && (
+                            <span className="badge bg-espresso text-ivory label-caps px-2 py-0.5">
+                              {service.badge}
+                            </span>
+                          )}
+                        </div>
+
+                        <h3 className="headline-serif text-espresso fs-5 mb-2">
+                          {service.name}
+                        </h3>
+
+                        <p className="body-muted mb-3" style={{ fontSize: '13px' }}>
+                          {service.description}
+                        </p>
+
+                        {service.includes && (
+                          <div className="p-2 bg-beige-subtle border-heritage mb-3">
+                            <span className="label-caps text-espresso fw-bold d-block mb-1" style={{ fontSize: '9px' }}>
+                              Ritual Protocol:
+                            </span>
+                            <div className="row g-1">
+                              {service.includes.map((inc, i) => (
+                                <div key={i} className="col-6">
+                                  <span className="label-caps text-espresso d-flex align-items-center gap-1" style={{ fontSize: '10px' }}>
+                                    <i className="bi bi-check text-gold"></i> {inc}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="pt-3 border-heritage-top">
+                        <div className="d-flex justify-content-between align-items-center mb-3">
+                          <div>
+                            <span className="label-caps text-muted-heritage d-block" style={{ fontSize: '10px' }}>
+                              <i className="bi bi-clock text-gold me-1"></i>{service.duration}
+                            </span>
+                            <span className="headline-serif text-espresso fs-4 fw-bold">
+                              PKR {service.price.toLocaleString()}
+                            </span>
+                          </div>
+                        </div>
+
+                        <MagneticButton
+                          className={`btn w-100 ${isSelected ? 'btn-gold-primary' : 'btn-heritage-outline'} btn-heritage-sm`}
+                          onClick={() => onToggleService(service)}
+                        >
+                          <i className={`bi ${isSelected ? 'bi-check-lg' : 'bi-plus-lg'} ${isSelected ? '' : 'text-gold'}`}></i>
+                          <span>{isSelected ? 'Service Selected' : 'Add to Dossier'}</span>
+                        </MagneticButton>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </motion.div>
+          </div>
+
+          {/* Floating Cart Drawer with AnimatePresence */}
+          <AnimatePresence>
+            {selectedServices.length > 0 && (
+              <motion.div 
+                className="sticky-cart-bar"
+                initial={{ y: 80, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: 80, opacity: 0 }}
+                transition={{ type: 'spring', damping: 20, stiffness: 220 }}
+              >
+                <div className="container">
+                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+                    <div>
+                      <div className="d-flex align-items-center gap-2 mb-1">
+                        <span className="pulse-indicator bg-gold"></span>
+                        <span className="label-caps text-ivory fw-bold">
+                          {selectedServices.length} {selectedServices.length === 1 ? 'Service' : 'Services'} Selected
+                        </span>
+                      </div>
+                      <div className="d-flex align-items-center gap-2">
+                        <span className="headline-serif text-gold fs-4 fw-bold">
+                          PKR {totalPrice.toLocaleString()}
+                        </span>
+                        <span className="label-caps text-ivory d-none d-md-inline" style={{ opacity: 0.85 }}>
+                          ({selectedServices.map(s => s.name).join(', ')})
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="d-flex gap-2">
+                      <button 
+                        className="btn btn-gold-outline btn-heritage-sm"
+                        onClick={() => onToggleService('clear_all')}
+                      >
+                        Clear
+                      </button>
+                      <MagneticButton 
+                        className="btn btn-gold-primary btn-heritage-sm px-4"
+                        onClick={() => {
+                          onProceedToBooking();
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        }}
+                      >
+                        <span>Proceed to Book Chair</span>
+                        <i className="bi bi-arrow-right ms-1"></i>
+                      </MagneticButton>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      );
+    }
+
+    function Gallery({ onSelectImage, onRequestCut }) {
+      const [activeFilter, setActiveFilter] = useState('all');
+
+      const filtered = useMemo(() => {
+        if (activeFilter === 'all') return galleryData;
+        return galleryData.filter(i => i.category === activeFilter);
+      }, [activeFilter]);
+
+      return (
+        <div className="gallery-view py-5 bg-ivory">
+          <div className="container">
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 pb-3 border-heritage-bottom">
+              <div>
+                <div className="d-flex align-items-center gap-2 mb-1">
+                  <span className="label-caps text-gold fw-bold">Archive • Vol. VIII</span>
+                  <span className="badge bg-espresso text-ivory label-caps px-2 py-0.5">5 Chair Station</span>
+                </div>
+                <h1 className="display-title text-espresso fs-2 mb-1">Craftsmanship In Focus</h1>
+                <p className="body-muted mb-0">
+                  Celebrating 8 years of surgical razor craft, tailored tapers, and sanctuary grooming in Neelum Block.
+                </p>
+              </div>
+              <span className="label-caps text-muted-heritage mt-2 mt-md-0">
+                {filtered.length} Photographs Documented
+              </span>
+            </div>
+
+            <div className="d-flex gap-2 overflow-x-auto no-scrollbar pb-1 mb-4">
+              {galleryCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  className={`chip-btn ${activeFilter === cat.id ? 'active' : ''}`}
+                  onClick={() => setActiveFilter(cat.id)}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+
+            <motion.div 
+              layout 
+              className="row g-4"
+              initial="hidden"
+              animate="visible"
+              variants={staggerContainer}
+            >
+              {filtered.map((item) => (
+                <motion.div 
+                  layout 
+                  key={item.id} 
+                  className="col-12 col-md-6 col-lg-4"
+                  variants={cardItemAnim}
+                >
+                  <div 
+                    className="gallery-card h-100 portfolio-card"
+                    onClick={() => onSelectImage(item)}
+                  >
+                    <div className="img-wrapper position-relative">
+                      {item.video ? (
+                        <div className="position-relative w-100 h-100" style={{ minHeight: '220px', backgroundColor: '#1A1816' }}>
+                          <video 
+                            src={item.video} 
+                            autoPlay 
+                            loop 
+                            muted 
+                            playsInline 
+                            poster={item.image}
+                            className="w-100 h-100"
+                            style={{ objectFit: 'cover', display: 'block' }}
+                          />
+                          <div className="position-absolute top-50 start-50 translate-middle d-flex align-items-center justify-content-center rounded-circle shadow-lg" style={{ width: '48px', height: '48px', backgroundColor: 'rgba(36, 33, 30, 0.78)', border: '1.5px solid var(--color-gold)', backdropFilter: 'blur(4px)' }}>
+                            <i className="bi bi-play-fill text-gold fs-4" style={{ marginLeft: '3px' }}></i>
+                          </div>
+                        </div>
+                      ) : (
+                        <img 
+                          src={item.image} 
+                          alt={item.title}
+                          style={{ filter: 'contrast(105%) brightness(98%)' }}
+                          onError={(e) => { e.target.src = item.fallback; }}
+                        />
+                      )}
+                      <div className="position-absolute top-0 start-0 m-3 px-2 py-1 bg-card border-heritage shadow-sm">
+                        <span className="label-caps text-espresso fw-bold" style={{ fontSize: '10px' }}>
+                          {item.tag}
+                        </span>
+                      </div>
+                      <div className="position-absolute bottom-0 end-0 m-3 px-2 py-1 bg-espresso text-ivory border-dark-section d-flex align-items-center gap-1">
+                        <i className={`bi ${item.video ? 'bi-play-circle text-gold' : 'bi-arrows-fullscreen text-gold'}`} style={{ fontSize: '11px' }}></i>
+                        <span className="label-caps text-ivory" style={{ fontSize: '9px' }}>{item.video ? 'Play Reel' : 'Zoom'}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-3 d-flex flex-column justify-content-between">
+                      <div>
+                        <div className="d-flex justify-content-between align-items-center mb-1">
+                          <h3 className="headline-serif text-espresso fs-5 mb-0">{item.title}</h3>
+                          <span className="label-caps text-gold fw-bold">{item.price}</span>
+                        </div>
+                        <p className="body-muted mb-3" style={{ fontSize: '13px' }}>
+                          {item.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-2 border-heritage-top d-flex justify-content-between align-items-center">
+                        <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                          <i className="bi bi-person text-gold me-1"></i>{item.stylist}
+                        </span>
+                        <MagneticButton 
+                          className="btn btn-heritage-outline btn-heritage-sm py-1 px-3"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            onRequestCut(item);
+                          }}
+                        >
+                          <span>{item.category === 'haircuts' ? 'Book Cut' : 'Reserve Chair'}</span>
+                          <i className="bi bi-chevron-right text-gold ms-1"></i>
+                        </MagneticButton>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
+        </div>
+      );
+    }
+
+    function Booking({ selectedServices, onToggleService, selectedBarber, setSelectedBarber, onBookingConfirmed }) {
+      const today = useMemo(() => {
+        const t = new Date();
+        t.setHours(0, 0, 0, 0);
+        return t;
+      }, []);
+
+      const initialDateStr = useMemo(() => {
+        const d = new Date();
+        const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
+        const monthName = d.toLocaleDateString('en-US', { month: 'short' });
+        const datePad = String(d.getDate()).padStart(2, '0');
+        return `Today (${datePad} ${monthName})`;
+      }, []);
+
+      const [currentStep, setCurrentStep] = useState(selectedServices.length > 0 ? 2 : 1);
+      const [selectedDate, setSelectedDate] = useState(initialDateStr);
+      const [selectedDateObj, setSelectedDateObj] = useState(new Date());
+      const [calendarViewMode, setCalendarViewMode] = useState('calendar'); // 'calendar' or 'strip'
+      const [viewYear, setViewYear] = useState(new Date().getFullYear());
+      const [viewMonth, setViewMonth] = useState(new Date().getMonth());
+      const [selectedTime, setSelectedTime] = useState('02:00 PM');
+      const [clientName, setClientName] = useState('Hamza Malik');
+      const [clientPhone, setClientPhone] = useState('+92 300 8472910');
+      const [clientNotes, setClientNotes] = useState('Low skin taper with textured crop on top, hot eucalyptus towel finish.');
+      const [paymentMethod, setPaymentMethod] = useState('cash_counter');
+      const [formError, setFormError] = useState('');
+
+      const monthNames = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+      ];
+
+      const handlePrevMonth = () => {
+        const curYear = today.getFullYear();
+        const curMonth = today.getMonth();
+        if (viewYear === curYear && viewMonth <= curMonth) return;
+        if (viewMonth === 0) {
+          setViewYear(y => y - 1);
+          setViewMonth(11);
+        } else {
+          setViewMonth(m => m - 1);
+        }
+      };
+
+      const handleNextMonth = () => {
+        if (viewMonth === 11) {
+          setViewYear(y => y + 1);
+          setViewMonth(0);
+        } else {
+          setViewMonth(m => m + 1);
+        }
+      };
+
+      // Generate 14-day quick rolling dates
+      const dynamicRollingDays = useMemo(() => {
+        const days = [];
+        const base = new Date();
+        base.setHours(0, 0, 0, 0);
+        for (let i = 0; i < 14; i++) {
+          const d = new Date(base);
+          d.setDate(base.getDate() + i);
+          const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
+          const monthName = d.toLocaleDateString('en-US', { month: 'short' });
+          const datePad = String(d.getDate()).padStart(2, '0');
+          let label = dayName.toUpperCase();
+          if (i === 0) label = 'TODAY';
+          else if (i === 1) label = 'TMRW';
+          else if (d.getDay() === 0 || d.getDay() === 6) label = 'WEEKEND';
+          else if (d.getDay() === 5) label = 'PRIME';
+
+          const id = i === 0 ? `Today (${datePad} ${monthName})` : 
+                     i === 1 ? `Tomorrow (${datePad} ${monthName})` : 
+                     `${dayName} (${datePad} ${monthName})`;
+          days.push({
+            id,
+            label,
+            date: `${datePad} ${monthName}`,
+            day: dayName.toUpperCase(),
+            dateObj: d
+          });
+        }
+        return days;
+      }, []);
+
+      // Calendar matrix calculation
+      const calendarDays = useMemo(() => {
+        const daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+        const firstDayIndex = (new Date(viewYear, viewMonth, 1).getDay() + 6) % 7; // Monday = 0
+        const cells = [];
+        
+        // Blank padding cells for days before the 1st
+        for (let i = 0; i < firstDayIndex; i++) {
+          cells.push({ type: 'empty', key: `empty-${i}` });
+        }
+
+        const todayClean = new Date();
+        todayClean.setHours(0, 0, 0, 0);
+
+        for (let day = 1; day <= daysInMonth; day++) {
+          const cellDate = new Date(viewYear, viewMonth, day);
+          cellDate.setHours(0, 0, 0, 0);
+          const isPast = cellDate < todayClean;
+          const isToday = cellDate.getTime() === todayClean.getTime();
+          const isSelected = selectedDateObj && cellDate.toDateString() === selectedDateObj.toDateString();
+
+          cells.push({
+            type: 'day',
+            key: `day-${day}`,
+            dayNum: day,
+            dateObj: cellDate,
+            isPast,
+            isToday,
+            isSelected
+          });
+        }
+
+        return cells;
+      }, [viewYear, viewMonth, selectedDateObj]);
+
+      const handleSelectDay = (dayObj) => {
+        if (dayObj.isPast) return;
+        const d = dayObj.dateObj;
+        const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
+        const monthName = d.toLocaleDateString('en-US', { month: 'short' });
+        const datePad = String(dayObj.dayNum).padStart(2, '0');
+
+        const todayClean = new Date();
+        todayClean.setHours(0, 0, 0, 0);
+        const tmrwClean = new Date(todayClean);
+        tmrwClean.setDate(todayClean.getDate() + 1);
+
+        let id = `${dayName} (${datePad} ${monthName})`;
+        if (d.getTime() === todayClean.getTime()) id = `Today (${datePad} ${monthName})`;
+        else if (d.getTime() === tmrwClean.getTime()) id = `Tomorrow (${datePad} ${monthName})`;
+
+        setSelectedDate(id);
+        setSelectedDateObj(d);
+      };
+
+      useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        const timer = setTimeout(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }, 50);
+        return () => clearTimeout(timer);
+      }, []);
+
+      useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      }, [currentStep]);
+
+      const timeSlots = {
+        morning: [
+          { time: '10:00 AM', label: 'Opening Slot', available: true },
+          { time: '11:30 AM', label: "Jerry's Chair", available: true }
+        ],
+        afternoon: [
+          { time: '02:00 PM', label: 'Prime Slot', available: true },
+          { time: '03:30 PM', label: 'Open Chair', available: true },
+          { time: '05:00 PM', label: 'Open Chair', available: true }
+        ],
+        evening: [
+          { time: '07:00 PM', label: 'Peak Hour', available: true },
+          { time: '08:30 PM', label: 'Peak Hour', available: true },
+          { time: '10:00 PM', label: 'Final Call', available: false }
+        ]
+      };
+
+      const totalPrice = useMemo(() => {
+        return selectedServices.reduce((sum, item) => sum + item.price, 0);
+      }, [selectedServices]);
+
+      const totalDuration = useMemo(() => {
+        if (selectedServices.length === 0) return '30 Mins';
+        let mins = 0;
+        selectedServices.forEach(s => {
+          mins += parseInt(s.duration) || 30;
+        });
+        return `${mins} Mins`;
+      }, [selectedServices]);
+
+      const handleConfirmReservation = (e) => {
+        e.preventDefault();
+        if (!clientName.trim() || !clientPhone.trim()) {
+          setFormError('Please enter your full name and phone number.');
+          return;
+        }
+        if (selectedServices.length === 0) {
+          setFormError('Please select at least one grooming service.');
+          setCurrentStep(1);
+          return;
+        }
+
+        const details = {
+          bookingId: `JH-${Math.floor(1000 + Math.random() * 9000)}`,
+          services: selectedServices,
+          totalPrice,
+          totalDuration,
+          barber: selectedBarber || barbersData[0],
+          date: selectedDate,
+          time: selectedTime,
+          clientName,
+          clientPhone,
+          clientNotes,
+          paymentMethod
+        };
+        onBookingConfirmed(details);
+      };
+
+      return (
+        <div className="booking-view py-5 bg-ivory">
+          <div className="container">
+            <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4 pb-3 border-heritage-bottom">
+              <div>
+                <div className="d-flex align-items-center gap-2 mb-1">
+                  <span className="label-caps text-gold fw-bold">Reservation Protocol</span>
+                  <span className="badge bg-espresso text-ivory label-caps px-2 py-0.5">Instant Confirmation</span>
+                </div>
+                <h1 className="display-title text-espresso fs-2 mb-1">Reserve Your Chair</h1>
+                <p className="body-muted mb-0">
+                  Skip wait times during peak evening hours at 117 Neelum Block, Iqbal Town.
+                </p>
+              </div>
+              <span className="label-caps text-muted-heritage mt-2 mt-md-0">
+                Reservation Flow
+              </span>
+            </div>
+
+            {/* Progress Tracker */}
+            <div className="border-heritage p-3 bg-card mb-4 shadow-sm">
+              <div className="row g-2 text-center">
+                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(1)}>
+                  <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 1 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
+                  <span className="label-caps d-block" style={{ color: currentStep >= 1 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Services</span>
+                </div>
+                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(2)}>
+                  <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 2 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
+                  <span className="label-caps d-block" style={{ color: currentStep >= 2 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Specialist</span>
+                </div>
+                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(3)}>
+                  <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 3 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
+                  <span className="label-caps d-block" style={{ color: currentStep >= 3 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Schedule</span>
+                </div>
+                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(4)}>
+                  <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 4 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
+                  <span className="label-caps d-block" style={{ color: currentStep >= 4 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Ledger</span>
+                </div>
+              </div>
+            </div>
+
+            {formError && (
+              <div className="alert border-heritage bg-card text-espresso mb-4 d-flex align-items-center gap-2 shadow-sm">
+                <i className="bi bi-exclamation-triangle-fill text-gold fs-5"></i>
+                <span className="label-caps text-espresso">{formError}</span>
+              </div>
+            )}
+
+            <div className="row g-4">
+              <div className="col-12 col-lg-8">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={currentStep}
+                    initial={{ opacity: 0, x: 14 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -14 }}
+                    transition={{ duration: 0.28, ease: easeLuxury }}
+                  >
+                {currentStep === 1 && (
+                  <div className="border-heritage p-4 bg-card shadow-sm">
+                    <h3 className="headline-serif text-espresso fs-4 mb-3">Select Grooming Services</h3>
+                    <div className="row g-3 mb-4">
+                      {servicesData.map((service) => {
+                        const isSelected = selectedServices.some(s => s.id === service.id);
+                        return (
+                          <div key={service.id} className="col-12 col-md-6">
+                            <div 
+                              className={`border-heritage p-3 h-100 d-flex flex-column justify-content-between ${isSelected ? 'bg-gold-light' : 'bg-card'}`}
+                              style={{ borderColor: isSelected ? 'var(--color-gold)' : 'var(--color-border)', cursor: 'pointer' }}
+                              onClick={() => onToggleService(service)}
+                            >
+                              <div>
+                                <div className="d-flex justify-content-between align-items-start mb-1">
+                                  <h5 className="headline-serif text-espresso fs-6 mb-0">{service.name}</h5>
+                                  <i className={`bi ${isSelected ? 'bi-check-square-fill text-gold' : 'bi-square text-muted-heritage'}`}></i>
+                                </div>
+                                <p className="body-muted mb-2" style={{ fontSize: '12px' }}>
+                                  {service.description.substring(0, 75)}...
+                                </p>
+                              </div>
+                              <div className="d-flex justify-content-between align-items-center pt-2 border-heritage-top">
+                                <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>{service.duration}</span>
+                                <span className="headline-serif text-espresso fw-bold">PKR {service.price.toLocaleString()}</span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="d-flex justify-content-end">
+                      <button 
+                        className="btn btn-gold-primary"
+                        disabled={selectedServices.length === 0}
+                        onClick={() => {
+                          if (selectedServices.length === 0) { setFormError('Select at least 1 service'); return; }
+                          setFormError('');
+                          setCurrentStep(2);
+                        }}
+                      >
+                        <span>Proceed to Specialist</span>
+                        <i className="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {currentStep === 2 && (
+                  <div className="border-heritage p-4 bg-card shadow-sm">
+                    <h3 className="headline-serif text-espresso fs-4 mb-3">Select Specialist Barber</h3>
+                    <div className="row g-3 mb-4">
+                      {barbersData.map((barber) => {
+                        const isSelected = selectedBarber?.id === barber.id;
+                        return (
+                          <div key={barber.id} className="col-12">
+                            <div 
+                              className={`border-heritage p-3 d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3 ${isSelected ? 'bg-gold-light' : 'bg-card'}`}
+                              style={{ borderColor: isSelected ? 'var(--color-gold)' : 'var(--color-border)', cursor: 'pointer' }}
+                              onClick={() => setSelectedBarber(barber)}
+                            >
+                              <div className="d-flex gap-3 align-items-center">
+                                <img 
+                                  src={barber.avatar} 
+                                  alt={barber.name} 
+                                  className="border-heritage shadow-sm"
+                                  style={{ width: '70px', height: '70px', objectFit: 'cover' }}
+                                  onError={(e) => { e.target.src = barber.fallbackAvatar; }}
+                                />
+                                <div>
+                                  <div className="d-flex align-items-center gap-2">
+                                    <h4 className="headline-serif text-espresso fs-5 mb-0">{barber.name}</h4>
+                                    {isSelected && <span className="badge bg-gold text-espresso label-caps px-2 py-0.5 fw-bold">Selected</span>}
+                                  </div>
+                                  <span className="label-caps text-gold fw-bold d-block">{barber.role}</span>
+                                  <span className="body-muted" style={{ fontSize: '12px' }}>{barber.experience} • Rating: ★ {barber.rating}</span>
+                                </div>
+                              </div>
+                              <div className="text-sm-end">
+                                <span className="label-caps text-muted-heritage d-block mb-1">{barber.chair}</span>
+                                <span className={`btn ${isSelected ? 'btn-gold-primary' : 'btn-heritage-outline'} btn-heritage-sm py-1 px-3`}>
+                                  {isSelected ? 'Active Selection' : 'Select'}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <div className="d-flex justify-content-between">
+                      <button className="btn btn-heritage-outline" onClick={() => setCurrentStep(1)}>
+                        <i className="bi bi-arrow-left"></i><span>Back</span>
+                      </button>
+                      <button className="btn btn-gold-primary" onClick={() => setCurrentStep(3)}>
+                        <span>Proceed to Schedule</span><i className="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {currentStep === 3 && (
+                  <div className="border-heritage p-4 bg-card shadow-sm">
+                    <h3 className="headline-serif text-espresso fs-4 mb-3">Select Date &amp; Arrival Slot</h3>
+                    
+                    {/* Date Selection Header & Mode Switcher */}
+                    <div className="mb-4">
+                      <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-3">
+                        <label className="label-caps text-espresso fw-bold mb-0">Select Date According to Month:</label>
+                        <div className="d-inline-flex border-heritage bg-card p-1 shadow-sm">
+                          <button 
+                            type="button"
+                            className={`btn btn-sm ${calendarViewMode === 'calendar' ? 'btn-gold-primary' : 'btn-heritage-outline border-0'} py-1 px-3`}
+                            style={{ fontSize: '11px' }}
+                            onClick={() => setCalendarViewMode('calendar')}
+                          >
+                            <i className="bi bi-calendar3 me-1"></i> Month Calendar
+                          </button>
+                          <button 
+                            type="button"
+                            className={`btn btn-sm ${calendarViewMode === 'strip' ? 'btn-gold-primary' : 'btn-heritage-outline border-0'} py-1 px-3`}
+                            style={{ fontSize: '11px' }}
+                            onClick={() => setCalendarViewMode('strip')}
+                          >
+                            <i className="bi bi-view-list me-1"></i> Quick 14 Days
+                          </button>
+                        </div>
+                      </div>
+
+                      {calendarViewMode === 'calendar' ? (
+                        /* Full Month Interactive Calendar */
+                        <div className="border-heritage p-3 p-md-4 bg-card shadow-sm mb-3">
+                          {/* Month & Year Navigation Header */}
+                          <div className="d-flex justify-content-between align-items-center mb-3 pb-2 border-heritage-bottom">
+                            <div className="d-flex align-items-center gap-2">
+                              <i className="bi bi-calendar-event text-gold fs-5"></i>
+                              <h4 className="headline-serif text-espresso fs-5 fw-bold mb-0">
+                                {monthNames[viewMonth]} {viewYear}
+                              </h4>
+                              {viewMonth === today.getMonth() && viewYear === today.getFullYear() && (
+                                <span className="badge bg-gold text-espresso label-caps px-2 py-0.5" style={{ fontSize: '9px' }}>Current Month</span>
+                              )}
+                            </div>
+                            <div className="d-flex align-items-center gap-1">
+                              <button
+                                type="button"
+                                className="btn btn-heritage-outline btn-heritage-sm py-1 px-2"
+                                disabled={viewYear === today.getFullYear() && viewMonth <= today.getMonth()}
+                                onClick={handlePrevMonth}
+                                title="Previous Month"
+                              >
+                                <i className="bi bi-chevron-left"></i>
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-heritage-outline btn-heritage-sm py-1 px-2"
+                                onClick={() => {
+                                  setViewYear(today.getFullYear());
+                                  setViewMonth(today.getMonth());
+                                }}
+                                title="Go to Today's Month"
+                                style={{ fontSize: '10px' }}
+                              >
+                                Today
+                              </button>
+                              <button
+                                type="button"
+                                className="btn btn-heritage-outline btn-heritage-sm py-1 px-2"
+                                onClick={handleNextMonth}
+                                title="Next Month"
+                              >
+                                <i className="bi bi-chevron-right"></i>
+                              </button>
+                            </div>
+                          </div>
+
+                          {/* Day of Week Labels */}
+                          <div className="calendar-weekdays mb-2">
+                            {['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].map(wd => (
+                              <div key={wd} className="calendar-weekday-cell">
+                                {wd}
+                              </div>
+                            ))}
+                          </div>
+
+                          {/* Calendar Days Grid */}
+                          <div className="calendar-days-grid">
+                            {calendarDays.map((cell) => {
+                              if (cell.type === 'empty') {
+                                return <div key={cell.key} className="p-1"></div>;
+                              }
+                              return (
+                                <button
+                                  key={cell.key}
+                                  type="button"
+                                  className={`calendar-day-btn ${cell.isToday ? 'is-today' : ''} ${cell.isSelected ? 'is-selected' : ''}`}
+                                  disabled={cell.isPast}
+                                  onClick={() => handleSelectDay(cell)}
+                                  title={cell.isToday ? 'Today' : cell.dateObj.toDateString()}
+                                >
+                                  <span className="day-number">{cell.dayNum}</span>
+                                  {cell.isToday && !cell.isSelected && (
+                                    <span className="today-dot"></span>
+                                  )}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Legend */}
+                          <div className="d-flex flex-wrap align-items-center gap-3 mt-3 pt-2 border-heritage-top" style={{ fontSize: '11px' }}>
+                            <span className="d-flex align-items-center gap-1 text-muted-heritage">
+                              <span className="d-inline-block rounded-circle bg-gold" style={{ width: '8px', height: '8px' }}></span> Today
+                            </span>
+                            <span className="d-flex align-items-center gap-1 text-muted-heritage">
+                              <span className="d-inline-block bg-espresso" style={{ width: '10px', height: '10px' }}></span> Selected Date
+                            </span>
+                            <span className="d-flex align-items-center gap-1 text-muted-heritage" style={{ opacity: 0.5 }}>
+                              <span className="d-inline-block border" style={{ width: '10px', height: '10px' }}></span> Past Days (Closed)
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        /* 14-Day Quick Strip (Dynamically Generated from Today) */
+                        <div className="d-flex gap-2 overflow-x-auto no-scrollbar pb-2 mb-3">
+                          {dynamicRollingDays.map((item) => (
+                            <button
+                              key={item.id}
+                              type="button"
+                              className={`date-btn ${selectedDate === item.id ? 'active' : ''}`}
+                              onClick={() => {
+                                setSelectedDate(item.id);
+                                setSelectedDateObj(item.dateObj);
+                                setViewYear(item.dateObj.getFullYear());
+                                setViewMonth(item.dateObj.getMonth());
+                              }}
+                            >
+                              <span className="label-caps" style={{ fontSize: '10px' }}>{item.label}</span>
+                              <span className="headline-serif fs-4 fw-bold">{item.date.split(' ')[0]}</span>
+                              <span className="label-caps" style={{ fontSize: '10px' }}>{item.day}</span>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      {/* Selected Date Confirmation Banner */}
+                      <div className="d-flex align-items-center justify-content-between p-2.5 px-3 bg-beige-subtle border-heritage">
+                        <div className="d-flex align-items-center gap-2">
+                          <i className="bi bi-calendar-check text-gold fs-5"></i>
+                          <div>
+                            <span className="label-caps text-muted-heritage d-block" style={{ fontSize: '9.5px' }}>Selected Appointment Date</span>
+                            <span className="headline-serif text-espresso fw-bold fs-6">{selectedDate}</span>
+                          </div>
+                        </div>
+                        <span className="badge bg-espresso text-ivory label-caps px-2 py-1">Shift Slots Active</span>
+                      </div>
+                    </div>
+
+                    {/* Time */}
+                    <div className="mb-4">
+                      <label className="label-caps text-espresso fw-bold mb-2 d-block">Available Hours:</label>
+                      
+                      <div className="mb-3">
+                        <span className="label-caps text-muted-heritage d-flex align-items-center gap-1 mb-2">
+                          <i className="bi bi-brightness-alt-high text-gold"></i> Morning Shift (10:00 AM – 01:00 PM)
+                        </span>
+                        <div className="row g-2">
+                          {timeSlots.morning.map((slot) => (
+                            <div key={slot.time} className="col-6">
+                              <button
+                                type="button"
+                                className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
+                                onClick={() => setSelectedTime(slot.time)}
+                              >
+                                <div>
+                                  <span className="headline-serif fs-6 fw-bold d-block">{slot.time}</span>
+                                  <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>{slot.label}</span>
+                                </div>
+                                <i className="bi bi-clock text-gold"></i>
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <span className="label-caps text-muted-heritage d-flex align-items-center gap-1 mb-2">
+                          <i className="bi bi-sun text-gold"></i> Afternoon Shift (02:00 PM – 06:00 PM)
+                        </span>
+                        <div className="row g-2">
+                          {timeSlots.afternoon.map((slot) => (
+                            <div key={slot.time} className="col-4">
+                              <button
+                                type="button"
+                                className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
+                                onClick={() => setSelectedTime(slot.time)}
+                              >
+                                <div>
+                                  <span className="headline-serif fs-6 fw-bold d-block">{slot.time}</span>
+                                  <span className="label-caps text-muted-heritage" style={{ fontSize: '9px' }}>{slot.label}</span>
+                                </div>
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="label-caps text-muted-heritage d-flex align-items-center gap-1 mb-2">
+                          <i className="bi bi-moon-stars text-gold"></i> Evening &amp; Night Shift (07:00 PM – 11:00 PM)
+                        </span>
+                        <div className="row g-2">
+                          {timeSlots.evening.map((slot) => (
+                            <div key={slot.time} className="col-4">
+                              <button
+                                type="button"
+                                className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
+                                disabled={!slot.available}
+                                onClick={() => setSelectedTime(slot.time)}
+                              >
+                                <div>
+                                  <span className="headline-serif fs-6 fw-bold d-block">{slot.time}</span>
+                                  <span className="label-caps text-muted-heritage" style={{ fontSize: '9px' }}>{slot.available ? slot.label : 'Booked'}</span>
+                                </div>
+                              </button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="d-flex justify-content-between">
+                      <button className="btn btn-heritage-outline" onClick={() => setCurrentStep(2)}>
+                        <i className="bi bi-arrow-left"></i><span>Back</span>
+                      </button>
+                      <button className="btn btn-gold-primary" onClick={() => setCurrentStep(4)}>
+                        <span>Proceed to Client Ledger</span><i className="bi bi-arrow-right"></i>
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                {currentStep === 4 && (
+                  <div className="border-heritage p-4 bg-card shadow-sm">
+                    <h3 className="headline-serif text-espresso fs-4 mb-3">Client Information Ledger</h3>
+                    <form onSubmit={handleConfirmReservation}>
+                      <div className="mb-3">
+                        <label className="label-caps text-espresso fw-bold mb-1 d-block">Full Name *</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-ivory border-heritage text-gold"><i className="bi bi-person"></i></span>
+                          <input 
+                            type="text" 
+                            required 
+                            className="form-control heritage-input" 
+                            placeholder="Enter your full name"
+                            value={clientName}
+                            onChange={(e) => setClientName(e.target.value)}
+                          />
+                        </div>
+                      </div>
+
+                      <div className="mb-3">
+                        <label className="label-caps text-espresso fw-bold mb-1 d-block">Phone Number (Lahore/PK) *</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-ivory border-heritage text-gold"><i className="bi bi-phone"></i></span>
+                          <input 
+                            type="tel" 
+                            required 
+                            className="form-control heritage-input" 
+                            placeholder="e.g. +92 300 1234567"
+                            value={clientPhone}
+                            onChange={(e) => setClientPhone(e.target.value)}
+                          />
+                        </div>
+                        <span className="label-caps text-muted-heritage d-block mt-1" style={{ fontSize: '10px' }}>
+                          Instant WhatsApp confirmation token will be sent to this number.
+                        </span>
+                      </div>
+
+                      <div className="mb-4">
+                        <label className="label-caps text-espresso fw-bold mb-1 d-block">Craft Notes &amp; Directives (Optional)</label>
+                        <div className="input-group">
+                          <span className="input-group-text bg-ivory border-heritage text-gold"><i className="bi bi-chat-text"></i></span>
+                          <textarea 
+                            className="form-control heritage-input" 
+                            rows="2" 
+                            placeholder="Special hair taper preferences, beard shaping notes, or allergies..."
+                            value={clientNotes}
+                            onChange={(e) => setClientNotes(e.target.value)}
+                          ></textarea>
+                        </div>
+                      </div>
+
+                      <div className="mb-4">
+                        <label className="label-caps text-espresso fw-bold mb-2 d-block">Payment Method:</label>
+                        <div className="d-flex flex-wrap gap-2">
+                          <button
+                            type="button"
+                            className={`chip-btn ${paymentMethod === 'cash_counter' ? 'active' : ''}`}
+                            onClick={() => setPaymentMethod('cash_counter')}
+                          >
+                            <i className="bi bi-cash text-gold me-1"></i> Cash at Saloon Desk
+                          </button>
+                          <button
+                            type="button"
+                            className={`chip-btn ${paymentMethod === 'jazzcash' ? 'active' : ''}`}
+                            onClick={() => setPaymentMethod('jazzcash')}
+                          >
+                            <i className="bi bi-wallet2 text-gold me-1"></i> JazzCash / Easypaisa
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="d-flex justify-content-between">
+                        <button type="button" className="btn btn-heritage-outline" onClick={() => setCurrentStep(3)}>
+                          <i className="bi bi-arrow-left"></i><span>Back</span>
+                        </button>
+                        <button type="submit" className="btn btn-gold-primary px-4 py-3">
+                          <i className="bi bi-check2-circle"></i><span>Confirm &amp; Reserve Chair</span>
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+
+              {/* Dossier Summary (Dark Espresso Card) */}
+              <div className="col-12 col-lg-4">
+                <div className="border-dark-section p-4 bg-espresso sticky-top shadow" style={{ top: '90px' }}>
+                  <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom border-dark-section">
+                    <div className="d-flex align-items-center gap-2">
+                      <i className="bi bi-receipt text-gold"></i>
+                      <span className="label-caps text-ivory fw-bold">Booking Dossier</span>
+                    </div>
+                    <span className="label-caps text-gold">Neelum Block Stn.</span>
+                  </div>
+
+                  <div className="mb-3">
+                    <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Services Selected:</span>
+                    {selectedServices.length === 0 ? (
+                      <span className="body-muted fst-italic" style={{ color: '#D9D0C2' }}>No services selected</span>
+                    ) : (
+                      <div className="mt-1">
+                        {selectedServices.map((s) => (
+                          <div key={s.id} className="d-flex justify-content-between align-items-center mb-1">
+                            <span className="label-caps text-ivory" style={{ fontSize: '11px' }}>{s.name}</span>
+                            <span className="label-caps text-gold">PKR {s.price.toLocaleString()}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="mb-3 pt-2 border-top border-dark-section">
+                    <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Assigned Master:</span>
+                    <span className="headline-serif text-ivory fs-6">
+                      {selectedBarber ? `${selectedBarber.name} (${selectedBarber.chair})` : 'Jerry (Chair #01)'}
+                    </span>
+                  </div>
+
+                  <div className="mb-3 pt-2 border-top border-dark-section">
+                    <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Date &amp; Arrival Slot:</span>
+                    <span className="headline-serif text-ivory fs-6">
+                      {selectedDate} • {selectedTime}
+                    </span>
+                  </div>
+
+                  <div className="mb-3 pt-2 border-top border-dark-section">
+                    <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Session Duration:</span>
+                    <span className="headline-serif text-ivory fs-6" style={{ opacity: 0.85 }}>
+                      Approx. {totalDuration}
+                    </span>
+                  </div>
+
+                  <div className="p-3 bg-card border-heritage mt-3 mb-3 shadow-sm">
+                    <div className="d-flex justify-content-between align-items-center">
+                      <div>
+                        <span className="label-caps text-muted-heritage d-block" style={{ fontSize: '10px' }}>Total Investment:</span>
+                        <span className="label-caps text-muted-heritage" style={{ fontSize: '9px' }}>Pay at checkout</span>
+                      </div>
+                      <span className="headline-serif text-espresso fs-3 fw-bold">
+                        PKR {totalPrice.toLocaleString()}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="p-2 border-dark-section d-flex align-items-center gap-2" style={{ backgroundColor: '#2E2B27' }}>
+                    <i className="bi bi-whatsapp text-gold fs-5"></i>
+                    <div>
+                      <span className="label-caps text-ivory d-block" style={{ fontSize: '10px' }}>Instant Dispatch</span>
+                      <span className="body-muted" style={{ fontSize: '11px', color: '#D9D0C2' }}>
+                        Digital pass sent via WhatsApp with live queue tracking.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function BookingConfirmationModal({ bookingDetails, onClose }) {
+      if (!bookingDetails) return null;
+
+      const waText = encodeURIComponent(
+        `*JERRY HAIR SALOON - RESERVATION CONFIRMATION*\n` +
+        `Booking Ref: ${bookingDetails.bookingId}\n` +
+        `Client: ${bookingDetails.clientName}\n` +
+        `Phone: ${bookingDetails.clientPhone}\n` +
+        `Specialist: ${bookingDetails.barber?.name || 'Jerry'} (${bookingDetails.barber?.chair || 'Chair #01'})\n` +
+        `Date & Time: ${bookingDetails.date} at ${bookingDetails.time}\n` +
+        `Services: ${bookingDetails.services.map(s => s.name).join(', ')}\n` +
+        `Total: PKR ${bookingDetails.totalPrice.toLocaleString()}\n` +
+        `Location: 117 Neelum Block, Allama Iqbal Town, Lahore.`
+      );
+
+      const waUrl = `https://wa.me/923001234567?text=${waText}`;
+
+      return (
+        <motion.div 
+          className="lightbox-backdrop"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.22 }}
+          onClick={onClose}
+        >
+          <motion.div 
+            className="border-heritage bg-card p-3 p-md-4 max-w-md w-100 shadow-lg" 
+            style={{ maxWidth: '480px', maxHeight: '92vh', overflowY: 'auto' }}
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ duration: 0.25, ease: easeLuxury }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="d-flex justify-content-between align-items-center pb-2 mb-2 border-heritage-bottom">
+              <div className="d-flex align-items-center gap-2">
+                <span className="pulse-indicator bg-gold"></span>
+                <span className="label-caps text-espresso fw-bold" style={{ fontSize: '11px' }}>Reservation Executed</span>
+              </div>
+              <button className="btn btn-heritage-outline btn-heritage-sm py-1 px-2" onClick={onClose}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+
+            <div className="text-center py-2">
+              <div 
+                className="d-inline-flex align-items-center justify-content-center border-heritage mb-2 shadow-sm" 
+                style={{ width: '48px', height: '48px', backgroundColor: 'var(--color-espresso)' }}
+              >
+                <i className="bi bi-check-lg fs-3 text-gold"></i>
+              </div>
+              <h2 className="headline-serif text-espresso fs-4 fw-bold mt-1 mb-1" style={{ lineHeight: 1.25 }}>
+                Your Slot Has Been Booked Successfully
+              </h2>
+              <p className="body-muted mb-0" style={{ fontSize: '12.5px' }}>
+                Confirmed for <strong>{bookingDetails.clientName}</strong> at Jerry Hair Saloon, 117 Neelum Block.
+              </p>
+            </div>
+
+            <div className="border-heritage p-3 bg-beige-subtle my-2">
+              <div className="d-flex justify-content-between py-1 border-heritage-bottom">
+                <span className="label-caps text-muted-heritage" style={{ fontSize: '11px' }}>Assigned Master:</span>
+                <span className="label-caps text-espresso fw-bold" style={{ fontSize: '11px' }}>{bookingDetails.barber?.name} ({bookingDetails.barber?.chair})</span>
+              </div>
+              <div className="d-flex justify-content-between py-1 border-heritage-bottom">
+                <span className="label-caps text-muted-heritage" style={{ fontSize: '11px' }}>Slot &amp; Date:</span>
+                <span className="label-caps text-espresso fw-bold" style={{ fontSize: '11px' }}>{bookingDetails.date} • {bookingDetails.time}</span>
+              </div>
+              <div className="d-flex justify-content-between py-1 border-heritage-bottom">
+                <span className="label-caps text-muted-heritage" style={{ fontSize: '11px' }}>Session Length:</span>
+                <span className="label-caps text-espresso" style={{ fontSize: '11px' }}>{bookingDetails.totalDuration}</span>
+              </div>
+              <div className="d-flex justify-content-between py-1">
+                <span className="label-caps text-muted-heritage" style={{ fontSize: '11px' }}>Total Due at Saloon:</span>
+                <span className="headline-serif text-espresso fw-bold fs-5">PKR {bookingDetails.totalPrice.toLocaleString()}</span>
+              </div>
+            </div>
+
+            <div className="d-flex flex-column gap-2 mt-3">
+              <a href={waUrl} target="_blank" rel="noopener noreferrer" className="btn btn-gold-primary py-2.5 w-100" style={{ fontSize: '12px' }}>
+                <i className="bi bi-whatsapp fs-6"></i>
+                <span>Send Confirmation to WhatsApp</span>
+              </a>
+              <button className="btn btn-heritage-outline py-2 w-100" onClick={onClose} style={{ fontSize: '12px' }}>
+                <span>Close &amp; Back to Studio</span>
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      );
+    }
+
+    function QuickBookModal({ isOpen, onClose, onQuickBookConfirm }) {
+      const [selectedDay, setSelectedDay] = useState('Today');
+      const [selectedSlot, setSelectedSlot] = useState('15:30');
+      const [barber, setBarber] = useState(barbersData[0].name);
+
+      if (!isOpen) return null;
+
+      const days = [0, 1, 2, 3].map(offset => {
+        const d = new Date();
+        d.setDate(d.getDate() + offset);
+        const dayName = d.toLocaleDateString('en-US', { weekday: 'short' });
+        const label = offset === 0 ? 'Today' : offset === 1 ? 'Tomorrow' : dayName;
+        return { label, date: String(d.getDate()).padStart(2, '0') };
+      });
+      const slots = ['11:30', '14:00', '15:30', '17:00', '18:30', '20:00'];
+
+      return (
+        <div className="lightbox-backdrop">
+          <div className="border-heritage bg-card p-4 max-w-md w-100 shadow-lg" style={{ maxWidth: '460px' }}>
+            <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom">
+              <div>
+                <span className="label-caps text-gold fw-bold">Fast Reservation</span>
+                <h3 className="headline-serif text-espresso fs-5 mb-0">Select Date &amp; Stylist</h3>
+              </div>
+              <button className="btn btn-heritage-outline btn-heritage-sm py-1 px-2" onClick={onClose}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+
+            <form onSubmit={(e) => {
+              e.preventDefault();
+              onQuickBookConfirm({ day: selectedDay, slot: selectedSlot, barber });
+            }}>
+              <div className="mb-3">
+                <span className="label-caps text-espresso fw-bold mb-2 d-block">Select Day</span>
+                <div className="row g-2">
+                  {days.map((d) => (
+                    <div key={d.label} className="col-3">
+                      <button
+                        type="button"
+                        className={`btn w-100 p-2 text-center d-flex flex-column align-items-center ${selectedDay === d.label ? 'btn-gold-primary' : 'btn-heritage-outline'}`}
+                        onClick={() => setSelectedDay(d.label)}
+                      >
+                        <span className="label-caps" style={{ fontSize: '9px' }}>{d.label}</span>
+                        <span className="headline-serif fs-5 fw-bold">{d.date}</span>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-3">
+                <span className="label-caps text-espresso fw-bold mb-2 d-block">Available Time Slots</span>
+                <div className="row g-2">
+                  {slots.map((s) => (
+                    <div key={s} className="col-4">
+                      <button
+                        type="button"
+                        className={`btn w-100 p-2 text-center label-caps ${selectedSlot === s ? 'btn-gold-primary' : 'btn-heritage-outline'}`}
+                        style={{ fontSize: '11px' }}
+                        onClick={() => setSelectedSlot(s)}
+                      >
+                        {s}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <span className="label-caps text-espresso fw-bold mb-2 d-block">Select Specialist</span>
+                <div className="d-flex flex-column gap-2">
+                  {barbersData.map((b) => (
+                    <div 
+                      key={b.id}
+                      className={`border-heritage p-2 cursor-pointer d-flex justify-content-between align-items-center ${barber === b.name ? 'bg-gold-light' : 'bg-card'}`}
+                      style={{ borderColor: barber === b.name ? 'var(--color-gold)' : 'var(--color-border)', cursor: 'pointer' }}
+                      onClick={() => setBarber(b.name)}
+                    >
+                      <span className="label-caps text-espresso fw-bold">{b.name} ({b.role})</span>
+                      <span className="label-caps text-muted-heritage">{b.chair}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <button type="submit" className="btn btn-gold-primary w-100 py-3">
+                Confirm Chair Reservation
+              </button>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+    function LightboxModal({ item, onClose, onRequestCut }) {
+      if (!item) return null;
+      return (
+        <motion.div 
+          className="lightbox-backdrop" 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.22 }}
+          onClick={onClose}
+        >
+          <motion.div 
+            className="border-heritage bg-card p-3 p-md-4 max-w-2xl w-100 shadow-lg" 
+            style={{ maxWidth: '640px' }}
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            transition={{ duration: 0.25, ease: easeLuxury }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom">
+              <div className="d-flex align-items-center gap-2">
+                <span className="badge bg-espresso text-ivory label-caps px-2 py-0.5">{item.tag}</span>
+                <span className="label-caps text-muted-heritage">{item.video ? 'Cinematic Archive Reel' : 'Archive Photograph'}</span>
+              </div>
+              <button className="btn btn-heritage-outline btn-heritage-sm py-1 px-2" onClick={onClose}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+
+            <div className="border-heritage overflow-hidden mb-3 position-relative" style={{ maxHeight: '440px', backgroundColor: '#1A1816' }}>
+              {item.video ? (
+                <video 
+                  src={item.video} 
+                  controls 
+                  autoPlay 
+                  playsInline
+                  className="w-100 h-100" 
+                  style={{ objectFit: 'contain', maxHeight: '420px', display: 'block' }}
+                  poster={item.image}
+                >
+                  Your browser does not support HTML5 video.
+                </video>
+              ) : (
+                <img 
+                  src={item.image} 
+                  alt={item.title} 
+                  className="w-100 h-100" 
+                  style={{ objectFit: 'contain', maxHeight: '400px' }}
+                  onError={(e) => { e.target.src = item.fallback; }}
+                />
+              )}
+            </div>
+
+            <div className="d-flex justify-content-between align-items-baseline mb-2">
+              <h3 className="headline-serif text-espresso fs-4 mb-0">{item.title}</h3>
+              <span className="headline-serif text-gold fw-bold">{item.price}</span>
+            </div>
+            <p className="body-muted mb-3" style={{ fontSize: '13px' }}>{item.description}</p>
+
+            <div className="d-flex justify-content-between align-items-center pt-2 border-heritage-top">
+              <span className="label-caps text-muted-heritage" style={{ fontSize: '11px' }}>
+                <i className="bi bi-person text-gold me-1"></i>Master Stylist: {item.stylist}
+              </span>
+              <button 
+                className="btn btn-gold-primary btn-heritage-sm"
+                onClick={() => { 
+                  onRequestCut(item); 
+                  onClose(); 
+                  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                }}
+              >
+                <i className="bi bi-calendar-plus me-1"></i><span>{item.category === 'haircuts' ? 'Book This Style' : 'Reserve Atelier Chair'}</span>
+              </button>
+            </div>
+          </motion.div>
+        </motion.div>
+      );
+    }
+
+    function VipModal({ isOpen, onClose }) {
+      const [claimed, setClaimed] = useState(false);
+      const [phone, setPhone] = useState('');
+
+      if (!isOpen) return null;
+
+      return (
+        <div className="lightbox-backdrop" onClick={onClose}>
+          <div 
+            className="p-3 p-md-4 max-w-md w-100 shadow-lg text-ivory position-relative" 
+            style={{ 
+              maxWidth: '460px', 
+              maxHeight: '92vh', 
+              overflowY: 'auto',
+              backgroundColor: '#1E1B18',
+              border: '1px solid rgba(176, 138, 85, 0.45)',
+              boxShadow: '0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(176, 138, 85, 0.25)'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="d-flex justify-content-between align-items-center pb-2 mb-3" style={{ borderBottom: '1px solid rgba(176, 138, 85, 0.25)' }}>
+              <div className="d-flex align-items-center gap-2">
+                <i className="bi bi-award text-gold fs-5"></i>
+                <span className="label-caps text-ivory fw-bold" style={{ fontSize: '11px', letterSpacing: '0.12em' }}>Jerry VIP Club</span>
+              </div>
+              <button 
+                className="btn btn-heritage-outline btn-heritage-sm py-1 px-2 text-ivory" 
+                style={{ borderColor: 'rgba(176, 138, 85, 0.4)' }}
+                onClick={onClose}
+              >
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+
+            {!claimed ? (
+              <div>
+                <div className="text-center py-1 mb-3">
+                  <span className="badge bg-gold text-espresso label-caps px-2 py-1 mb-2 fw-bold" style={{ fontSize: '10px' }}>
+                    8th Anniversary Privilege Pass
+                  </span>
+                  <h2 className="headline-serif text-ivory fs-4 mb-1">Neelum Block Resident Club</h2>
+                  <p className="mb-0" style={{ fontSize: '12.5px', color: '#B5AEA5' }}>
+                    Complimentary VIP privilege pass for Allama Iqbal Town clients. Valid for 12 months.
+                  </p>
+                </div>
+
+                <div className="p-3 mb-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.35)', border: '1px solid rgba(176, 138, 85, 0.25)' }}>
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <i className="bi bi-check2 text-gold fs-5"></i>
+                    <span className="label-caps text-ivory" style={{ fontSize: '11px' }}>20% Off all Head Spa &amp; Scalp Massages</span>
+                  </div>
+                  <div className="d-flex align-items-center gap-2 mb-2">
+                    <i className="bi bi-check2 text-gold fs-5"></i>
+                    <span className="label-caps text-ivory" style={{ fontSize: '11px' }}>Priority Weekend Chair Reservation</span>
+                  </div>
+                  <div className="d-flex align-items-center gap-2">
+                    <i className="bi bi-check2 text-gold fs-5"></i>
+                    <span className="label-caps text-ivory" style={{ fontSize: '11px' }}>Complimentary Seasonal Beard Trimming</span>
+                  </div>
+                </div>
+
+                <div className="mb-3">
+                  <label className="label-caps text-ivory fw-bold mb-1 d-block" style={{ fontSize: '11px' }}>Your WhatsApp / Phone Number</label>
+                  <input 
+                    type="tel" 
+                    className="form-control" 
+                    style={{ 
+                      backgroundColor: '#12100E', 
+                      border: '1px solid rgba(176, 138, 85, 0.45)', 
+                      color: '#F3EFE6',
+                      borderRadius: 0,
+                      padding: '10px 12px'
+                    }}
+                    placeholder="03XX XXXXXXX"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                </div>
+
+                <button 
+                  className="btn btn-gold-primary w-100 py-2.5"
+                  style={{ fontSize: '12px' }}
+                  onClick={() => {
+                    if (phone.trim().length >= 7) setClaimed(true);
+                    else alert('Please enter a valid phone number.');
+                  }}
+                >
+                  Activate VIP Resident Pass
+                </button>
+              </div>
+            ) : (
+              <div className="text-center py-2">
+                {/* Gold Circle Checkmark */}
+                <div 
+                  className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" 
+                  style={{ 
+                    width: '52px', 
+                    height: '52px', 
+                    border: '2px solid var(--color-gold)', 
+                    color: 'var(--color-gold)', 
+                    backgroundColor: 'rgba(176, 138, 85, 0.12)',
+                    boxShadow: '0 0 20px rgba(176, 138, 85, 0.25)'
+                  }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+
+                {/* Title */}
+                <h2 className="headline-serif text-ivory fs-3 fw-bold mb-1" style={{ letterSpacing: '0.01em' }}>
+                  VIP Membership Activated!
+                </h2>
+                <p className="mb-3" style={{ fontSize: '13px', color: '#B5AEA5' }}>
+                  Welcome to our exclusive VIP community.
+                </p>
+
+                {/* Green VIP Member Pill Badge */}
+                <div className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-2" style={{ backgroundColor: '#073B22', border: '1px solid #0F6E3F' }}>
+                  <span className="label-caps fw-bold" style={{ color: '#00E676', fontSize: '11px', letterSpacing: '0.14em' }}>
+                    VIP MEMBER
+                  </span>
+                </div>
+
+                {/* 20% OFF in Gold */}
+                <div className="my-1">
+                  <span className="headline-serif text-gold fw-bold d-block" style={{ fontSize: '2.6rem', lineHeight: 1.1, letterSpacing: '0.02em' }}>
+                    20% OFF
+                  </span>
+                </div>
+
+                {/* Subtitle */}
+                <p className="mb-2" style={{ fontSize: '12.5px', color: '#B5AEA5' }}>
+                  Your exclusive discount is now active.
+                </p>
+
+                {/* Down Arrow */}
+                <div className="d-flex justify-content-center my-2">
+                  <div 
+                    className="d-inline-flex align-items-center justify-content-center rounded-circle" 
+                    style={{ width: '28px', height: '28px', border: '1px solid rgba(176, 138, 85, 0.5)', color: 'var(--color-gold)' }}
+                  >
+                    <i className="bi bi-arrow-down" style={{ fontSize: '13px' }}></i>
+                  </div>
+                </div>
+
+                {/* Instruction */}
+                <p className="mt-2 mb-4 px-2" style={{ fontSize: '13px', lineHeight: 1.5, color: '#D9D0C2' }}>
+                  Your VIP benefits are ready to enjoy! Simply present your membership at checkout.
+                </p>
+
+                {/* Action Button */}
+                <button 
+                  className="btn btn-gold-primary w-100 py-2.5" 
+                  onClick={onClose}
+                  style={{ fontSize: '12px' }}
+                >
+                  Done &amp; Return to Studio
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function Footer({ setCurrentTab }) {
+      return (
+        <footer className="modern-luxury-footer pt-5 pb-4 mt-0">
+          <div className="container">
+            <div className="row g-4 g-lg-5 justify-content-between">
+              {/* Column 1 – Brand Identity */}
+              <div className="col-12 col-md-4 col-lg-4">
+                <div className="d-flex align-items-center gap-2 mb-3">
+                  <span className="text-gold d-inline-flex align-items-center justify-content-center" style={{ width: '26px', height: '26px' }}>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="6" cy="6" r="3" />
+                      <path d="M8.12 8.12 12 12" />
+                      <path d="M20 4 8.12 15.88" />
+                      <circle cx="6" cy="18" r="3" />
+                      <path d="M14.8 14.8 20 20" />
+                    </svg>
+                  </span>
+                  <span className="font-serif fw-bold text-ivory text-uppercase fs-5" style={{ letterSpacing: '0.08em' }}>
+                    Jerry Hair Saloon
+                  </span>
+                </div>
+
+                <p className="mb-4" style={{ fontSize: '13.5px', color: '#D9D0C2', lineHeight: '1.7', maxWidth: '300px' }}>
+                  Premium barbering, timeless style, and precision grooming.
+                </p>
+
+                {/* Social Media Icons */}
+                <div className="d-flex align-items-center gap-3">
+                  <a 
+                    href="https://instagram.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="Instagram"
+                    className="footer-social-icon"
+                  >
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                  </a>
+                  <a 
+                    href="https://facebook.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    aria-label="Facebook"
+                    className="footer-social-icon"
+                  >
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+
+              {/* Column 2 – Quick Links */}
+              <div className="col-12 col-sm-6 col-md-3 col-lg-3">
+                <h4 className="label-caps text-gold fw-semibold mb-3 mb-md-4" style={{ letterSpacing: '0.12em', fontSize: '11px' }}>
+                  Quick Links
+                </h4>
+                <ul className="list-unstyled d-flex flex-column gap-2 mb-0">
+                  <li>
+                    <button 
+                      type="button"
+                      className="footer-nav-link"
+                      onClick={() => {
+                        if (setCurrentTab) setCurrentTab('home');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                    >
+                      Home
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      type="button"
+                      className="footer-nav-link"
+                      onClick={() => {
+                        if (setCurrentTab) setCurrentTab('services');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                    >
+                      Our Services
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      type="button"
+                      className="footer-nav-link"
+                      onClick={() => {
+                        if (setCurrentTab) setCurrentTab('gallery');
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                    >
+                      Gallery
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      type="button"
+                      className="footer-nav-link"
+                      onClick={() => {
+                        if (setCurrentTab) setCurrentTab('home');
+                        setTimeout(() => {
+                          const el = document.getElementById('atmosphere') || document.querySelector('.atmosphere-section');
+                          if (el) el.scrollIntoView({ behavior: 'smooth' });
+                          else window.scrollTo({ top: 700, behavior: 'smooth' });
+                        }, 120);
+                      }}
+                    >
+                      About Us
+                    </button>
+                  </li>
+                  <li>
+                    <button 
+                      type="button"
+                      className="footer-nav-link"
+                      onClick={() => {
+                        const el = document.getElementById('footer-contact');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                    >
+                      Contact Us
+                    </button>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Column 3 – Contact Information */}
+              <div id="footer-contact" className="col-12 col-sm-6 col-md-5 col-lg-4">
+                <h4 className="label-caps text-gold fw-semibold mb-3 mb-md-4" style={{ letterSpacing: '0.12em', fontSize: '11px' }}>
+                  Contact Information
+                </h4>
+                <ul className="list-unstyled d-flex flex-column gap-3 mb-0" style={{ fontSize: '13.5px', color: '#D9D0C2' }}>
+                  <li className="d-flex align-items-start gap-2">
+                    <span className="text-gold mt-1 d-inline-flex flex-shrink-0">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                        <circle cx="12" cy="10" r="3" />
+                      </svg>
+                    </span>
+                    <span style={{ lineHeight: '1.6' }}>117 Neelum Block, Allama Iqbal Town, Lahore.</span>
+                  </li>
+
+                  <li className="d-flex align-items-center gap-2">
+                    <span className="text-gold d-inline-flex flex-shrink-0">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                      </svg>
+                    </span>
+                    <a href="tel:+923001234567" className="footer-contact-link">
+                      +92 300 1234567
+                    </a>
+                  </li>
+
+                  <li className="d-flex align-items-center gap-2">
+                    <span className="text-gold d-inline-flex flex-shrink-0">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <polyline points="12 6 12 12 16 14" />
+                      </svg>
+                    </span>
+                    <span>10:00 AM – 11:00 PM</span>
+                  </li>
+
+                  <li className="d-flex align-items-center gap-2 pt-1">
+                    <span className="text-gold d-inline-flex flex-shrink-0">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
+                      </svg>
+                    </span>
+                    <a 
+                      href="https://wa.me/923001234567" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="footer-contact-link d-inline-flex align-items-center gap-1"
+                    >
+                      <span>WhatsApp: +92 300 1234567</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Copyright Section */}
+            <div className="pt-4 mt-4 mt-lg-5 text-center" style={{ borderTop: '1px solid rgba(255, 255, 255, 0.08)' }}>
+              <p className="mb-0" style={{ fontSize: '12px', color: '#8E867D', letterSpacing: '0.04em' }}>
+                © 2026 Jerry Hair Saloon. All Rights Reserved.
+              </p>
+            </div>
+          </div>
+        </footer>
+      );
+    }
+
+    // --- MAIN APP COMPONENT ---
+    function App() {
+      const [currentTab, setCurrentTab] = useState('home');
+      const [selectedServices, setSelectedServices] = useState([]);
+      const [selectedBarber, setSelectedBarber] = useState(barbersData[0]);
+      const [lightboxItem, setLightboxItem] = useState(null);
+      const [isVipModalOpen, setIsVipModalOpen] = useState(false);
+      const [isQuickBookOpen, setIsQuickBookOpen] = useState(false);
+      const [confirmedBooking, setConfirmedBooking] = useState(null);
+
+      // Always reset window scroll when switching tabs
+      useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        const timer = setTimeout(() => {
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }, 50);
+        return () => clearTimeout(timer);
+      }, [currentTab]);
+
+      const handleToggleService = (service) => {
+        if (service === 'clear_all') {
+          setSelectedServices([]);
+          return;
+        }
+        setSelectedServices((prev) => {
+          const exists = prev.some(item => item.id === service.id);
+          return exists ? prev.filter(item => item.id !== service.id) : [...prev, service];
+        });
+      };
+
+      const handleSelectService = (service) => {
+        setSelectedServices((prev) => {
+          const exists = prev.some(item => item.id === service.id);
+          return exists ? prev : [...prev, service];
+        });
+      };
+
+      const handleRequestCut = (galleryItem) => {
+        const matched = servicesData.find(s => s.name.toLowerCase().includes('fade')) || servicesData[0];
+        handleSelectService(matched);
+        if (galleryItem.stylist.includes('Jerry')) setSelectedBarber(barbersData[0]);
+        else if (galleryItem.stylist.includes('Hunain') || galleryItem.stylist.includes('Tariq')) setSelectedBarber(barbersData[1]);
+        else if (galleryItem.stylist.includes('Adnan')) setSelectedBarber(barbersData[2]);
+        setCurrentTab('booking');
+      };
+
+      const handleQuickBookConfirm = (data) => {
+        setIsQuickBookOpen(false);
+        const details = {
+          bookingId: `JH-${Math.floor(1000 + Math.random() * 9000)}`,
+          services: selectedServices.length > 0 ? selectedServices : [servicesData[0]],
+          totalPrice: selectedServices.length > 0 ? selectedServices.reduce((a, b) => a + b.price, 0) : servicesData[0].price,
+          totalDuration: '45 Mins',
+          barber: barbersData.find(b => b.name === data.barber) || barbersData[0],
+          date: `${data.day} (Fast Slot)`,
+          time: data.slot,
+          clientName: 'Guest Client',
+          clientPhone: '+92 300 0000000',
+          clientNotes: 'Fast Chair Reservation',
+          paymentMethod: 'Cash at Counter'
+        };
+        setConfirmedBooking(details);
+      };
+
+      return (
+        <div className="saloon-app min-vh-100 d-flex flex-column bg-ivory text-espresso">
+          <Header 
+            currentTab={currentTab}
+            setCurrentTab={setCurrentTab}
+            onOpenQuickBook={() => setIsQuickBookOpen(true)}
+            onOpenVipModal={() => setIsVipModalOpen(true)}
+          />
+
+          <main className="flex-grow-1 position-relative overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentTab}
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -14 }}
+                transition={{ duration: 0.32, ease: easeLuxury }}
+              >
+                {currentTab === 'home' && (
+                  <Home 
+                    setCurrentTab={setCurrentTab}
+                    onSelectService={handleSelectService}
+                    onSelectBarber={(b) => setSelectedBarber(b)}
+                    onOpenVipModal={() => setIsVipModalOpen(true)}
+                  />
+                )}
+
+                {currentTab === 'services' && (
+                  <Services 
+                    selectedServices={selectedServices}
+                    onToggleService={handleToggleService}
+                    onProceedToBooking={() => setCurrentTab('booking')}
+                  />
+                )}
+
+                {currentTab === 'gallery' && (
+                  <Gallery 
+                    onSelectImage={(item) => setLightboxItem(item)}
+                    onRequestCut={handleRequestCut}
+                  />
+                )}
+
+                {currentTab === 'booking' && (
+                  <Booking 
+                    selectedServices={selectedServices}
+                    onToggleService={handleToggleService}
+                    selectedBarber={selectedBarber}
+                    setSelectedBarber={setSelectedBarber}
+                    onBookingConfirmed={(d) => setConfirmedBooking(d)}
+                  />
+                )}
+              </motion.div>
+            </AnimatePresence>
+          </main>
+
+          <Footer 
+            setCurrentTab={setCurrentTab}
+            onOpenVipModal={() => setIsVipModalOpen(true)}
+          />
+
+          <BottomNav 
+            currentTab={currentTab}
+            setCurrentTab={setCurrentTab}
+          />
+
+          <LightboxModal 
+            item={lightboxItem}
+            onClose={() => setLightboxItem(null)}
+            onRequestCut={handleRequestCut}
+          />
+
+          <VipModal 
+            isOpen={isVipModalOpen}
+            onClose={() => setIsVipModalOpen(false)}
+          />
+
+          <QuickBookModal 
+            isOpen={isQuickBookOpen}
+            onClose={() => setIsQuickBookOpen(false)}
+            onQuickBookConfirm={handleQuickBookConfirm}
+          />
+
+          <BookingConfirmationModal 
+            bookingDetails={confirmedBooking}
+            onClose={() => {
+              setConfirmedBooking(null);
+              setCurrentTab('home');
+            }}
+          />
+        </div>
+      );
+    }
+
+    // Mount to DOM
+    ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+  </script>
+</body>
+</html>
+
