@@ -1,29 +1,37 @@
-import React from 'react';
-import { MagneticButton } from '../animations/motion';
+import React, { useState } from 'react';
+import { MagneticButton, motion, AnimatePresence, easeLuxury } from '../animations/motion';
 
 export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onOpenVipModal }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const handleNavClick = (tab) => {
+    setCurrentTab(tab);
+    setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <header 
       className="sticky-top border-heritage-bottom" 
       style={{ 
-        backgroundColor: 'rgba(243, 239, 230, 0.95)', 
+        backgroundColor: 'rgba(243, 239, 230, 0.96)', 
         backdropFilter: 'blur(16px)', 
         zIndex: 1030 
       }}
     >
-      <div className="container-fluid px-3 px-lg-5 py-3 d-flex align-items-center justify-content-between">
+      <div className="container-fluid px-2 px-sm-3 px-lg-5 py-2 py-sm-3 d-flex align-items-center justify-content-between">
         {/* Brand Logo & Heritage Title */}
         <div 
-          className="d-flex align-items-center gap-3 cursor-pointer" 
-          onClick={() => setCurrentTab('home')}
+          className="d-flex align-items-center gap-2 gap-sm-3 cursor-pointer" 
+          onClick={() => handleNavClick('home')}
           style={{ cursor: 'pointer' }}
         >
           {/* Elegant Monogram */}
           <div 
-            className="d-flex align-items-center justify-content-center border-heritage" 
+            className="d-flex align-items-center justify-content-center border-heritage monogram-box flex-shrink-0" 
             style={{ 
-              width: '44px', 
-              height: '44px', 
+              width: '40px', 
+              height: '40px', 
               backgroundColor: 'var(--color-espresso)',
               boxShadow: '0 2px 8px rgba(36, 33, 30, 0.12)'
             }}
@@ -32,10 +40,10 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
           </div>
           
           <div className="d-flex flex-column">
-            <div className="d-flex align-items-center gap-2">
+            <div className="d-flex align-items-center gap-1 gap-sm-2">
               <span 
-                className="font-serif fw-bold text-espresso text-uppercase fs-5" 
-                style={{ letterSpacing: '0.08em' }}
+                className="font-serif fw-bold text-espresso text-uppercase header-brand-title fs-5" 
+                style={{ letterSpacing: '0.06em', whiteSpace: 'nowrap' }}
               >
                 Jerry Hair Saloon
               </span>
@@ -43,7 +51,7 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
                 | Heritage Atelier
               </span>
             </div>
-            <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+            <span className="label-caps text-muted-heritage header-sub-title" style={{ fontSize: '10px' }}>
               Est. 8 Years • 117 Neelum Block, Iqbal Town
             </span>
           </div>
@@ -53,28 +61,28 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
         <nav className="d-none d-lg-flex align-items-center gap-2">
           <button 
             className={`nav-tab-link ${currentTab === 'home' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('home')}
+            onClick={() => handleNavClick('home')}
           >
             <i className="bi bi-house-door text-gold"></i>
             <span>Home</span>
           </button>
           <button 
             className={`nav-tab-link ${currentTab === 'services' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('services')}
+            onClick={() => handleNavClick('services')}
           >
             <i className="bi bi-scissors text-gold"></i>
             <span>Services</span>
           </button>
           <button 
             className={`nav-tab-link ${currentTab === 'gallery' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('gallery')}
+            onClick={() => handleNavClick('gallery')}
           >
             <i className="bi bi-camera text-gold"></i>
             <span>Gallery</span>
           </button>
           <button 
             className={`nav-tab-link ${currentTab === 'booking' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('booking')}
+            onClick={() => handleNavClick('booking')}
           >
             <i className="bi bi-calendar-check text-gold"></i>
             <span>Book Chair</span>
@@ -82,9 +90,9 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
         </nav>
 
         {/* Action Buttons */}
-        <div className="d-flex align-items-center gap-2">
+        <div className="d-flex align-items-center gap-1.5 gap-sm-2">
           <MagneticButton 
-            className="btn btn-heritage-outline btn-heritage-sm d-none d-sm-inline-flex"
+            className="btn btn-heritage-outline btn-heritage-sm d-none d-md-inline-flex"
             onClick={onOpenVipModal}
             title="Jerry VIP Club Privilege"
           >
@@ -94,7 +102,7 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
 
           <a 
             href="tel:+923001234567" 
-            className="btn btn-heritage-outline btn-heritage-sm"
+            className="btn btn-heritage-outline btn-heritage-sm p-2 px-sm-3"
             title="Call Barber Desk"
           >
             <i className="bi bi-telephone-fill text-gold"></i>
@@ -103,14 +111,103 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
 
           {/* Prominent Gold Book Chair CTA */}
           <MagneticButton 
-            className="btn btn-gold-primary btn-heritage-sm px-3"
-            onClick={() => setCurrentTab('booking')}
+            className="btn btn-gold-primary btn-heritage-sm px-2 px-sm-3"
+            onClick={() => handleNavClick('booking')}
           >
-            <i className="bi bi-calendar-event"></i>
-            <span>Book Chair</span>
+            <i className="bi bi-calendar-event me-sm-1"></i>
+            <span className="d-none d-sm-inline">Book Chair</span>
+            <span className="d-inline d-sm-none">Book</span>
           </MagneticButton>
+
+          {/* Mobile Menu Hamburger Toggle */}
+          <button
+            type="button"
+            className="btn btn-heritage-outline btn-heritage-sm d-lg-none p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
+            style={{ width: '38px', height: '38px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+          >
+            <i className={`bi ${mobileMenuOpen ? 'bi-x-lg' : 'bi-list'} fs-5 text-gold`}></i>
+          </button>
         </div>
       </div>
+
+      {/* Expandable Mobile Navigation Menu Drawer */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.22, ease: easeLuxury }}
+            className="mobile-header-menu border-heritage-top overflow-hidden d-lg-none"
+          >
+            <div className="container py-3">
+              <div className="d-flex flex-column gap-1 mb-3">
+                <button
+                  className={`mobile-menu-link ${currentTab === 'home' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('home')}
+                >
+                  <i className="bi bi-house-door text-gold me-2 fs-5"></i>
+                  <span>Home</span>
+                </button>
+                <button
+                  className={`mobile-menu-link ${currentTab === 'services' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('services')}
+                >
+                  <i className="bi bi-scissors text-gold me-2 fs-5"></i>
+                  <span>Services Menu</span>
+                </button>
+                <button
+                  className={`mobile-menu-link ${currentTab === 'gallery' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('gallery')}
+                >
+                  <i className="bi bi-camera text-gold me-2 fs-5"></i>
+                  <span>Studio Gallery</span>
+                </button>
+                <button
+                  className={`mobile-menu-link ${currentTab === 'booking' ? 'active' : ''}`}
+                  onClick={() => handleNavClick('booking')}
+                >
+                  <i className="bi bi-calendar-check text-gold me-2 fs-5"></i>
+                  <span>Book Chair</span>
+                </button>
+              </div>
+
+              {/* VIP Club Privilege & Concierge Inside Mobile Menu */}
+              <div className="pt-2 border-heritage-top d-flex flex-column gap-2">
+                <button
+                  className="btn btn-espresso-primary w-100 justify-content-between py-2.5 px-3"
+                  onClick={() => {
+                    onOpenVipModal();
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <span className="d-flex align-items-center gap-2">
+                    <i className="bi bi-award text-gold"></i>
+                    <span>VIP Resident Pass (20% Off)</span>
+                  </span>
+                  <i className="bi bi-arrow-right text-gold"></i>
+                </button>
+
+                <a
+                  href="tel:+923001234567"
+                  className="btn btn-heritage-outline w-100 justify-content-center py-2.5 px-3"
+                >
+                  <i className="bi bi-telephone-fill text-gold me-2"></i>
+                  <span>Call Concierge: +92 300 1234567</span>
+                </a>
+
+                <div className="text-center pt-2">
+                  <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                    Open 10:00 AM – 11:00 PM • 117 Neelum Block, Iqbal Town
+                  </span>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

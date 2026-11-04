@@ -247,9 +247,9 @@ export default function Booking({
         </div>
 
         {/* Progress Tracker */}
-        <div className="border-heritage p-3 bg-card mb-4 shadow-sm">
-          <div className="row g-2 text-center">
-            <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(1)}>
+        <div className="border-heritage p-2.5 p-sm-3 bg-card mb-4 shadow-sm">
+          <div className="row g-1 g-sm-2 text-center">
+            <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(1)}>
               <div 
                 className="w-100 mb-1" 
                 style={{ height: '3px', backgroundColor: currentStep >= 1 ? 'var(--color-gold)' : 'var(--color-border)' }}
@@ -259,7 +259,7 @@ export default function Booking({
               </span>
             </div>
 
-            <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(2)}>
+            <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(2)}>
               <div 
                 className="w-100 mb-1" 
                 style={{ height: '3px', backgroundColor: currentStep >= 2 ? 'var(--color-gold)' : 'var(--color-border)' }}
@@ -269,7 +269,7 @@ export default function Booking({
               </span>
             </div>
 
-            <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(3)}>
+            <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(3)}>
               <div 
                 className="w-100 mb-1" 
                 style={{ height: '3px', backgroundColor: currentStep >= 3 ? 'var(--color-gold)' : 'var(--color-border)' }}
@@ -279,7 +279,7 @@ export default function Booking({
               </span>
             </div>
 
-            <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(4)}>
+            <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(4)}>
               <div 
                 className="w-100 mb-1" 
                 style={{ height: '3px', backgroundColor: currentStep >= 4 ? 'var(--color-gold)' : 'var(--color-border)' }}
@@ -311,18 +311,18 @@ export default function Booking({
               >
             {/* Step 1: Service Selection */}
             {currentStep === 1 && (
-              <div className="border-heritage p-4 bg-card shadow-sm">
+              <div className="border-heritage p-3 p-sm-4 bg-card shadow-sm">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <span className="label-caps text-gold fw-bold">Step 01 Protocol</span>
-                    <h3 className="headline-serif text-espresso fs-4 mb-0">Select Grooming Services</h3>
+                    <h3 className="headline-serif text-espresso fs-5 fs-sm-4 mb-0">Select Grooming Services</h3>
                   </div>
                   <span className="label-caps text-espresso fw-bold">
                     {selectedServices.length} Selected
                   </span>
                 </div>
 
-                <div className="row g-3 mb-4">
+                <div className="row g-2.5 g-sm-3 mb-4">
                   {servicesData.map((service) => {
                     const isSelected = selectedServices.some(s => s.id === service.id);
                     return (
@@ -358,7 +358,7 @@ export default function Booking({
 
                 <div className="d-flex justify-content-end">
                   <button 
-                    className="btn btn-gold-primary"
+                    className="btn btn-gold-primary w-100 w-sm-auto"
                     disabled={selectedServices.length === 0}
                     onClick={() => {
                       if (selectedServices.length === 0) {
@@ -370,7 +370,7 @@ export default function Booking({
                     }}
                   >
                     <span>Proceed to Specialist</span>
-                    <i className="bi bi-arrow-right"></i>
+                    <i className="bi bi-arrow-right ms-1"></i>
                   </button>
                 </div>
               </div>
@@ -378,11 +378,11 @@ export default function Booking({
 
             {/* Step 2: Specialist Barber Selection */}
             {currentStep === 2 && (
-              <div className="border-heritage p-4 bg-card shadow-sm">
+              <div className="border-heritage p-3 p-sm-4 bg-card shadow-sm">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <span className="label-caps text-gold fw-bold">Step 02 Protocol</span>
-                    <h3 className="headline-serif text-espresso fs-4 mb-0">Select Specialist Barber</h3>
+                    <h3 className="headline-serif text-espresso fs-5 fs-sm-4 mb-0">Select Specialist Barber</h3>
                   </div>
                   <span className="label-caps text-muted-heritage">Craft Mastery</span>
                 </div>
@@ -397,12 +397,12 @@ export default function Booking({
                           style={{ borderColor: isSelected ? 'var(--color-gold)' : 'var(--color-border)', cursor: 'pointer' }}
                           onClick={() => setSelectedBarber(barber)}
                         >
-                          <div className="d-flex gap-3 align-items-center">
+                          <div className="d-flex gap-2.5 gap-sm-3 align-items-center">
                             <img 
                               src={barber.avatar} 
                               alt={barber.name} 
-                              className="border-heritage shadow-sm"
-                              style={{ width: '70px', height: '70px', objectFit: 'cover' }}
+                              className="border-heritage shadow-sm flex-shrink-0"
+                              style={{ width: 'clamp(56px, 15vw, 70px)', height: 'clamp(56px, 15vw, 70px)', objectFit: 'cover' }}
                               onError={(e) => { e.target.src = barber.fallbackAvatar; }}
                             />
                             <div>
@@ -423,9 +423,9 @@ export default function Booking({
                             </div>
                           </div>
 
-                          <div className="text-sm-end">
-                            <span className="label-caps text-muted-heritage d-block mb-1">{barber.chair}</span>
-                            <span className={`btn ${isSelected ? 'btn-gold-primary' : 'btn-heritage-outline'} btn-heritage-sm py-1 px-3`}>
+                          <div className="text-sm-end w-100 w-sm-auto">
+                            <span className="label-caps text-muted-heritage d-none d-sm-block mb-1">{barber.chair}</span>
+                            <span className={`btn ${isSelected ? 'btn-gold-primary' : 'btn-heritage-outline'} btn-heritage-sm py-1.5 px-3 w-100 w-sm-auto`}>
                               {isSelected ? 'Active Selection' : 'Select'}
                             </span>
                           </div>
@@ -435,21 +435,21 @@ export default function Booking({
                   })}
                 </div>
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex flex-column-reverse flex-sm-row justify-content-between gap-2">
                   <button 
-                    className="btn btn-heritage-outline"
+                    className="btn btn-heritage-outline w-100 w-sm-auto"
                     onClick={() => setCurrentStep(1)}
                   >
-                    <i className="bi bi-arrow-left"></i>
+                    <i className="bi bi-arrow-left me-1"></i>
                     <span>Back</span>
                   </button>
 
                   <button 
-                    className="btn btn-gold-primary"
+                    className="btn btn-gold-primary w-100 w-sm-auto"
                     onClick={() => setCurrentStep(3)}
                   >
                     <span>Proceed to Schedule</span>
-                    <i className="bi bi-arrow-right"></i>
+                    <i className="bi bi-arrow-right ms-1"></i>
                   </button>
                 </div>
               </div>
@@ -457,11 +457,11 @@ export default function Booking({
 
             {/* Step 3: Schedule Date & Time Slot */}
             {currentStep === 3 && (
-              <div className="border-heritage p-4 bg-card shadow-sm">
+              <div className="border-heritage p-3 p-sm-4 bg-card shadow-sm">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <span className="label-caps text-gold fw-bold">Step 03 Protocol</span>
-                    <h3 className="headline-serif text-espresso fs-4 mb-0">Select Date &amp; Arrival Slot</h3>
+                    <h3 className="headline-serif text-espresso fs-5 fs-sm-4 mb-0">Select Date &amp; Arrival Slot</h3>
                   </div>
                   <span className="label-caps text-muted-heritage">PKT Timezone</span>
                 </div>
@@ -470,10 +470,10 @@ export default function Booking({
                 <div className="mb-4">
                   <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-3">
                     <label className="label-caps text-espresso fw-bold mb-0">Select Date According to Month:</label>
-                    <div className="d-inline-flex border-heritage bg-card p-1 shadow-sm">
+                    <div className="d-inline-flex border-heritage bg-card p-1 shadow-sm w-100 w-sm-auto">
                       <button 
                         type="button"
-                        className={`btn btn-sm ${calendarViewMode === 'calendar' ? 'btn-gold-primary' : 'btn-heritage-outline border-0'} py-1 px-3`}
+                        className={`btn btn-sm ${calendarViewMode === 'calendar' ? 'btn-gold-primary' : 'btn-heritage-outline border-0'} py-1 px-2 px-sm-3 flex-fill flex-sm-grow-0`}
                         style={{ fontSize: '11px' }}
                         onClick={() => setCalendarViewMode('calendar')}
                       >
@@ -481,7 +481,7 @@ export default function Booking({
                       </button>
                       <button 
                         type="button"
-                        className={`btn btn-sm ${calendarViewMode === 'strip' ? 'btn-gold-primary' : 'btn-heritage-outline border-0'} py-1 px-3`}
+                        className={`btn btn-sm ${calendarViewMode === 'strip' ? 'btn-gold-primary' : 'btn-heritage-outline border-0'} py-1 px-2 px-sm-3 flex-fill flex-sm-grow-0`}
                         style={{ fontSize: '11px' }}
                         onClick={() => setCalendarViewMode('strip')}
                       >
@@ -655,7 +655,7 @@ export default function Booking({
                     </span>
                     <div className="row g-2">
                       {timeSlots.afternoon.map((slot) => (
-                        <div key={slot.time} className="col-4">
+                        <div key={slot.time} className="col-6 col-sm-4">
                           <button
                             type="button"
                             className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
@@ -679,7 +679,7 @@ export default function Booking({
                     </span>
                     <div className="row g-2">
                       {timeSlots.evening.map((slot) => (
-                        <div key={slot.time} className="col-4">
+                        <div key={slot.time} className="col-6 col-sm-4">
                           <button
                             type="button"
                             className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
@@ -699,21 +699,21 @@ export default function Booking({
                   </div>
                 </div>
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex flex-column-reverse flex-sm-row justify-content-between gap-2">
                   <button 
-                    className="btn btn-heritage-outline"
+                    className="btn btn-heritage-outline w-100 w-sm-auto"
                     onClick={() => setCurrentStep(2)}
                   >
-                    <i className="bi bi-arrow-left"></i>
+                    <i className="bi bi-arrow-left me-1"></i>
                     <span>Back</span>
                   </button>
 
                   <button 
-                    className="btn btn-gold-primary"
+                    className="btn btn-gold-primary w-100 w-sm-auto"
                     onClick={() => setCurrentStep(4)}
                   >
                     <span>Proceed to Client Ledger</span>
-                    <i className="bi bi-arrow-right"></i>
+                    <i className="bi bi-arrow-right ms-1"></i>
                   </button>
                 </div>
               </div>
@@ -721,11 +721,11 @@ export default function Booking({
 
             {/* Step 4: Client Dossier & Final Execution */}
             {currentStep === 4 && (
-              <div className="border-heritage p-4 bg-card shadow-sm">
+              <div className="border-heritage p-3 p-sm-4 bg-card shadow-sm">
                 <div className="d-flex justify-content-between align-items-center mb-3">
                   <div>
                     <span className="label-caps text-gold fw-bold">Step 04 Protocol</span>
-                    <h3 className="headline-serif text-espresso fs-4 mb-0">Client Information Ledger</h3>
+                    <h3 className="headline-serif text-espresso fs-5 fs-sm-4 mb-0">Client Information Ledger</h3>
                   </div>
                   <span className="label-caps text-muted-heritage">Direct Reservation</span>
                 </div>
@@ -804,21 +804,21 @@ export default function Booking({
                     </div>
                   </div>
 
-                  <div className="d-flex justify-content-between">
+                  <div className="d-flex flex-column-reverse flex-sm-row justify-content-between gap-2">
                     <button 
                       type="button"
-                      className="btn btn-heritage-outline"
+                      className="btn btn-heritage-outline w-100 w-sm-auto"
                       onClick={() => setCurrentStep(3)}
                     >
-                      <i className="bi bi-arrow-left"></i>
+                      <i className="bi bi-arrow-left me-1"></i>
                       <span>Back</span>
                     </button>
 
                     <button 
                       type="submit" 
-                      className="btn btn-gold-primary px-4 py-3"
+                      className="btn btn-gold-primary px-4 py-3 w-100 w-sm-auto"
                     >
-                      <i className="bi bi-check2-circle"></i>
+                      <i className="bi bi-check2-circle me-1"></i>
                       <span>Confirm &amp; Reserve Chair</span>
                     </button>
                   </div>
@@ -831,7 +831,7 @@ export default function Booking({
 
           {/* Real-time Dossier Summary Right Column (Rich Espresso Card) */}
           <div className="col-12 col-lg-4">
-            <div className="border-dark-section p-4 bg-espresso sticky-top shadow" style={{ top: '90px' }}>
+            <div className="border-dark-section p-3 p-sm-4 bg-espresso sticky-top shadow" style={{ top: '90px' }}>
               <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom border-dark-section">
                 <div className="d-flex align-items-center gap-2">
                   <i className="bi bi-receipt text-gold"></i>

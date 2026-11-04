@@ -43,7 +43,7 @@ export default function Services({ selectedServices, onToggleService, onProceedT
         </div>
 
         {/* Sterilization & Tool Hygiene Protocol Card */}
-        <div className="border-heritage p-4 bg-card mb-5 shadow-sm position-relative overflow-hidden">
+        <div className="border-heritage p-3 p-sm-4 bg-card mb-4 mb-sm-5 shadow-sm position-relative overflow-hidden">
           <div className="row align-items-center g-4">
             <div className="col-12 col-md-8">
               <div className="d-flex align-items-center gap-2 mb-1">
@@ -180,7 +180,7 @@ export default function Services({ selectedServices, onToggleService, onProceedT
                           </span>
                           <div className="row g-1">
                             {service.includes.map((inc, i) => (
-                              <div key={i} className="col-6">
+                              <div key={i} className="col-12 col-sm-6">
                                 <span className="label-caps text-espresso d-flex align-items-center gap-1" style={{ fontSize: '10px' }}>
                                   <i className="bi bi-check text-gold"></i> {inc}
                                 </span>
@@ -219,7 +219,7 @@ export default function Services({ selectedServices, onToggleService, onProceedT
         )}
 
         {/* Walk-in & Appointment Policy */}
-        <div className="mt-5 border-heritage p-4 bg-card shadow-sm">
+        <div className="mt-4 mt-sm-5 border-heritage p-3 p-sm-4 bg-card shadow-sm">
           <div className="d-flex align-items-center gap-2 mb-2">
             <i className="bi bi-info-circle text-gold fs-5"></i>
             <span className="label-caps text-espresso fw-bold">Walk-in &amp; Priority Booking Protocol</span>
@@ -241,7 +241,7 @@ export default function Services({ selectedServices, onToggleService, onProceedT
             transition={{ type: 'spring', damping: 20, stiffness: 220 }}
           >
             <div className="container">
-              <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+              <div className="d-flex flex-column flex-sm-row justify-content-between align-items-stretch align-items-sm-center gap-2 gap-sm-3">
                 <div>
                   <div className="d-flex align-items-center gap-2 mb-1">
                     <span className="pulse-indicator bg-gold"></span>
@@ -259,15 +259,15 @@ export default function Services({ selectedServices, onToggleService, onProceedT
                   </div>
                 </div>
 
-                <div className="d-flex gap-2">
+                <div className="d-flex gap-2 w-100 w-sm-auto">
                   <button
-                    className="btn btn-gold-outline btn-heritage-sm"
+                    className="btn btn-gold-outline btn-heritage-sm flex-shrink-0"
                     onClick={() => onToggleService('clear_all')}
                   >
                     Clear
                   </button>
                   <MagneticButton
-                    className="btn btn-gold-primary btn-heritage-sm px-4"
+                    className="btn btn-gold-primary btn-heritage-sm px-3 px-sm-4 flex-grow-1"
                     onClick={() => {
                       onProceedToBooking();
                       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });

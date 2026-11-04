@@ -51,8 +51,8 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
               {/* Main Headline */}
               <motion.h1 
                 variants={fadeInUp}
-                className="display-title text-espresso mb-3" 
-                style={{ fontSize: 'clamp(2.3rem, 5vw, 3.8rem)' }}
+                className="display-title text-espresso mb-3 hero-headline" 
+                style={{ fontSize: 'clamp(1.75rem, 5.5vw, 3.8rem)', wordBreak: 'break-word', hyphens: 'auto' }}
               >
                 Master Craftsmanship &amp; Gentlemen's Grooming
               </motion.h1>
@@ -61,15 +61,15 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
               <motion.p 
                 variants={fadeInUp}
                 className="body-muted fs-6 mb-4" 
-                style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7 }}
+                style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7, fontSize: 'clamp(13.5px, 3.6vw, 15px)' }}
               >
                 Traditional straight-razor geometry meets contemporary bespoke grooming in Allama Iqbal Town. Steeped eucalyptus hot towels, hospital-grade single-use blades, and tailored tapers crafted for gentlemen of distinction.
               </motion.p>
 
               {/* CTA Button Group with Magnetic Interaction */}
-              <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-3">
+              <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
                 <MagneticButton 
-                  className="btn btn-gold-primary px-4 py-3"
+                  className="btn btn-gold-primary px-3 px-sm-4 py-2.5 py-sm-3 flex-grow-1 flex-sm-grow-0"
                   onClick={() => {
                     setCurrentTab('booking');
                     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -80,7 +80,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                 </MagneticButton>
 
                 <MagneticButton 
-                  className="btn btn-heritage-outline px-4 py-3"
+                  className="btn btn-heritage-outline px-3 px-sm-4 py-2.5 py-sm-3 flex-grow-1 flex-sm-grow-0"
                   onClick={() => setCurrentTab('services')}
                 >
                   <i className="bi bi-card-list fs-6 text-gold"></i>
@@ -89,8 +89,9 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
 
                 <a 
                   href="tel:+923001234567"
-                  className="btn btn-heritage-outline p-3"
+                  className="btn btn-heritage-outline p-2.5 p-sm-3"
                   title="Direct Phone Line"
+                  style={{ minWidth: '42px', minHeight: '42px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                 >
                   <i className="bi bi-telephone text-gold"></i>
                 </a>
@@ -104,15 +105,15 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
       <section className="border-heritage-bottom bg-ivory py-4">
         <div className="container">
           <motion.div 
-            className="row g-3"
+            className="row g-2 g-sm-3"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-40px' }}
             variants={staggerContainer}
           >
             <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-              <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+              <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                   <i className="bi bi-hourglass-split fs-4 text-gold"></i>
                 </div>
                 <div>
@@ -125,8 +126,8 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
             </motion.div>
 
             <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-              <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+              <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                   <i className="bi bi-star-fill fs-4 text-gold"></i>
                 </div>
                 <div>
@@ -134,15 +135,15 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                     <AnimatedCounter value={4.9} decimals={1} suffix=" ★ RATING" />
                   </div>
                   <div className="body-muted" style={{ fontSize: '12px' }}>
-                    <AnimatedCounter value={1200} suffix="+ Verified Clients" />
+                    <AnimatedCounter value={1200} suffix="+ Clients" />
                   </div>
                 </div>
               </div>
             </motion.div>
 
             <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-              <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+              <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                   <i className="bi bi-scissors fs-4 text-gold"></i>
                 </div>
                 <div>
@@ -153,8 +154,8 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
             </motion.div>
 
             <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-              <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+              <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                   <i className="bi bi-door-open-fill fs-4 text-gold"></i>
                 </div>
                 <div>
@@ -170,14 +171,14 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
       {/* Studio Location & Directions Card */}
       <section className="py-5 bg-ivory">
         <div className="container">
-          <div className="border-heritage p-4 p-md-5 bg-card shadow-sm position-relative">
+          <div className="border-heritage p-3 p-sm-4 p-md-5 bg-card shadow-sm position-relative">
             <div className="row align-items-center g-4">
               <div className="col-12 col-md-8">
                 <div className="d-flex align-items-center gap-2 mb-2">
                   <span className="label-caps text-gold fw-bold">Flagship Studio Atelier</span>
                   <span className="badge bg-espresso text-ivory label-caps py-1 px-2">Now Active</span>
                 </div>
-                <h2 className="headline-serif text-espresso fs-3 mb-2">
+                <h2 className="headline-serif text-espresso fs-4 fs-md-3 mb-2">
                   117 Neelum Block, Allama Iqbal Town, Lahore
                 </h2>
                 <p className="body-muted mb-0">
@@ -309,7 +310,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                 <div className="barber-card h-100 d-flex flex-column justify-content-between p-0 overflow-hidden">
                   <div>
                     {/* Master Barber Portrait */}
-                    <div className="position-relative overflow-hidden" style={{ height: '380px', backgroundColor: 'var(--color-beige)' }}>
+                    <div className="position-relative overflow-hidden" style={{ height: 'clamp(280px, 60vw, 380px)', backgroundColor: 'var(--color-beige)' }}>
                       <img 
                         src={barber.avatar} 
                         alt={barber.name} 
@@ -366,7 +367,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
         <div className="container">
           <div className="row align-items-center g-4 g-lg-5">
             <div className="col-12 col-lg-6">
-              <div className="border-heritage overflow-hidden position-relative shadow-sm" style={{ height: '380px' }}>
+              <div className="border-heritage overflow-hidden position-relative shadow-sm" style={{ height: 'clamp(240px, 50vw, 380px)' }}>
                 <img 
                   src="./barber 2.jpg" 
                   alt="Jerry Hair Saloon Interior Studio" 
@@ -437,7 +438,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
         </ParallaxBox>
 
         <div className="container position-relative" style={{ zIndex: 2 }}>
-          <div className="border-dark-section p-4 p-md-5 position-relative overflow-hidden" style={{ backgroundColor: '#2E2B27' }}>
+          <div className="border-dark-section p-3 p-sm-4 p-md-5 position-relative overflow-hidden" style={{ backgroundColor: '#2E2B27' }}>
             <div className="row align-items-center">
               <div className="col-12 col-lg-8">
                 <span className="badge bg-gold text-espresso label-caps py-1 px-2 mb-2 fw-bold">
@@ -493,7 +494,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
           >
             {reviewsData.map((review) => (
               <motion.div key={review.id} className="col-12 col-md-4" variants={cardItemAnim}>
-                <div className="border-heritage p-4 bg-card shadow-sm h-100 d-flex flex-column justify-content-between review-card">
+                <div className="border-heritage p-3 p-sm-4 bg-card shadow-sm h-100 d-flex flex-column justify-content-between review-card">
                   <div>
                     <div className="d-flex justify-content-between align-items-center mb-2">
                       <div className="text-gold small">

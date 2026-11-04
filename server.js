@@ -28,6 +28,10 @@ const server = http.createServer((req, res) => {
   let safeUrl = decodeURIComponent(req.url.split('?')[0]);
   let filePath = path.join(__dirname, safeUrl === '/' ? 'index.html' : safeUrl);
 
+  if (!fs.existsSync(filePath) && fs.existsSync(path.join(__dirname, 'dist', safeUrl))) {
+    filePath = path.join(__dirname, 'dist', safeUrl);
+  }
+
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
       filePath = path.join(__dirname, 'index.html');

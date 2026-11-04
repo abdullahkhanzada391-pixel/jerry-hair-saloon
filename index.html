@@ -34,767 +34,1161 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <style>
-    /* ==========================================================================
-       JERRY HAIR SALOON — HERITAGE LUXURY BARBERSHOP THEME
-       Warm Ivory (#F3EFE6) • Dark Espresso (#24211E) • Antique Gold (#B08A55) • Warm Beige (#D9D0C2)
-       ========================================================================== */
-    :root {
-      --color-ivory: #F3EFE6;
-      --color-espresso: #24211E;
-      --color-gold: #B08A55;
-      --color-gold-hover: #967443;
-      --color-gold-light: #FBF8F2;
-      --color-beige: #D9D0C2;
-      --color-beige-subtle: #E8E1D5;
-      --color-card: #FFFFFF;
-      --color-border: #E0D7C9;
-      --color-border-subtle: #ECE5DA;
-      --color-border-dark: #3A3530;
-      --color-text-primary: #24211E;
-      --color-text-muted: #68615A;
-      --color-text-light: #F3EFE6;
+/* ==========================================================================
+   JERRY HAIR SALOON — HERITAGE LUXURY BARBERSHOP THEME
+   Warm Ivory (#F3EFE6) • Dark Espresso (#24211E) • Antique Gold (#B08A55) • Warm Beige (#D9D0C2)
+   Bespoke Traditional Gentlemen's Grooming • Est. 8 Years • 117 Neelum Block, Iqbal Town
+   ========================================================================== */
 
-      --font-serif: 'Bodoni Moda', Georgia, serif;
-      --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Hanken+Grotesk:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+:root {
+  --color-ivory: #F3EFE6;
+  --color-espresso: #24211E;
+  --color-gold: #B08A55;
+  --color-gold-hover: #967443;
+  --color-gold-light: #FBF8F2;
+  --color-beige: #D9D0C2;
+  --color-beige-subtle: #E8E1D5;
+  --color-card: #FFFFFF;
+  --color-border: #E0D7C9;
+  --color-border-subtle: #ECE5DA;
+  --color-border-dark: #3A3530;
+  --color-text-primary: #24211E;
+  --color-text-muted: #68615A;
+  --color-text-light: #F3EFE6;
+  
+  --font-serif: 'Bodoni Moda', Georgia, serif;
+  --font-sans: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
 
-    html, body {
-      background-color: var(--color-ivory) !important;
-      color: var(--color-text-primary) !important;
-      font-family: var(--font-sans);
-      margin: 0;
-      padding: 0;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-    }
+/* Global Reset & Strict 0px Straight-Razor Sharpness */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-    /* Enforce 0px straight-razor sharpness */
-    .btn, .card, .modal-content, .form-control, .input-group-text, 
-    .badge, .alert, .dropdown-menu, .nav-pills .nav-link, .list-group-item,
-    img, .img-fluid, .rounded, .rounded-top, .rounded-bottom, .rounded-start, .rounded-end,
-    .rounded-circle, .rounded-pill, input, select, textarea, button {
-      border-radius: 0px !important;
-    }
+html, body {
+  background-color: var(--color-ivory) !important;
+  color: var(--color-text-primary) !important;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
 
-    .font-serif { font-family: var(--font-serif); }
-    .font-sans { font-family: var(--font-sans); }
+/* Enforce 0px radius everywhere for straight-razor sharpness */
+.btn, .card, .modal-content, .form-control, .input-group-text, 
+.badge, .alert, .dropdown-menu, .nav-pills .nav-link, .list-group-item,
+img, .img-fluid, .rounded, .rounded-top, .rounded-bottom, .rounded-start, .rounded-end,
+.rounded-circle, .rounded-pill, input, select, textarea, button {
+  border-radius: 0px !important;
+}
 
-    .display-title {
-      font-family: var(--font-serif);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-      color: var(--color-espresso);
-    }
+/* Typography Classes */
+.font-serif {
+  font-family: var(--font-serif);
+}
 
-    .headline-serif {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--color-espresso);
-    }
+.font-sans {
+  font-family: var(--font-sans);
+}
 
-    .label-caps {
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      line-height: 1.4;
-    }
+.display-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--color-espresso);
+}
 
-    .body-muted {
-      color: var(--color-text-muted);
-      font-size: 14px;
-      line-height: 1.6;
-    }
+.headline-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--color-espresso);
+}
 
-    /* Custom Scrollbars */
-    ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: var(--color-ivory); }
-    ::-webkit-scrollbar-thumb { background: var(--color-beige); border: 1px solid var(--color-border); }
-    ::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.label-caps {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  line-height: 1.4;
+}
 
-    /* Backgrounds */
-    .bg-ivory { background-color: var(--color-ivory) !important; }
-    .bg-beige { background-color: var(--color-beige) !important; }
-    .bg-beige-subtle { background-color: var(--color-beige-subtle) !important; }
-    .bg-espresso { background-color: var(--color-espresso) !important; color: var(--color-ivory) !important; }
-    .bg-card { background-color: var(--color-card) !important; }
-    .bg-gold { background-color: var(--color-gold) !important; color: var(--color-espresso) !important; }
+.body-muted {
+  color: var(--color-text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
 
-    /* Text */
-    .text-espresso { color: var(--color-espresso) !important; }
-    .text-gold { color: var(--color-gold) !important; }
-    .text-muted-heritage { color: var(--color-text-muted) !important; }
-    .text-ivory { color: var(--color-ivory) !important; }
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-beige);
+  border: 1px solid var(--color-border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
 
-    /* Borders */
-    .border-heritage { border: 1px solid var(--color-border) !important; }
-    .border-heritage-top { border-top: 1px solid var(--color-border) !important; }
-    .border-heritage-bottom { border-bottom: 1px solid var(--color-border) !important; }
-    .border-dark-section { border: 1px solid var(--color-border-dark) !important; }
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-    /* Heritage Buttons */
-    .btn-gold-primary {
-      background-color: var(--color-gold) !important;
-      color: var(--color-espresso) !important;
-      border: 1px solid var(--color-gold) !important;
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 12px 24px;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      box-shadow: 0 2px 6px rgba(176, 138, 85, 0.25);
-    }
-    .btn-gold-primary:hover, .btn-gold-primary:focus {
-      background-color: var(--color-gold-hover) !important;
-      color: #FFFFFF !important;
-      border-color: var(--color-gold-hover) !important;
-    }
-    .btn-gold-primary:active { transform: scale(0.98); }
+/* Background Utility Classes */
+.bg-ivory {
+  background-color: var(--color-ivory) !important;
+}
+.bg-beige {
+  background-color: var(--color-beige) !important;
+}
+.bg-beige-subtle {
+  background-color: var(--color-beige-subtle) !important;
+}
+.bg-espresso {
+  background-color: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+}
+.bg-card {
+  background-color: var(--color-card) !important;
+}
+.bg-gold {
+  background-color: var(--color-gold) !important;
+  color: var(--color-espresso) !important;
+}
 
-    .btn-espresso-primary {
-      background-color: var(--color-espresso) !important;
-      color: var(--color-ivory) !important;
-      border: 1px solid var(--color-espresso) !important;
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 12px 24px;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .btn-espresso-primary:hover {
-      background-color: var(--color-gold) !important;
-      color: var(--color-espresso) !important;
-      border-color: var(--color-gold) !important;
-    }
+/* Text Colors */
+.text-espresso {
+  color: var(--color-espresso) !important;
+}
+.text-gold {
+  color: var(--color-gold) !important;
+}
+.text-muted-heritage {
+  color: var(--color-text-muted) !important;
+}
+.text-ivory {
+  color: var(--color-ivory) !important;
+}
 
-    .btn-heritage-outline {
-      background-color: transparent !important;
-      color: var(--color-espresso) !important;
-      border: 1px solid var(--color-espresso) !important;
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 12px 24px;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .btn-heritage-outline:hover, .btn-heritage-outline:focus {
-      background-color: var(--color-espresso) !important;
-      color: var(--color-ivory) !important;
-      border-color: var(--color-espresso) !important;
-    }
+/* Border Utilities */
+.border-heritage {
+  border: 1px solid var(--color-border) !important;
+}
+.border-heritage-top {
+  border-top: 1px solid var(--color-border) !important;
+}
+.border-heritage-bottom {
+  border-bottom: 1px solid var(--color-border) !important;
+}
+.border-gold {
+  border-color: var(--color-gold) !important;
+}
+.border-dark-section {
+  border: 1px solid var(--color-border-dark) !important;
+}
 
-    .btn-gold-outline {
-      background-color: transparent !important;
-      color: var(--color-gold) !important;
-      border: 1px solid var(--color-gold) !important;
-      font-family: var(--font-sans);
-      font-size: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      padding: 12px 24px;
-      transition: all 0.25s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-    .btn-gold-outline:hover {
-      background-color: var(--color-gold) !important;
-      color: var(--color-espresso) !important;
-    }
+/* Heritage Buttons */
+.btn-gold-primary {
+  background-color: var(--color-gold) !important;
+  color: var(--color-espresso) !important;
+  border: 1px solid var(--color-gold) !important;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 24px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(176, 138, 85, 0.25);
+}
+.btn-gold-primary:hover, .btn-gold-primary:focus {
+  background-color: var(--color-gold-hover) !important;
+  color: #FFFFFF !important;
+  border-color: var(--color-gold-hover) !important;
+}
+.btn-gold-primary:active {
+  transform: scale(0.98);
+}
 
-    .btn-heritage-sm {
-      padding: 8px 16px !important;
-      font-size: 11px !important;
-    }
+.btn-espresso-primary {
+  background-color: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  border: 1px solid var(--color-espresso) !important;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 24px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-espresso-primary:hover, .btn-espresso-primary:focus {
+  background-color: var(--color-gold) !important;
+  color: var(--color-espresso) !important;
+  border-color: var(--color-gold) !important;
+}
 
-    /* Chips */
-    .chip-btn {
-      background-color: var(--color-card);
-      color: var(--color-espresso);
-      border: 1px solid var(--color-border);
-      font-family: var(--font-sans);
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 8px 18px;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      box-shadow: 0 1px 3px rgba(36, 33, 30, 0.04);
-    }
-    .chip-btn:hover {
-      color: var(--color-gold);
-      border-color: var(--color-gold);
-    }
-    .chip-btn.active {
-      background-color: var(--color-espresso);
-      color: var(--color-ivory);
-      border-color: var(--color-espresso);
-      font-weight: 700;
-    }
+.btn-heritage-outline {
+  background-color: transparent !important;
+  color: var(--color-espresso) !important;
+  border: 1px solid var(--color-espresso) !important;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 24px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-heritage-outline:hover, .btn-heritage-outline:focus {
+  background-color: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  border-color: var(--color-espresso) !important;
+}
 
-    /* Service Card */
-    .service-card {
-      background-color: var(--color-card);
-      border: 1px solid var(--color-border);
-      padding: 24px;
-      transition: all 0.25s ease;
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
-    }
-    .service-card:hover {
-      border-color: var(--color-gold);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(176, 138, 85, 0.12);
-    }
-    .service-card.selected {
-      border-color: var(--color-gold);
-      background-color: var(--color-gold-light);
-      box-shadow: inset 0 0 0 1px var(--color-gold);
-    }
+.btn-gold-outline {
+  background-color: transparent !important;
+  color: var(--color-gold) !important;
+  border: 1px solid var(--color-gold) !important;
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 24px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-gold-outline:hover, .btn-gold-outline:focus {
+  background-color: var(--color-gold) !important;
+  color: var(--color-espresso) !important;
+}
 
-    /* Gallery Card */
-    .gallery-card {
-      background-color: var(--color-card);
-      border: 1px solid var(--color-border);
-      overflow: hidden;
-      position: relative;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
-    }
-    .gallery-card:hover {
-      border-color: var(--color-gold);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(176, 138, 85, 0.14);
-    }
-    .gallery-card .img-wrapper {
-      overflow: hidden;
-      position: relative;
-      background-color: var(--color-beige);
-      aspect-ratio: 4/3;
-    }
-    .gallery-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .gallery-card:hover img {
-      transform: scale(1.05);
-    }
+.btn-heritage-sm {
+  padding: 8px 16px !important;
+  font-size: 11px !important;
+}
 
-    /* Barber Card */
-    .barber-card {
-      background-color: var(--color-card);
-      border: 1px solid var(--color-border);
-      transition: all 0.25s ease;
-      position: relative;
-      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
-    }
-    .barber-card:hover {
-      border-color: var(--color-gold);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(176, 138, 85, 0.12);
-    }
-    .barber-card.active {
-      border-color: var(--color-gold);
-      background-color: var(--color-gold-light);
-    }
+/* Category Filter Chips */
+.chip-btn {
+  background-color: var(--color-card);
+  color: var(--color-espresso);
+  border: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 8px 18px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(36, 33, 30, 0.04);
+}
+.chip-btn:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+.chip-btn.active {
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  border-color: var(--color-espresso);
+  font-weight: 700;
+}
 
-    /* Slots and Dates */
-    .slot-btn {
-      background-color: var(--color-card);
-      border: 1px solid var(--color-border);
-      color: var(--color-espresso);
-      padding: 12px 16px;
-      font-family: var(--font-sans);
-      text-align: left;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .slot-btn:hover:not(:disabled) {
-      border-color: var(--color-gold);
-      background-color: var(--color-gold-light);
-    }
-    .slot-btn.active {
-      background-color: var(--color-espresso) !important;
-      color: var(--color-ivory) !important;
-      border-color: var(--color-espresso) !important;
-    }
-    .slot-btn.active * { color: var(--color-ivory) !important; }
-    .slot-btn:disabled {
-      opacity: 0.4;
-      cursor: not-allowed;
-      text-decoration: line-through;
-      background-color: var(--color-beige-subtle);
-    }
+/* Service Card */
+.service-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  padding: 24px;
+  transition: all 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
+}
+.service-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(176, 138, 85, 0.12);
+}
+.service-card.selected {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+  box-shadow: inset 0 0 0 1px var(--color-gold);
+}
 
-    .date-btn {
-      min-width: 80px;
-      background-color: var(--color-card);
-      border: 1px solid var(--color-border);
-      color: var(--color-espresso);
-      padding: 14px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .date-btn:hover { border-color: var(--color-gold); }
-    .date-btn.active {
-      background-color: var(--color-espresso) !important;
-      color: var(--color-ivory) !important;
-      border-color: var(--color-espresso) !important;
-    }
-    .date-btn.active * { color: var(--color-ivory) !important; }
+/* Gallery Portfolio Card */
+.gallery-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
+}
+.gallery-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(176, 138, 85, 0.14);
+}
+.gallery-card .img-wrapper {
+  overflow: hidden;
+  position: relative;
+  background-color: var(--color-beige);
+  aspect-ratio: 4/3;
+}
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.gallery-card:hover img {
+  transform: scale(1.05);
+}
 
-    /* Month Calendar Styles */
-    .calendar-weekdays {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      text-align: center;
-      margin-bottom: 6px;
-    }
-    .calendar-weekday-cell {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--color-text-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 6px 0;
-    }
-    .calendar-days-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 6px;
-    }
-    .calendar-day-btn {
-      height: 48px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--color-card);
-      border: 1px solid var(--color-border-subtle);
-      color: var(--color-espresso);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      position: relative;
-      transition: all 0.18s ease;
-      padding: 2px;
-    }
-    .calendar-day-btn:hover:not(:disabled) {
-      border-color: var(--color-gold);
-      background-color: rgba(176, 138, 85, 0.08);
-    }
-    .calendar-day-btn.is-today {
-      border-color: var(--color-gold);
-      font-weight: 700;
-    }
-    .calendar-day-btn .today-dot {
-      position: absolute;
-      bottom: 4px;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background-color: var(--color-gold);
-    }
-    .calendar-day-btn.is-selected {
-      background-color: var(--color-espresso) !important;
-      border-color: var(--color-espresso) !important;
-      color: var(--color-ivory) !important;
-      box-shadow: 0 4px 12px rgba(36, 33, 30, 0.2);
-    }
-    .calendar-day-btn.is-selected * {
-      color: var(--color-ivory) !important;
-    }
-    .calendar-day-btn.is-selected .today-dot {
-      background-color: var(--color-gold) !important;
-    }
-    .calendar-day-btn:disabled {
-      opacity: 0.25;
-      cursor: not-allowed;
-      border-color: transparent;
-      background-color: transparent;
-      text-decoration: line-through;
-    }
-    @media (max-width: 576px) {
-      .calendar-day-btn {
-        height: 40px;
-        font-size: 12.5px;
-      }
-      .calendar-days-grid {
-        gap: 4px;
-      }
-    }
+/* Specialist / Barber Card */
+.barber-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  transition: all 0.25s ease;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(36, 33, 30, 0.04);
+}
+.barber-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(176, 138, 85, 0.12);
+}
+.barber-card.active {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+}
 
-    /* Sticky Cart Drawer */
-    .sticky-cart-bar {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1040;
-      background-color: rgba(36, 33, 30, 0.96);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-top: 1px solid var(--color-gold);
-      padding: 16px 24px;
-      box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
-      animation: slideUp 0.3s ease-out;
-      color: var(--color-ivory);
-    }
-    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+/* Time Slot & Date Chips */
+.slot-btn {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-espresso);
+  padding: 12px 16px;
+  font-family: var(--font-sans);
+  text-align: left;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.slot-btn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  background-color: var(--color-gold-light);
+}
+.slot-btn.active {
+  background-color: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  border-color: var(--color-espresso) !important;
+}
+.slot-btn.active * {
+  color: var(--color-ivory) !important;
+}
+.slot-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+  background-color: var(--color-beige-subtle);
+}
 
-    /* Forms */
-    .heritage-input {
-      background-color: #FFFFFF !important;
-      border: 1px solid var(--color-border) !important;
-      color: var(--color-espresso) !important;
-      font-family: var(--font-sans);
-      font-size: 14px;
-      padding: 12px 16px;
-      transition: border-color 0.2s ease;
-    }
-    .heritage-input:focus {
-      background-color: #FFFFFF !important;
-      border-color: var(--color-gold) !important;
-      outline: none !important;
-      box-shadow: 0 0 0 2px rgba(176, 138, 85, 0.15) !important;
-    }
-    .heritage-input::placeholder { color: #9E968D; }
+.date-btn {
+  min-width: 80px;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-espresso);
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.date-btn:hover {
+  border-color: var(--color-gold);
+}
+.date-btn.active {
+  background-color: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  border-color: var(--color-espresso) !important;
+}
+.date-btn.active * {
+  color: var(--color-ivory) !important;
+}
 
-    /* Pulse */
-    .pulse-indicator {
-      width: 8px;
-      height: 8px;
-      background-color: var(--color-gold);
-      border-radius: 50% !important;
-      display: inline-block;
-      animation: pulseLive 2s infinite ease-in-out;
-    }
-    @keyframes pulseLive {
-      0% { transform: scale(0.95); opacity: 0.6; }
-      50% { transform: scale(1.4); opacity: 1; }
-      100% { transform: scale(0.95); opacity: 0.6; }
-    }
+/* Month Calendar Styles */
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: 6px;
+}
+.calendar-weekday-cell {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 0;
+}
+.calendar-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+.calendar-day-btn {
+  height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-espresso);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.18s ease;
+  padding: 2px;
+}
+.calendar-day-btn:hover:not(:disabled) {
+  border-color: var(--color-gold);
+  background-color: rgba(176, 138, 85, 0.08);
+}
+.calendar-day-btn.is-today {
+  border-color: var(--color-gold);
+  font-weight: 700;
+}
+.calendar-day-btn .today-dot {
+  position: absolute;
+  bottom: 4px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-gold);
+}
+.calendar-day-btn.is-selected {
+  background-color: var(--color-espresso) !important;
+  border-color: var(--color-espresso) !important;
+  color: var(--color-ivory) !important;
+  box-shadow: 0 4px 12px rgba(36, 33, 30, 0.2);
+}
+.calendar-day-btn.is-selected * {
+  color: var(--color-ivory) !important;
+}
+.calendar-day-btn.is-selected .today-dot {
+  background-color: var(--color-gold) !important;
+}
+.calendar-day-btn:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration: line-through;
+}
+@media (max-width: 576px) {
+  .calendar-day-btn {
+    height: 40px;
+    font-size: 12.5px;
+  }
+  .calendar-days-grid {
+    gap: 4px;
+  }
+}
 
-    /* Nav Tab Link */
-    .nav-tab-link {
-      color: var(--color-espresso);
-      font-family: var(--font-sans);
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 10px 18px;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      position: relative;
-    }
-    .nav-tab-link:hover { color: var(--color-gold); }
-    .nav-tab-link.active {
-      color: var(--color-gold);
-    }
-    .nav-tab-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 18px;
-      right: 18px;
-      height: 2px;
-      background-color: var(--color-gold);
-    }
+/* Sticky Booking Drawer */
+.sticky-cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1040;
+  background-color: rgba(36, 33, 30, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-gold);
+  padding: 16px 24px;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease-out;
+  color: var(--color-ivory);
+}
 
-    /* Mobile Bottom Nav */
-    .mobile-bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 1050;
-      background-color: rgba(243, 239, 230, 0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-top: 1px solid var(--color-border);
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      padding: 0 8px;
-    }
-    .mobile-nav-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: var(--color-espresso);
-      text-decoration: none;
-      font-size: 10px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 6px 12px;
-      transition: color 0.2s ease;
-      cursor: pointer;
-      background: transparent;
-      border: none;
-    }
-    .mobile-nav-item i { font-size: 18px; margin-bottom: 2px; }
-    .mobile-nav-item.active { color: var(--color-gold); }
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
 
-    /* Hero */
-    .hero-wrapper-heritage {
-      position: relative;
-      min-height: 540px;
-      background-color: var(--color-beige);
-      overflow: hidden;
-    }
-    .hero-texture-overlay {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 75% 50%, rgba(243, 239, 230, 0.4) 0%, rgba(217, 208, 194, 0.85) 100%);
-      pointer-events: none;
-    }
+/* Form Inputs */
+.heritage-input {
+  background-color: #FFFFFF !important;
+  border: 1px solid var(--color-border) !important;
+  color: var(--color-espresso) !important;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  padding: 12px 16px;
+  transition: border-color 0.2s ease;
+}
+.heritage-input:focus {
+  background-color: #FFFFFF !important;
+  border-color: var(--color-gold) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 2px rgba(176, 138, 85, 0.15) !important;
+}
+.heritage-input::placeholder {
+  color: #9E968D;
+}
 
-    /* Lightbox */
-    .lightbox-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 1090;
-      background-color: rgba(36, 33, 30, 0.85);
-      backdrop-filter: blur(6px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
+/* Modal Dialogs */
+.modal-heritage .modal-content {
+  background-color: var(--color-ivory);
+  border: 1px solid var(--color-border);
+  color: var(--color-espresso);
+  box-shadow: 0 20px 50px rgba(36, 33, 30, 0.2);
+}
 
-    @media (max-width: 768px) {
-      body { padding-bottom: 74px; }
-      .display-title { font-size: 32px; }
-    }
+/* Navigation Tabs */
+.nav-tab-link {
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  position: relative;
+}
+.nav-tab-link:hover {
+  color: var(--color-gold);
+}
+.nav-tab-link.active {
+  color: var(--color-gold);
+}
+.nav-tab-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18px;
+  right: 18px;
+  height: 2px;
+  background-color: var(--color-gold);
+}
 
-    /* Enhanced Smooth Interactive Elevations & Hovers */
-    .service-card, .barber-card, .trust-card, .portfolio-card, .stat-counter-card {
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), 
-                  box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.3s ease !important;
-      will-change: transform, box-shadow;
-    }
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1050;
+  background-color: rgba(243, 239, 230, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--color-border);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 8px;
+}
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-espresso);
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 12px;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+.mobile-nav-item i {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+.mobile-nav-item.active {
+  color: var(--color-gold);
+}
 
-    .service-card:hover, .trust-card:hover, .stat-counter-card:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 14px 28px rgba(36, 33, 30, 0.08) !important;
-      border-color: var(--color-gold) !important;
-    }
+/* Hero Section */
+.hero-wrapper-heritage {
+  position: relative;
+  min-height: 540px;
+  background-color: var(--color-beige);
+  overflow: hidden;
+}
+.hero-texture-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 75% 50%, rgba(243, 239, 230, 0.4) 0%, rgba(217, 208, 194, 0.85) 100%);
+  pointer-events: none;
+}
 
-    .barber-card:hover {
-      transform: translateY(-6px) !important;
-      box-shadow: 0 16px 36px rgba(176, 138, 85, 0.16) !important;
-      border-color: var(--color-gold) !important;
-    }
+/* Lightbox Modal Overlay */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+  background-color: rgba(36, 33, 30, 0.85);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
 
-    .portfolio-card:hover {
-      transform: translateY(-5px) !important;
-      box-shadow: 0 16px 32px rgba(36, 33, 30, 0.12) !important;
-      border-color: var(--color-gold) !important;
-    }
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 74px;
+  }
+  .display-title {
+    font-size: 32px;
+  }
+}
 
-    /* Secondary & Icon Micro-Animations inside cards */
-    .service-card:hover .service-icon-box i,
-    .trust-card:hover i {
-      transform: scale(1.15) rotate(4deg);
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    }
+/* ==========================================================================
+   PREMIUM REACT ANIMATIONS & INTERACTIVE TRANSITIONS
+   Framer Motion helpers, hardware-accelerated transforms, and card hovers
+   ========================================================================== */
 
-    .barber-card:hover img {
-      transform: scale(1.035);
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
+/* Enhanced Smooth Interactive Elevations & Hovers */
+.service-card, .barber-card, .trust-card, .portfolio-card, .stat-counter-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), 
+              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.3s ease !important;
+  will-change: transform, box-shadow;
+}
 
-    /* Button Subtle Active Feedback */
-    .btn-gold-primary, .btn-heritage-outline {
-      transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), 
-                  background-color 0.25s ease, 
-                  color 0.25s ease, 
-                  box-shadow 0.25s ease !important;
-    }
+.service-card:hover, .trust-card:hover, .stat-counter-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 14px 28px rgba(36, 33, 30, 0.08) !important;
+  border-color: var(--color-gold) !important;
+}
 
-    .btn-gold-primary:active, .btn-heritage-outline:active {
-      transform: scale(0.97) !important;
-    }
+.barber-card:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 16px 36px rgba(176, 138, 85, 0.16) !important;
+  border-color: var(--color-gold) !important;
+}
 
-    /* Modern Luxury Footer */
-    .modern-luxury-footer {
-      background-color: var(--color-espresso);
-      border-top: 1px solid rgba(176, 138, 85, 0.18);
-      position: relative;
-      color: #D9D0C2;
-    }
+.portfolio-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 32px rgba(36, 33, 30, 0.12) !important;
+  border-color: var(--color-gold) !important;
+}
 
-    .footer-nav-link {
-      background: none;
-      border: none;
-      padding: 0;
-      color: #D9D0C2;
-      font-size: 13.5px;
-      font-family: inherit;
-      text-align: left;
-      cursor: pointer;
-      transition: color 0.2s ease, transform 0.2s ease;
-      display: inline-block;
-      line-height: 1.8;
-    }
+/* Secondary & Icon Micro-Animations inside cards */
+.service-card:hover .service-icon-box i,
+.trust-card:hover i {
+  transform: scale(1.15) rotate(4deg);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-    .footer-nav-link:hover {
-      color: var(--color-gold);
-      transform: translateX(3px);
-    }
+.barber-card:hover img {
+  transform: scale(1.035);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-    .footer-contact-link {
-      color: #D9D0C2;
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
+/* Button Subtle Active Feedback */
+.btn-gold-primary, .btn-heritage-outline {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), 
+              background-color 0.25s ease, 
+              color 0.25s ease, 
+              box-shadow 0.25s ease !important;
+}
 
-    .footer-contact-link:hover {
-      color: var(--color-gold);
-    }
+.btn-gold-primary:active, .btn-heritage-outline:active {
+  transform: scale(0.97) !important;
+}
 
-    .footer-social-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: 1px solid rgba(217, 208, 194, 0.2);
-      color: #D9D0C2;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-      text-decoration: none;
-    }
+/* Modern Luxury Footer */
+.modern-luxury-footer {
+  background-color: var(--color-espresso);
+  border-top: 1px solid rgba(176, 138, 85, 0.18);
+  position: relative;
+  color: #D9D0C2;
+}
 
-    .footer-social-icon:hover {
-      color: var(--color-gold);
-      border-color: var(--color-gold);
-      background-color: rgba(176, 138, 85, 0.08);
-      transform: translateY(-2px);
-    }
+.footer-nav-link {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #D9D0C2;
+  font-size: 13.5px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+  line-height: 1.8;
+}
 
-    /* Mobile Responsiveness Enhancements */
-    html, body {
-      max-width: 100%;
-      overflow-x: hidden;
-      position: relative;
-    }
+.footer-nav-link:hover {
+  color: var(--color-gold);
+  transform: translateX(3px);
+}
 
-    @media (max-width: 991.98px) {
-      body {
-        padding-bottom: 0 !important;
-      }
-      .modern-luxury-footer {
-        padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
-      }
-      .sticky-cart-bar {
-        bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
-        padding: 12px 16px !important;
-      }
-      .mobile-bottom-nav {
-        height: calc(64px + env(safe-area-inset-bottom, 0px));
-        padding-bottom: env(safe-area-inset-bottom, 0px);
-      }
-    }
+.footer-contact-link {
+  color: #D9D0C2;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
-    @media (max-width: 576px) {
-      .modern-luxury-footer {
-        padding-top: 40px !important;
-      }
-      .footer-nav-link {
-        padding: 8px 0;
-        font-size: 14px;
-        display: inline-block;
-      }
-      .footer-contact-link {
-        padding: 4px 0;
-        font-size: 14px;
-        display: inline-block;
-      }
-      .footer-social-icon {
-        width: 40px;
-        height: 40px;
-      }
-      .lightbox-backdrop {
-        padding: 12px !important;
-        align-items: flex-start !important;
-        padding-top: 24px !important;
-        padding-bottom: 84px !important;
-      }
-      .trust-card {
-        padding: 12px 8px !important;
-        gap: 8px !important;
-      }
-      .trust-card .fs-4 {
-        font-size: 1.15rem !important;
-      }
-    }
+.footer-contact-link:hover {
+  color: var(--color-gold);
+}
 
-    /* Reduced Motion Compliance */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
+.footer-social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(217, 208, 194, 0.2);
+  color: #D9D0C2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.footer-social-icon:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+  background-color: rgba(176, 138, 85, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness Enhancements */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Header Mobile Drawer & Links */
+.mobile-header-menu {
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px rgba(36, 33, 30, 0.12);
+  background-color: var(--color-ivory);
+}
+
+.mobile-menu-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.mobile-menu-link:hover, .mobile-menu-link:active {
+  background-color: var(--color-beige-subtle);
+  border-color: var(--color-border);
+  color: var(--color-gold);
+}
+
+.mobile-menu-link.active {
+  background-color: var(--color-espresso);
+  color: var(--color-ivory);
+  border-color: var(--color-espresso);
+}
+
+.mobile-menu-link.active i {
+  color: var(--color-gold) !important;
+}
+
+/* Tablet & Mobile Breakpoints (max-width: 991.98px) */
+@media (max-width: 991.98px) {
+  body {
+    padding-bottom: 0 !important;
+  }
+  .modern-luxury-footer {
+    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+  .sticky-cart-bar {
+    bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+    padding: 12px 16px !important;
+  }
+  .mobile-bottom-nav {
+    height: calc(60px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .hero-wrapper-heritage {
+    min-height: auto !important;
+  }
+}
+
+/* Phablets & Large Mobiles (max-width: 768px) */
+@media (max-width: 768px) {
+  .display-title {
+    font-size: clamp(1.85rem, 5.5vw, 2.8rem) !important;
+    line-height: 1.18 !important;
+  }
+  .headline-serif {
+    font-size: clamp(1.25rem, 4.2vw, 1.65rem) !important;
+  }
+  .service-card {
+    padding: 20px 18px;
+  }
+  .barber-card {
+    margin-bottom: 8px;
+  }
+}
+
+/* Standard Mobile Screens (max-width: 576px) */
+@media (max-width: 576px) {
+  /* Layout & Containers */
+  .container, .container-fluid {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* Headings & Typography */
+  .display-title {
+    font-size: clamp(1.65rem, 6.2vw, 2.2rem) !important;
+    line-height: 1.18 !important;
+    word-break: break-word;
+  }
+  .headline-serif {
+    font-size: clamp(1.15rem, 4.8vw, 1.45rem) !important;
+  }
+  .body-muted {
+    font-size: 13.5px !important;
+    line-height: 1.55 !important;
+  }
+  .label-caps {
+    font-size: 10px !important;
+    letter-spacing: 0.1em !important;
+  }
+
+  /* Spacing */
+  section.py-5 {
+    padding-top: 2.25rem !important;
+    padding-bottom: 2.25rem !important;
+  }
+  .py-4 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .mb-5 {
+    margin-bottom: 2rem !important;
+  }
+  .mb-4 {
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Buttons & Touch Targets */
+  .btn-gold-primary, .btn-espresso-primary, .btn-heritage-outline, .btn-gold-outline {
+    padding: 10px 18px;
+    font-size: 11.5px;
+    min-height: 42px;
+  }
+  .btn-heritage-sm {
+    padding: 7px 12px !important;
+    font-size: 10.5px !important;
+    min-height: 36px;
+  }
+  .chip-btn {
+    padding: 7px 14px;
+    font-size: 10.5px;
+    min-height: 36px;
+  }
+
+  /* Header adjustments */
+  .header-brand-title {
+    font-size: 16px !important;
+    letter-spacing: 0.05em !important;
+  }
+  .monogram-box {
+    width: 38px !important;
+    height: 38px !important;
+  }
+  .monogram-box i {
+    font-size: 1rem !important;
+  }
+
+  /* Trust Cards (2x2 Grid) */
+  .trust-card {
+    padding: 10px 8px !important;
+    gap: 8px !important;
+    min-height: 64px;
+  }
+  .trust-card .trust-icon-box {
+    width: 34px !important;
+    height: 34px !important;
+    flex-shrink: 0;
+  }
+  .trust-card .trust-icon-box i {
+    font-size: 1.1rem !important;
+  }
+  .trust-card .label-caps {
+    font-size: 9.5px !important;
+    letter-spacing: 0.06em !important;
+  }
+  .trust-card .body-muted {
+    font-size: 11px !important;
+  }
+
+  /* Cards Padding */
+  .service-card {
+    padding: 18px 16px !important;
+  }
+  .gallery-card .p-3 {
+    padding: 14px 12px !important;
+  }
+
+  /* Booking Steps */
+  .booking-progress-step .label-caps {
+    font-size: 9.5px !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  /* Calendar Grid */
+  .calendar-days-grid {
+    gap: 3px !important;
+  }
+  .calendar-day-btn {
+    height: 38px !important;
+    font-size: 12px !important;
+    padding: 0 !important;
+    min-width: 0 !important;
+  }
+  .calendar-weekday-cell {
+    font-size: 10px !important;
+    padding: 4px 0 !important;
+  }
+
+  /* Time Slots Matrix */
+  .slot-btn {
+    padding: 10px 10px !important;
+  }
+  .slot-btn .headline-serif {
+    font-size: 13px !important;
+  }
+  .slot-btn .label-caps {
+    font-size: 9px !important;
+  }
+
+  /* Date Buttons in Strip */
+  .date-btn {
+    min-width: 68px !important;
+    padding: 10px 6px !important;
+  }
+  .date-btn .headline-serif {
+    font-size: 18px !important;
+  }
+
+  /* Modals */
+  .lightbox-backdrop {
+    padding: 12px !important;
+    align-items: center !important;
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px)) !important;
+  }
+
+  /* Footer */
+  .modern-luxury-footer {
+    padding-top: 36px !important;
+  }
+  .footer-nav-link {
+    padding: 8px 0;
+    font-size: 14px;
+    display: inline-block;
+  }
+  .footer-contact-link {
+    padding: 6px 0;
+    font-size: 13.5px;
+    display: inline-block;
+  }
+  .footer-social-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Narrow & Compact Phones (max-width: 375px) */
+@media (max-width: 375px) {
+  .container, .container-fluid {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* Header Branding */
+  .header-brand-title {
+    font-size: 14.5px !important;
+    letter-spacing: 0.03em !important;
+  }
+  .monogram-box {
+    width: 34px !important;
+    height: 34px !important;
+  }
+
+  /* Typography */
+  .display-title {
+    font-size: 1.6rem !important;
+  }
+  .headline-serif {
+    font-size: 1.15rem !important;
+  }
+
+  /* Trust Cards */
+  .trust-card {
+    padding: 8px 6px !important;
+    gap: 6px !important;
+  }
+  .trust-card .trust-icon-box {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .trust-card .trust-icon-box i {
+    font-size: 0.95rem !important;
+  }
+  .trust-card .label-caps {
+    font-size: 8.5px !important;
+    letter-spacing: 0.04em !important;
+  }
+  .trust-card .body-muted {
+    font-size: 10px !important;
+  }
+
+  /* Booking Progress */
+  .booking-progress-step .label-caps {
+    font-size: 8.5px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  /* Calendar */
+  .calendar-days-grid {
+    gap: 2px !important;
+  }
+  .calendar-day-btn {
+    height: 34px !important;
+    font-size: 11px !important;
+  }
+  .calendar-weekday-cell {
+    font-size: 9px !important;
+  }
+
+  /* Slot Buttons */
+  .slot-btn {
+    padding: 8px 6px !important;
+  }
+  .slot-btn .headline-serif {
+    font-size: 12px !important;
+  }
+
+  /* Service & Barber Cards */
+  .service-card {
+    padding: 14px 12px !important;
+  }
+  .date-btn {
+    min-width: 62px !important;
+    padding: 8px 4px !important;
+  }
+}
+
+/* Extra Small Phones (max-width: 320px) */
+@media (max-width: 320px) {
+  .header-brand-title {
+    font-size: 13.5px !important;
+  }
+  .header-sub-title {
+    display: none !important;
+  }
+  .booking-progress-step .label-caps {
+    font-size: 7.5px !important;
+    letter-spacing: 0.01em !important;
+  }
+  .calendar-day-btn {
+    height: 32px !important;
+    font-size: 10.5px !important;
+  }
+  .calendar-weekday-cell {
+    font-size: 8.5px !important;
+  }
+  .slot-btn .headline-serif {
+    font-size: 11.5px !important;
+  }
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
   </style>
 </head>
 <body class="bg-ivory text-espresso">
@@ -1337,27 +1731,35 @@
       );
     }
     function Header({ currentTab, setCurrentTab, onOpenQuickBook, onOpenVipModal }) {
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+      const handleNavClick = (tab) => {
+        setCurrentTab(tab);
+        setMobileMenuOpen(false);
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      };
+
       return (
         <header 
           className="sticky-top border-heritage-bottom" 
           style={{ 
-            backgroundColor: 'rgba(243, 239, 230, 0.95)', 
+            backgroundColor: 'rgba(243, 239, 230, 0.96)', 
             backdropFilter: 'blur(16px)', 
             zIndex: 1030 
           }}
         >
-          <div className="container-fluid px-3 px-lg-5 py-3 d-flex align-items-center justify-content-between">
+          <div className="container-fluid px-2 px-sm-3 px-lg-5 py-2 py-sm-3 d-flex align-items-center justify-content-between">
             {/* Brand Logo & Heritage Title */}
             <div 
-              className="d-flex align-items-center gap-3 cursor-pointer" 
-              onClick={() => setCurrentTab('home')}
+              className="d-flex align-items-center gap-2 gap-sm-3 cursor-pointer" 
+              onClick={() => handleNavClick('home')}
               style={{ cursor: 'pointer' }}
             >
               <div 
-                className="d-flex align-items-center justify-content-center border-heritage" 
+                className="d-flex align-items-center justify-content-center border-heritage monogram-box flex-shrink-0" 
                 style={{ 
-                  width: '44px', 
-                  height: '44px', 
+                  width: '40px', 
+                  height: '40px', 
                   backgroundColor: 'var(--color-espresso)',
                   boxShadow: '0 2px 8px rgba(36, 33, 30, 0.12)'
                 }}
@@ -1366,10 +1768,10 @@
               </div>
               
               <div className="d-flex flex-column">
-                <div className="d-flex align-items-center gap-2">
+                <div className="d-flex align-items-center gap-1 gap-sm-2">
                   <span 
-                    className="font-serif fw-bold text-espresso text-uppercase fs-5" 
-                    style={{ letterSpacing: '0.08em' }}
+                    className="font-serif fw-bold text-espresso text-uppercase header-brand-title fs-5" 
+                    style={{ letterSpacing: '0.06em', whiteSpace: 'nowrap' }}
                   >
                     Jerry Hair Saloon
                   </span>
@@ -1377,7 +1779,7 @@
                     | Heritage Atelier
                   </span>
                 </div>
-                <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                <span className="label-caps text-muted-heritage header-sub-title" style={{ fontSize: '10px' }}>
                   Est. 8 Years • 117 Neelum Block, Iqbal Town
                 </span>
               </div>
@@ -1387,28 +1789,28 @@
             <nav className="d-none d-lg-flex align-items-center gap-2">
               <button 
                 className={`nav-tab-link ${currentTab === 'home' ? 'active' : ''}`}
-                onClick={() => setCurrentTab('home')}
+                onClick={() => handleNavClick('home')}
               >
                 <i className="bi bi-house-door text-gold"></i>
                 <span>Home</span>
               </button>
               <button 
                 className={`nav-tab-link ${currentTab === 'services' ? 'active' : ''}`}
-                onClick={() => setCurrentTab('services')}
+                onClick={() => handleNavClick('services')}
               >
                 <i className="bi bi-scissors text-gold"></i>
                 <span>Services</span>
               </button>
               <button 
                 className={`nav-tab-link ${currentTab === 'gallery' ? 'active' : ''}`}
-                onClick={() => setCurrentTab('gallery')}
+                onClick={() => handleNavClick('gallery')}
               >
                 <i className="bi bi-camera text-gold"></i>
                 <span>Gallery</span>
               </button>
               <button 
                 className={`nav-tab-link ${currentTab === 'booking' ? 'active' : ''}`}
-                onClick={() => setCurrentTab('booking')}
+                onClick={() => handleNavClick('booking')}
               >
                 <i className="bi bi-calendar-check text-gold"></i>
                 <span>Book Chair</span>
@@ -1416,9 +1818,9 @@
             </nav>
 
             {/* Action Buttons */}
-            <div className="d-flex align-items-center gap-2">
+            <div className="d-flex align-items-center gap-1.5 gap-sm-2">
               <MagneticButton 
-                className="btn btn-heritage-outline btn-heritage-sm d-none d-sm-inline-flex"
+                className="btn btn-heritage-outline btn-heritage-sm d-none d-md-inline-flex"
                 onClick={onOpenVipModal}
                 title="Jerry VIP Club Privilege"
               >
@@ -1428,7 +1830,7 @@
 
               <a 
                 href="tel:+923001234567" 
-                className="btn btn-heritage-outline btn-heritage-sm"
+                className="btn btn-heritage-outline btn-heritage-sm p-2 px-sm-3"
                 title="Call Barber Desk"
               >
                 <i className="bi bi-telephone-fill text-gold"></i>
@@ -1437,45 +1839,134 @@
 
               {/* Prominent Gold Book Chair CTA */}
               <MagneticButton 
-                className="btn btn-gold-primary btn-heritage-sm px-3"
-                onClick={() => setCurrentTab('booking')}
+                className="btn btn-gold-primary btn-heritage-sm px-2 px-sm-3"
+                onClick={() => handleNavClick('booking')}
               >
-                <i className="bi bi-calendar-event"></i>
-                <span>Book Chair</span>
+                <i className="bi bi-calendar-event me-sm-1"></i>
+                <span className="d-none d-sm-inline">Book Chair</span>
+                <span className="d-inline d-sm-none">Book</span>
               </MagneticButton>
+
+              {/* Mobile Menu Hamburger Toggle */}
+              <button
+                type="button"
+                className="btn btn-heritage-outline btn-heritage-sm d-lg-none p-2"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label="Toggle navigation menu"
+                style={{ width: '38px', height: '38px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+              >
+                <i className={`bi ${mobileMenuOpen ? 'bi-x-lg' : 'bi-list'} fs-5 text-gold`}></i>
+              </button>
             </div>
           </div>
+
+          {/* Expandable Mobile Navigation Menu Drawer */}
+          {mobileMenuOpen && (
+            <div className="mobile-header-menu border-heritage-top overflow-hidden d-lg-none">
+              <div className="container py-3">
+                <div className="d-flex flex-column gap-1 mb-3">
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'home' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('home')}
+                  >
+                    <i className="bi bi-house-door text-gold me-2 fs-5"></i>
+                    <span>Home</span>
+                  </button>
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'services' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('services')}
+                  >
+                    <i className="bi bi-scissors text-gold me-2 fs-5"></i>
+                    <span>Services Menu</span>
+                  </button>
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'gallery' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('gallery')}
+                  >
+                    <i className="bi bi-camera text-gold me-2 fs-5"></i>
+                    <span>Studio Gallery</span>
+                  </button>
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'booking' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('booking')}
+                  >
+                    <i className="bi bi-calendar-check text-gold me-2 fs-5"></i>
+                    <span>Book Chair</span>
+                  </button>
+                </div>
+
+                <div className="pt-2 border-heritage-top d-flex flex-column gap-2">
+                  <button
+                    className="btn btn-espresso-primary w-100 justify-content-between py-2.5 px-3"
+                    onClick={() => {
+                      onOpenVipModal();
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <span className="d-flex align-items-center gap-2">
+                      <i className="bi bi-award text-gold"></i>
+                      <span>VIP Resident Pass (20% Off)</span>
+                    </span>
+                    <i className="bi bi-arrow-right text-gold"></i>
+                  </button>
+
+                  <a
+                    href="tel:+923001234567"
+                    className="btn btn-heritage-outline w-100 justify-content-center py-2.5 px-3"
+                  >
+                    <i className="bi bi-telephone-fill text-gold me-2"></i>
+                    <span>Call Concierge: +92 300 1234567</span>
+                  </a>
+
+                  <div className="text-center pt-2">
+                    <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                      Open 10:00 AM – 11:00 PM • 117 Neelum Block, Iqbal Town
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </header>
       );
     }
 
     function BottomNav({ currentTab, setCurrentTab }) {
+      const handleNavClick = (tab) => {
+        setCurrentTab(tab);
+        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      };
+
       return (
-        <nav className="mobile-bottom-nav d-lg-none">
+        <nav className="mobile-bottom-nav d-lg-none" aria-label="Mobile Bottom Navigation">
           <button 
+            type="button"
             className={`mobile-nav-item ${currentTab === 'home' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('home')}
+            onClick={() => handleNavClick('home')}
           >
             <i className="bi bi-house-door"></i>
             <span>Home</span>
           </button>
           <button 
+            type="button"
             className={`mobile-nav-item ${currentTab === 'services' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('services')}
+            onClick={() => handleNavClick('services')}
           >
             <i className="bi bi-scissors"></i>
             <span>Services</span>
           </button>
           <button 
+            type="button"
             className={`mobile-nav-item ${currentTab === 'gallery' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('gallery')}
+            onClick={() => handleNavClick('gallery')}
           >
             <i className="bi bi-camera"></i>
             <span>Gallery</span>
           </button>
           <button 
+            type="button"
             className={`mobile-nav-item ${currentTab === 'booking' ? 'active' : ''}`}
-            onClick={() => setCurrentTab('booking')}
+            onClick={() => handleNavClick('booking')}
           >
             <i className="bi bi-calendar-check"></i>
             <span>Book</span>
@@ -1519,25 +2010,28 @@
                   animate="visible"
                   variants={staggerContainer}
                 >
+                  {/* Main Headline */}
                   <motion.h1 
                     variants={fadeInUp}
-                    className="display-title text-espresso mb-3" 
-                    style={{ fontSize: 'clamp(2.3rem, 5vw, 3.8rem)' }}
+                    className="display-title text-espresso mb-3 hero-headline" 
+                    style={{ fontSize: 'clamp(1.75rem, 5.5vw, 3.8rem)', wordBreak: 'break-word', hyphens: 'auto' }}
                   >
                     Master Craftsmanship &amp; Gentlemen's Grooming
                   </motion.h1>
 
+                  {/* Description */}
                   <motion.p 
                     variants={fadeInUp}
                     className="body-muted fs-6 mb-4" 
-                    style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7 }}
+                    style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7, fontSize: 'clamp(13.5px, 3.6vw, 15px)' }}
                   >
                     Traditional straight-razor geometry meets contemporary bespoke grooming in Allama Iqbal Town. Steeped eucalyptus hot towels, hospital-grade single-use blades, and tailored tapers crafted for gentlemen of distinction.
                   </motion.p>
 
-                  <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-3">
+                  {/* CTA Button Group with Magnetic Interaction */}
+                  <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
                     <MagneticButton 
-                      className="btn btn-gold-primary px-4 py-3"
+                      className="btn btn-gold-primary px-3 px-sm-4 py-2.5 py-sm-3 flex-grow-1 flex-sm-grow-0"
                       onClick={() => {
                         setCurrentTab('booking');
                         window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -1548,7 +2042,7 @@
                     </MagneticButton>
 
                     <MagneticButton 
-                      className="btn btn-heritage-outline px-4 py-3"
+                      className="btn btn-heritage-outline px-3 px-sm-4 py-2.5 py-sm-3 flex-grow-1 flex-sm-grow-0"
                       onClick={() => setCurrentTab('services')}
                     >
                       <i className="bi bi-card-list fs-6 text-gold"></i>
@@ -1557,8 +2051,9 @@
 
                     <a 
                       href="tel:+923001234567"
-                      className="btn btn-heritage-outline p-3"
+                      className="btn btn-heritage-outline p-2.5 p-sm-3"
                       title="Direct Phone Line"
+                      style={{ minWidth: '42px', minHeight: '42px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                     >
                       <i className="bi bi-telephone text-gold"></i>
                     </a>
@@ -1572,15 +2067,15 @@
           <section className="border-heritage-bottom bg-ivory py-4">
             <div className="container">
               <motion.div 
-                className="row g-3"
+                className="row g-2 g-sm-3"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-40px' }}
                 variants={staggerContainer}
               >
                 <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                  <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                       <i className="bi bi-hourglass-split fs-4 text-gold"></i>
                     </div>
                     <div>
@@ -1593,8 +2088,8 @@
                 </motion.div>
 
                 <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                  <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                       <i className="bi bi-star-fill fs-4 text-gold"></i>
                     </div>
                     <div>
@@ -1602,15 +2097,15 @@
                         <AnimatedCounter value={4.9} decimals={1} suffix=" ★ RATING" />
                       </div>
                       <div className="body-muted" style={{ fontSize: '12px' }}>
-                        <AnimatedCounter value={1200} suffix="+ Verified Clients" />
+                        <AnimatedCounter value={1200} suffix="+ Clients" />
                       </div>
                     </div>
                   </div>
                 </motion.div>
 
                 <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                  <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                       <i className="bi bi-scissors fs-4 text-gold"></i>
                     </div>
                     <div>
@@ -1621,8 +2116,8 @@
                 </motion.div>
 
                 <motion.div className="col-6 col-md-3" variants={cardItemAnim}>
-                  <div className="border-heritage p-3 d-flex align-items-center gap-3 bg-card shadow-sm h-100 trust-card">
-                    <div className="p-2 bg-beige-subtle d-flex align-items-center justify-content-center" style={{ width: '42px', height: '42px' }}>
+                  <div className="border-heritage p-2.5 p-sm-3 d-flex align-items-center gap-2 gap-sm-3 bg-card shadow-sm h-100 trust-card">
+                    <div className="p-1.5 p-sm-2 bg-beige-subtle d-flex align-items-center justify-content-center trust-icon-box flex-shrink-0" style={{ width: '42px', height: '42px' }}>
                       <i className="bi bi-door-open-fill fs-4 text-gold"></i>
                     </div>
                     <div>
@@ -1638,14 +2133,14 @@
           {/* Location & Directions */}
           <section className="py-5 bg-ivory">
             <div className="container">
-              <div className="border-heritage p-4 p-md-5 bg-card shadow-sm position-relative">
+              <div className="border-heritage p-3 p-sm-4 p-md-5 bg-card shadow-sm position-relative">
                 <div className="row align-items-center g-4">
                   <div className="col-12 col-md-8">
                     <div className="d-flex align-items-center gap-2 mb-2">
                       <span className="label-caps text-gold fw-bold">Flagship Studio Atelier</span>
                       <span className="badge bg-espresso text-ivory label-caps py-1 px-2">Now Active</span>
                     </div>
-                    <h2 className="headline-serif text-espresso fs-3 mb-2">
+                    <h2 className="headline-serif text-espresso fs-4 fs-md-3 mb-2">
                       117 Neelum Block, Allama Iqbal Town, Lahore
                     </h2>
                     <p className="body-muted mb-0">
@@ -1777,7 +2272,7 @@
                     <div className="barber-card h-100 d-flex flex-column justify-content-between p-0 overflow-hidden">
                       <div>
                         {/* Master Barber Portrait */}
-                        <div className="position-relative overflow-hidden" style={{ height: '380px', backgroundColor: 'var(--color-beige)' }}>
+                        <div className="position-relative overflow-hidden" style={{ height: 'clamp(280px, 60vw, 380px)', backgroundColor: 'var(--color-beige)' }}>
                           <img 
                             src={barber.avatar} 
                             alt={barber.name} 
@@ -1834,7 +2329,7 @@
             <div className="container">
               <div className="row align-items-center g-4 g-lg-5">
                 <div className="col-12 col-lg-6">
-                  <div className="border-heritage overflow-hidden position-relative shadow-sm" style={{ height: '380px' }}>
+                  <div className="border-heritage overflow-hidden position-relative shadow-sm" style={{ height: 'clamp(240px, 50vw, 380px)' }}>
                     <img 
                       src="./barber 2.jpg" 
                       alt="Jerry Hair Saloon Interior" 
@@ -1859,21 +2354,21 @@
                     Step into a welcoming grooming sanctuary. Restored hydraulic recliners from vintage barber heritage paired with medical-grade ultraviolet sterilizers and single-use Japanese blades.
                   </p>
 
-                  <div className="row g-3 mb-4">
+                  <div className="row g-2 g-sm-3 mb-4">
                     <div className="col-4">
-                      <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                      <div className="border-heritage p-2 p-sm-3 text-center bg-card shadow-sm h-100">
                         <i className="bi bi-shield-check fs-4 text-gold d-block mb-1"></i>
                         <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>UV Sanitized</span>
                       </div>
                     </div>
                     <div className="col-4">
-                      <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                      <div className="border-heritage p-2 p-sm-3 text-center bg-card shadow-sm h-100">
                         <i className="bi bi-droplet fs-4 text-gold d-block mb-1"></i>
                         <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>Single Blades</span>
                       </div>
                     </div>
                     <div className="col-4">
-                      <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                      <div className="border-heritage p-2 p-sm-3 text-center bg-card shadow-sm h-100">
                         <i className="bi bi-cup-hot fs-4 text-gold d-block mb-1"></i>
                         <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>House Brew</span>
                       </div>
@@ -1899,7 +2394,7 @@
             </ParallaxBox>
 
             <div className="container position-relative" style={{ zIndex: 2 }}>
-              <div className="border-dark-section p-4 p-md-5 position-relative overflow-hidden" style={{ backgroundColor: '#2E2B27' }}>
+              <div className="border-dark-section p-3 p-sm-4 p-md-5 position-relative overflow-hidden" style={{ backgroundColor: '#2E2B27' }}>
                 <div className="row align-items-center">
                   <div className="col-12 col-lg-8">
                     <span className="badge bg-gold text-espresso label-caps py-1 px-2 mb-2 fw-bold">
@@ -1955,7 +2450,7 @@
               >
                 {reviewsData.map((review) => (
                   <motion.div key={review.id} className="col-12 col-md-4" variants={cardItemAnim}>
-                    <div className="border-heritage p-4 bg-card shadow-sm h-100 d-flex flex-column justify-content-between review-card">
+                    <div className="border-heritage p-3 p-sm-4 bg-card shadow-sm h-100 d-flex flex-column justify-content-between review-card">
                       <div>
                         <div className="d-flex justify-content-between align-items-center mb-2">
                           <div className="text-gold small">
@@ -2025,7 +2520,7 @@
             </div>
 
             {/* Sterilization Spotlight Card */}
-            <div className="border-heritage p-4 bg-card mb-5 shadow-sm position-relative overflow-hidden">
+            <div className="border-heritage p-3 p-sm-4 bg-card mb-4 mb-sm-5 shadow-sm position-relative overflow-hidden">
               <div className="row align-items-center g-4">
                 <div className="col-12 col-md-8">
                   <div className="d-flex align-items-center gap-2 mb-1">
@@ -2148,7 +2643,7 @@
                             </span>
                             <div className="row g-1">
                               {service.includes.map((inc, i) => (
-                                <div key={i} className="col-6">
+                                <div key={i} className="col-12 col-sm-6">
                                   <span className="label-caps text-espresso d-flex align-items-center gap-1" style={{ fontSize: '10px' }}>
                                     <i className="bi bi-check text-gold"></i> {inc}
                                   </span>
@@ -2197,7 +2692,7 @@
                 transition={{ type: 'spring', damping: 20, stiffness: 220 }}
               >
                 <div className="container">
-                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-3">
+                  <div className="d-flex flex-column flex-sm-row justify-content-between align-items-stretch align-items-sm-center gap-2 gap-sm-3">
                     <div>
                       <div className="d-flex align-items-center gap-2 mb-1">
                         <span className="pulse-indicator bg-gold"></span>
@@ -2215,15 +2710,15 @@
                       </div>
                     </div>
 
-                    <div className="d-flex gap-2">
+                    <div className="d-flex gap-2 w-100 w-sm-auto">
                       <button 
-                        className="btn btn-gold-outline btn-heritage-sm"
+                        className="btn btn-gold-outline btn-heritage-sm flex-shrink-0"
                         onClick={() => onToggleService('clear_all')}
                       >
                         Clear
                       </button>
                       <MagneticButton 
-                        className="btn btn-gold-primary btn-heritage-sm px-4"
+                        className="btn btn-gold-primary btn-heritage-sm px-3 px-sm-4 flex-grow-1"
                         onClick={() => {
                           onProceedToBooking();
                           window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
@@ -2602,20 +3097,20 @@
 
             {/* Progress Tracker */}
             <div className="border-heritage p-3 bg-card mb-4 shadow-sm">
-              <div className="row g-2 text-center">
-                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(1)}>
+              <div className="row g-1 g-sm-2 text-center">
+                <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(1)}>
                   <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 1 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
                   <span className="label-caps d-block" style={{ color: currentStep >= 1 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Services</span>
                 </div>
-                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(2)}>
+                <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(2)}>
                   <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 2 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
                   <span className="label-caps d-block" style={{ color: currentStep >= 2 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Specialist</span>
                 </div>
-                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(3)}>
+                <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(3)}>
                   <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 3 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
                   <span className="label-caps d-block" style={{ color: currentStep >= 3 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Schedule</span>
                 </div>
-                <div className="col-3 cursor-pointer" onClick={() => setCurrentStep(4)}>
+                <div className="col-3 booking-progress-step cursor-pointer" onClick={() => setCurrentStep(4)}>
                   <div className="w-100 mb-1" style={{ height: '3px', backgroundColor: currentStep >= 4 ? 'var(--color-gold)' : 'var(--color-border)' }}></div>
                   <span className="label-caps d-block" style={{ color: currentStep >= 4 ? 'var(--color-gold)' : 'var(--color-text-muted)' }}>Ledger</span>
                 </div>
@@ -2929,7 +3424,7 @@
                         </span>
                         <div className="row g-2">
                           {timeSlots.afternoon.map((slot) => (
-                            <div key={slot.time} className="col-4">
+                            <div key={slot.time} className="col-6 col-sm-4">
                               <button
                                 type="button"
                                 className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
@@ -2951,7 +3446,7 @@
                         </span>
                         <div className="row g-2">
                           {timeSlots.evening.map((slot) => (
-                            <div key={slot.time} className="col-4">
+                            <div key={slot.time} className="col-6 col-sm-4">
                               <button
                                 type="button"
                                 className={`slot-btn w-100 ${selectedTime === slot.time ? 'active' : ''}`}
@@ -2969,12 +3464,12 @@
                       </div>
                     </div>
 
-                    <div className="d-flex justify-content-between">
-                      <button className="btn btn-heritage-outline" onClick={() => setCurrentStep(2)}>
-                        <i className="bi bi-arrow-left"></i><span>Back</span>
+                    <div className="d-flex flex-column-reverse flex-sm-row justify-content-between gap-2">
+                      <button className="btn btn-heritage-outline w-100 w-sm-auto" onClick={() => setCurrentStep(2)}>
+                        <i className="bi bi-arrow-left me-1"></i><span>Back</span>
                       </button>
-                      <button className="btn btn-gold-primary" onClick={() => setCurrentStep(4)}>
-                        <span>Proceed to Client Ledger</span><i className="bi bi-arrow-right"></i>
+                      <button className="btn btn-gold-primary w-100 w-sm-auto" onClick={() => setCurrentStep(4)}>
+                        <span>Proceed to Client Ledger</span><i className="bi bi-arrow-right ms-1"></i>
                       </button>
                     </div>
                   </div>
@@ -3051,12 +3546,12 @@
                         </div>
                       </div>
 
-                      <div className="d-flex justify-content-between">
-                        <button type="button" className="btn btn-heritage-outline" onClick={() => setCurrentStep(3)}>
-                          <i className="bi bi-arrow-left"></i><span>Back</span>
+                      <div className="d-flex flex-column-reverse flex-sm-row justify-content-between gap-2">
+                        <button type="button" className="btn btn-heritage-outline w-100 w-sm-auto" onClick={() => setCurrentStep(3)}>
+                          <i className="bi bi-arrow-left me-1"></i><span>Back</span>
                         </button>
-                        <button type="submit" className="btn btn-gold-primary px-4 py-3">
-                          <i className="bi bi-check2-circle"></i><span>Confirm &amp; Reserve Chair</span>
+                        <button type="submit" className="btn btn-gold-primary px-4 py-3 w-100 w-sm-auto">
+                          <i className="bi bi-check2-circle me-1"></i><span>Confirm &amp; Reserve Chair</span>
                         </button>
                       </div>
                     </form>
@@ -3068,7 +3563,7 @@
 
               {/* Dossier Summary (Dark Espresso Card) */}
               <div className="col-12 col-lg-4">
-                <div className="border-dark-section p-4 bg-espresso sticky-top shadow" style={{ top: '90px' }}>
+                <div className="border-dark-section p-3 p-sm-4 bg-espresso sticky-top shadow" style={{ top: '90px' }}>
                   <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom border-dark-section">
                     <div className="d-flex align-items-center gap-2">
                       <i className="bi bi-receipt text-gold"></i>
