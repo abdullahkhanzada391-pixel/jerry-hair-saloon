@@ -45,3 +45,4 @@ Test-Crop "$base\media_1793208505166_5710c152.jpg" "test_tariq_opt1.jpg" 290 0 4
 Test-Crop "$base\media_1793208505166_5710c152.jpg" "test_tariq_opt2.jpg" 320 0 400 520
 Test-Crop "$base\media_1793208505166_5710c152.jpg" "test_tariq_opt3.jpg" 280 0 470 550
 
+

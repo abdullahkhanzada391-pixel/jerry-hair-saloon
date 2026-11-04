@@ -7,8 +7,8 @@ export const barbersData = [
     experience: '8+ Years • Blade & Scissor',
     rating: 4.98,
     specialty: 'Precision skin tapers, straight razor edge geometry, executive styling.',
-    avatar: './barber_jerry.jpg?v=v3',
-    fallbackAvatar: './images/barber 1.jpg',
+    avatar: './barber_jerry.jpg',
+    fallbackAvatar: './barber_jerry.jpg',
     availableDays: ['Today', 'Tomorrow', 'Weekend', 'Mon', 'Tue'],
     status: 'Available'
   },
@@ -20,8 +20,8 @@ export const barbersData = [
     experience: '5 Years • Razor Architecture',
     rating: 4.92,
     specialty: 'High & low skin fades, textured crops, beard sculpting, sharp cheek line-ups.',
-    avatar: './barber_tariq.jpg?v=v3',
-    fallbackAvatar: './images/barber 2.jpg',
+    avatar: './barber_tariq.jpg',
+    fallbackAvatar: './barber_tariq.jpg',
     availableDays: ['Today', 'Tomorrow', 'Weekend', 'Mon', 'Wed'],
     status: 'Available'
   },
@@ -34,7 +34,7 @@ export const barbersData = [
     rating: 4.95,
     specialty: 'Herbal steam head spa, cervical tension relief, Swedish pressure points, organic face polishes.',
     avatar: './barber_adnan.jpg',
-    fallbackAvatar: './images/barber 3.jpg',
+    fallbackAvatar: './barber_adnan.jpg',
     availableDays: ['Today', 'Tomorrow', 'Weekend', 'Tue', 'Thu'],
     status: 'Available'
   }

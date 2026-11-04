@@ -33,7 +33,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
               WebkitMaskImage: 'linear-gradient(to left, rgba(0,0,0,0.85) 40%, rgba(0,0,0,0) 100%)'
             }}
             onError={(e) => {
-              e.target.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2uNnG7287JCjICX_B4o57Thcf5FkrqGbTu4Qz3xzefZOD0g-czMHYuSMCdVdGF8a5kCYABiDDBu6GM3zEC4gdQIZvQULqfup9FcjihXHn33kwVGAhzKoEk9-sswQIjlXbRc4tqFFanZ9gBnNXPW3_IQxUIlCP14XUu8Q8gnOqKMReRg5HKq91i6vUdvOUyVcNZzJlHMVIonoNRj1gEZ766XQ88Q4v1Eo4GM9mPXQf8pW1Q7U6MKtMOg';
+              e.target.src = './Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg';
             }}
           />
         </ParallaxBox>
@@ -373,7 +373,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                   className="w-100 h-100"
                   style={{ objectFit: 'cover', filter: 'contrast(105%) brightness(95%)' }}
                   onError={(e) => {
-                    e.target.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDoXWxWkbwXP_ZapvVjmZl42bPmp2Sc55ecSIWMpZ97Th_AkUZeAuclN0liWiOSCetuB0StcPEIC1mWLbUVH56D5iYPc9qmuZs4MMGYg8RYosd8G-D40bZ8sLNbdp1cGNAsbQKTrFSZiph27wdI2-YlyYt2-A2wQ3gdmR5S_ZB6tszkpdPkFEchlAKgUzS1tkfFvCgmjmTN09AP5A7KJPMdDeY9cwVQwTSNefuUA_YPGP41jI2LZQuGzA';
+                    e.target.src = './barber 2.jpg';
                   }}
                 />
                 <div className="position-absolute top-0 start-0 m-3 px-3 py-1 bg-card border-heritage shadow-sm">

@@ -74,7 +74,7 @@ export default function Services({ selectedServices, onToggleService, onProceedT
                   className="w-100 h-100"
                   style={{ objectFit: 'cover', filter: 'contrast(105%)' }}
                   onError={(e) => {
-                    e.target.src = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFBG59JWbJd_b41jCTrippMfxMok4oTzbFIuEhDL6WC69tmoALZRJXwENQiTmWKpF86GrfNJmHEGY5JnpH3kfQcleTCn5Kq_iDDn1bSPinVkhWOMEeI_TAUTXLcjqS5decP1yHrh-JQ2JhKPeXjsf3uaocVa6E_SAzNzlZCPF-OqefFyUtXScMWKZqadCSV9VzCwg4Ai_Bj6y52cDMVHah_CYtBhutgazUxPsanw12dDyCxodsMIF5AA';
+                    e.target.src = './barber 3.jpg';
                   }}
                 />
               </div>

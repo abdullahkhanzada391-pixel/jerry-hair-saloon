@@ -65,7 +65,7 @@ export const galleryData = [
     price: 'PKR 1,500',
     description: 'Precision zero skin taper blended with Japanese shear weight-reduction technique. Crisp baseline definition and smooth gradient.',
     image: './barber 1.jpg',
-    fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2uNnG7287JCjICX_B4o57Thcf5FkrqGbTu4Qz3xzefZOD0g-czMHYuSMCdVdGF8a5kCYABiDDBu6GM3zEC4gdQIZvQULqfup9FcjihXHn33kwVGAhzKoEk9-sswQIjlXbRc4tqFFanZ9gBnNXPW3_IQxUIlCP14XUu8Q8gnOqKMReRg5HKq91i6vUdvOUyVcNZzJlHMVIonoNRj1gEZ766XQ88Q4v1Eo4GM9mPXQf8pW1Q7U6MKtMOg',
+    fallback: './barber 1.jpg',
     stylist: 'Jerry (Master Craftsman)'
   },
   {
@@ -77,7 +77,7 @@ export const galleryData = [
     price: 'PKR 800',
     description: 'Surgical straight-edge detailing along jawline and mustache lines. Finished with steeped eucalyptus hot towel and nourishing beard oil.',
     image: './barber 4.jpg',
-    fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCYd98UvySPsYFxYxKYGQuI67qMOBKl2Efyg-H0rVE_3ggukV43Tz89HIJUgLu-K_jHVOl49a6IhT3-sbrPGc4XTMVsu4GVuqAUu9xfEILFEjPNVwavopWOuXepnu87vq9NCMVi7FwdmoJBLY0MOB_PCCdq5Osdh9FKz96l2ZDBLoh5j9IbRqhwL-7g8YBs6ssWjjMRZCea5SvD74H-AlH7lyEt9z3KcfYgeYJiDPM2FFJAZYyOSag2NQ',
+    fallback: './barber 4.jpg',
     stylist: 'Hunain Gori (Fade Specialist)'
   },
   {
@@ -89,7 +89,7 @@ export const galleryData = [
     price: 'PKR 1,800',
     description: 'Decompress in our private treatment area with pressurized herbal micro-mist and soothing cervical acupressure.',
     image: './barber 5.jpg',
-    fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBczEGpxNAKstn7_JLpX6JkjASCQZOKodtPD5KBimaF40elcmAlawQzc53quvuTLrJDYgffnD45qPgxDvVU-bd9_-OpHTVpBy_z0pyHVMyUCfJQnMaKEw2vhJPaH2DxCwJJuD20b9v1CGM4_cde1d7YIUpay4Hw3n01AygRR9kSZpjnzp-GT4gcHHZk5uEp1OCQLiVNSugdmlx-patc5Lg7z3KEF5DjbvD7NFoZAP63',
+    fallback: './barber 5.jpg',
     stylist: 'Adnan (Wellness Specialist)'
   },
   {
@@ -101,7 +101,7 @@ export const galleryData = [
     price: 'Medical Grade Protocol',
     description: 'Hospital-grade UV sterilization between bookings, matched with matte Uppercut clays, sandalwood shaving balms, and fine-tooth carbon combs.',
     image: './barber 3.jpg',
-    fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDFBG59JWbJd_b41jCTrippMfxMok4oTzbFIuEhDL6WC69tmoALZRJXwENQiTmWKpF86GrfNJmHEGY5JnpH3kfQcleTCn5Kq_iDDn1bSPinVkhWOMEeI_TAUTXLcjqS5decP1yHrh-JQ2JhKPeXjsf3uaocVa6E_SAzNzlZCPF-OqefFyUtXScMWKZqadCSV9VzCwg4Ai_Bj6y52cDMVHah_CYtBhutgazUxPsanw12dDyCxodsMIF5AA',
+    fallback: './barber 3.jpg',
     stylist: 'Equipment Protocol'
   },
   {
@@ -113,7 +113,7 @@ export const galleryData = [
     price: 'Signature',
     description: 'Epitome of modern luxury grooming in Lahore. Traditional master craft meets contemporary styling perfection.',
     image: './Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg',
-    fallback: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB2uNnG7287JCjICX_B4o57Thcf5FkrqGbTu4Qz3xzefZOD0g-czMHYuSMCdVdGF8a5kCYABiDDBu6GM3zEC4gdQIZvQULqfup9FcjihXHn33kwVGAhzKoEk9-sswQIjlXbRc4tqFFanZ9gBnNXPW3_IQxUIlCP14XUu8Q8gnOqKMReRg5HKq91i6vUdvOUyVcNZzJlHMVIonoNRj1gEZ766XQ88Q4v1Eo4GM9mPXQf8pW1Q7U6MKtMOg',
+    fallback: './Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg',
     stylist: 'Jerry Atelier Team'
   }
 ];
