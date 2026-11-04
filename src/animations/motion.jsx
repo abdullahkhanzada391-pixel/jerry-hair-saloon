@@ -1,14 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 
-// Safe resolution of Framer Motion (browser global window.Motion or fallback)
-const Motion = (typeof window !== 'undefined' && window.Motion) ? window.Motion : {};
-
-export const motion = Motion.motion || new Proxy({}, {
-  get: (target, prop) => (props) => React.createElement(prop, props)
-});
-
-export const AnimatePresence = Motion.AnimatePresence || (({ children }) => children);
-export const useInView = Motion.useInView || (() => true);
+export { motion, AnimatePresence, useInView };
 
 export const prefersReducedMotion = () => {
   return typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
