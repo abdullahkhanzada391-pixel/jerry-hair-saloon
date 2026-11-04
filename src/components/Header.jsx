@@ -132,80 +132,131 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
         </div>
       </div>
 
-      {/* Expandable Mobile Navigation Menu Drawer */}
+      {/* Expandable Mobile Navigation Menu Drawer with Frosted Overlay */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.22, ease: easeLuxury }}
-            className="mobile-header-menu border-heritage-top overflow-hidden d-lg-none"
-          >
-            <div className="container py-3">
-              <div className="d-flex flex-column gap-1 mb-3">
-                <button
-                  className={`mobile-menu-link ${currentTab === 'home' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('home')}
-                >
-                  <i className="bi bi-house-door text-gold me-2 fs-5"></i>
-                  <span>Home</span>
-                </button>
-                <button
-                  className={`mobile-menu-link ${currentTab === 'services' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('services')}
-                >
-                  <i className="bi bi-scissors text-gold me-2 fs-5"></i>
-                  <span>Services Menu</span>
-                </button>
-                <button
-                  className={`mobile-menu-link ${currentTab === 'gallery' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('gallery')}
-                >
-                  <i className="bi bi-camera text-gold me-2 fs-5"></i>
-                  <span>Studio Gallery</span>
-                </button>
-                <button
-                  className={`mobile-menu-link ${currentTab === 'booking' ? 'active' : ''}`}
-                  onClick={() => handleNavClick('booking')}
-                >
-                  <i className="bi bi-calendar-check text-gold me-2 fs-5"></i>
-                  <span>Book Chair</span>
-                </button>
-              </div>
+          <React.Fragment key="mobile-drawer-wrapper">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.45 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="position-fixed w-100 h-100 d-lg-none"
+              style={{ 
+                top: '56px', 
+                left: 0, 
+                right: 0, 
+                bottom: 0, 
+                backgroundColor: '#24211E', 
+                zIndex: 1025,
+                backdropFilter: 'blur(3px)'
+              }}
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.25, ease: easeLuxury }}
+              className="mobile-header-menu border-heritage-top overflow-hidden d-lg-none position-relative"
+              style={{ zIndex: 1030 }}
+            >
+              <div className="container py-3">
+                <div className="d-flex flex-column gap-1.5 mb-3">
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'home' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('home')}
+                  >
+                    <span className="d-flex align-items-center">
+                      <i className="bi bi-house-door text-gold me-2.5 fs-5"></i>
+                      <span className="fw-medium">Studio Overview</span>
+                    </span>
+                    {currentTab === 'home' ? (
+                      <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                    ) : (
+                      <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                    )}
+                  </button>
 
-              {/* VIP Club Privilege & Concierge Inside Mobile Menu */}
-              <div className="pt-2 border-heritage-top d-flex flex-column gap-2">
-                <button
-                  className="btn btn-espresso-primary w-100 justify-content-between py-2.5 px-3"
-                  onClick={() => {
-                    onOpenVipModal();
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  <span className="d-flex align-items-center gap-2">
-                    <i className="bi bi-award text-gold"></i>
-                    <span>VIP Resident Pass (20% Off)</span>
-                  </span>
-                  <i className="bi bi-arrow-right text-gold"></i>
-                </button>
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'services' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('services')}
+                  >
+                    <span className="d-flex align-items-center">
+                      <i className="bi bi-scissors text-gold me-2.5 fs-5"></i>
+                      <span className="fw-medium">Services &amp; Rituals Menu</span>
+                    </span>
+                    {currentTab === 'services' ? (
+                      <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                    ) : (
+                      <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                    )}
+                  </button>
 
-                <a
-                  href="tel:+923001234567"
-                  className="btn btn-heritage-outline w-100 justify-content-center py-2.5 px-3"
-                >
-                  <i className="bi bi-telephone-fill text-gold me-2"></i>
-                  <span>Call Concierge: +92 300 1234567</span>
-                </a>
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'gallery' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('gallery')}
+                  >
+                    <span className="d-flex align-items-center">
+                      <i className="bi bi-camera text-gold me-2.5 fs-5"></i>
+                      <span className="fw-medium">Studio Gallery &amp; Archive</span>
+                    </span>
+                    {currentTab === 'gallery' ? (
+                      <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                    ) : (
+                      <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                    )}
+                  </button>
 
-                <div className="text-center pt-2">
-                  <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
-                    Open 10:00 AM – 11:00 PM • 117 Neelum Block, Iqbal Town
-                  </span>
+                  <button
+                    className={`mobile-menu-link ${currentTab === 'booking' ? 'active' : ''}`}
+                    onClick={() => handleNavClick('booking')}
+                  >
+                    <span className="d-flex align-items-center">
+                      <i className="bi bi-calendar-check text-gold me-2.5 fs-5"></i>
+                      <span className="fw-medium">Reserve Chair &amp; Barber</span>
+                    </span>
+                    {currentTab === 'booking' ? (
+                      <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                    ) : (
+                      <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                    )}
+                  </button>
+                </div>
+
+                {/* VIP Club Privilege & Concierge Inside Mobile Menu */}
+                <div className="pt-2 border-heritage-top d-flex flex-column gap-2">
+                  <button
+                    className="btn btn-espresso-primary w-100 justify-content-between py-2.5 px-3"
+                    onClick={() => {
+                      onOpenVipModal();
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <span className="d-flex align-items-center gap-2">
+                      <i className="bi bi-award text-gold"></i>
+                      <span className="fw-bold">VIP Resident Pass (20% Off)</span>
+                    </span>
+                    <i className="bi bi-arrow-right text-gold"></i>
+                  </button>
+
+                  <a
+                    href="tel:+923001234567"
+                    className="btn btn-heritage-outline w-100 justify-content-center py-2.5 px-3"
+                  >
+                    <i className="bi bi-telephone-fill text-gold me-2"></i>
+                    <span>Call Concierge: +92 300 1234567</span>
+                  </a>
+
+                  <div className="text-center pt-2">
+                    <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                      Open 10:00 AM – 11:00 PM • 117 Neelum Block, Iqbal Town
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </React.Fragment>
         )}
       </AnimatePresence>
     </header>

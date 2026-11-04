@@ -871,18 +871,163 @@ html, body {
     padding-bottom: 0 !important;
   }
   .modern-luxury-footer {
-    padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)) !important;
   }
   .sticky-cart-bar {
-    bottom: calc(60px + env(safe-area-inset-bottom, 0px)) !important;
+    bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
     padding: 12px 16px !important;
-  }
-  .mobile-bottom-nav {
-    height: calc(60px + env(safe-area-inset-bottom, 0px));
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-radius: 16px 16px 0 0 !important;
   }
   .hero-wrapper-heritage {
     min-height: auto !important;
+  }
+
+  /* Modern Mobile Cards with Refined Radii & Warm Shadows */
+  .service-card, 
+  .barber-card, 
+  .gallery-card, 
+  .trust-card, 
+  .review-card,
+  .mobile-hero-visual,
+  .studio-address-card,
+  .sterilization-protocol-card {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 24px rgba(36, 33, 30, 0.06), 0 1px 3px rgba(36, 33, 30, 0.04) !important;
+    transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease !important;
+  }
+
+  .barber-card img,
+  .gallery-card .img-wrapper img,
+  .service-card img,
+  .mobile-hero-visual img {
+    border-radius: 16px 16px 0 0 !important;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  /* Modern Touch Buttons & Interactive Controls */
+  .btn, 
+  .btn-gold-primary, 
+  .btn-espresso-primary, 
+  .btn-heritage-outline, 
+  .btn-gold-outline,
+  .chip-btn,
+  .slot-btn,
+  .date-btn,
+  .mobile-menu-link {
+    border-radius: 10px !important;
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  }
+
+  .form-control, 
+  .heritage-input, 
+  .input-group-text {
+    border-radius: 10px !important;
+  }
+
+  .badge, 
+  .hero-pill-badge,
+  .trust-badge-pill {
+    border-radius: 20px !important;
+  }
+
+  /* Tactile Mobile Touch Feedback (Scale down smoothly on tap) */
+  .btn:active, 
+  .mobile-menu-link:active, 
+  .chip-btn:active, 
+  .slot-btn:active,
+  .date-btn:active,
+  .mobile-nav-item:active {
+    transform: scale(0.965) !important;
+  }
+
+  /* Smooth Card Hover / Tap Feedback */
+  .service-card:hover, .service-card:active {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 12px 28px rgba(176, 138, 85, 0.12), 0 2px 6px rgba(36, 33, 30, 0.05) !important;
+  }
+
+  .gallery-card:hover img, .gallery-card:active img {
+    transform: scale(1.04) !important;
+  }
+
+  /* Modern Mobile Bottom Navigation Dock */
+  .mobile-bottom-nav {
+    height: calc(64px + env(safe-area-inset-bottom, 0px)) !important;
+    padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+    background: rgba(243, 239, 230, 0.96) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-top: 1px solid var(--color-border) !important;
+    box-shadow: 0 -4px 20px rgba(36, 33, 30, 0.08) !important;
+    display: flex !important;
+  }
+  .mobile-nav-item {
+    transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1) !important;
+    position: relative;
+    font-size: 10px !important;
+    letter-spacing: 0.04em !important;
+  }
+  .mobile-nav-item i {
+    font-size: 1.25rem !important;
+    transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), color 0.2s ease !important;
+  }
+  .mobile-nav-item.active {
+    color: var(--color-espresso) !important;
+    font-weight: 700 !important;
+  }
+  .mobile-nav-item.active i {
+    color: var(--color-gold) !important;
+    transform: translateY(-2px) scale(1.08) !important;
+  }
+  .mobile-nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 22px;
+    height: 3px;
+    background: var(--color-gold);
+    border-radius: 3px;
+  }
+
+  /* Modern Mobile Header Drawer */
+  .mobile-header-menu {
+    border-radius: 0 0 20px 20px !important;
+    box-shadow: 0 20px 40px rgba(36, 33, 30, 0.15) !important;
+    border-bottom: 2px solid var(--color-gold) !important;
+    background: rgba(243, 239, 230, 0.98) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+  }
+  .mobile-menu-link {
+    border-radius: 12px !important;
+    padding: 12px 14px !important;
+    margin-bottom: 4px;
+    font-size: 13.5px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+  .mobile-menu-link.active {
+    background-color: var(--color-espresso) !important;
+    color: var(--color-ivory) !important;
+    border-color: var(--color-espresso) !important;
+  }
+  .mobile-menu-link.active i {
+    color: var(--color-gold) !important;
+  }
+
+  /* Mobile Hero Visual Card */
+  .mobile-hero-visual {
+    border-radius: 18px !important;
+    border: 1px solid rgba(176, 138, 85, 0.35) !important;
+    box-shadow: 0 12px 32px rgba(36, 33, 30, 0.1) !important;
+  }
+  .mobile-hero-badge {
+    border-radius: 30px !important;
+    background: #FFFFFF !important;
   }
 }
 
@@ -1860,72 +2005,121 @@ html, body {
             </div>
           </div>
 
-          {/* Expandable Mobile Navigation Menu Drawer */}
+          {/* Expandable Mobile Navigation Menu Drawer with Frosted Overlay */}
           {mobileMenuOpen && (
-            <div className="mobile-header-menu border-heritage-top overflow-hidden d-lg-none">
-              <div className="container py-3">
-                <div className="d-flex flex-column gap-1 mb-3">
-                  <button
-                    className={`mobile-menu-link ${currentTab === 'home' ? 'active' : ''}`}
-                    onClick={() => handleNavClick('home')}
-                  >
-                    <i className="bi bi-house-door text-gold me-2 fs-5"></i>
-                    <span>Home</span>
-                  </button>
-                  <button
-                    className={`mobile-menu-link ${currentTab === 'services' ? 'active' : ''}`}
-                    onClick={() => handleNavClick('services')}
-                  >
-                    <i className="bi bi-scissors text-gold me-2 fs-5"></i>
-                    <span>Services Menu</span>
-                  </button>
-                  <button
-                    className={`mobile-menu-link ${currentTab === 'gallery' ? 'active' : ''}`}
-                    onClick={() => handleNavClick('gallery')}
-                  >
-                    <i className="bi bi-camera text-gold me-2 fs-5"></i>
-                    <span>Studio Gallery</span>
-                  </button>
-                  <button
-                    className={`mobile-menu-link ${currentTab === 'booking' ? 'active' : ''}`}
-                    onClick={() => handleNavClick('booking')}
-                  >
-                    <i className="bi bi-calendar-check text-gold me-2 fs-5"></i>
-                    <span>Book Chair</span>
-                  </button>
-                </div>
+            <React.Fragment key="mobile-drawer-wrapper">
+              <div
+                className="position-fixed w-100 h-100 d-lg-none"
+                style={{ 
+                  top: '56px', 
+                  left: 0, 
+                  right: 0, 
+                  bottom: 0, 
+                  backgroundColor: 'rgba(36, 33, 30, 0.45)', 
+                  zIndex: 1025,
+                  backdropFilter: 'blur(3px)'
+                }}
+                onClick={() => setMobileMenuOpen(false)}
+              />
+              <div
+                className="mobile-header-menu border-heritage-top overflow-hidden d-lg-none position-relative"
+                style={{ zIndex: 1030 }}
+              >
+                <div className="container py-3">
+                  <div className="d-flex flex-column gap-1.5 mb-3">
+                    <button
+                      className={`mobile-menu-link ${currentTab === 'home' ? 'active' : ''}`}
+                      onClick={() => handleNavClick('home')}
+                    >
+                      <span className="d-flex align-items-center">
+                        <i className="bi bi-house-door text-gold me-2.5 fs-5"></i>
+                        <span className="fw-medium">Studio Overview</span>
+                      </span>
+                      {currentTab === 'home' ? (
+                        <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                      ) : (
+                        <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                      )}
+                    </button>
 
-                <div className="pt-2 border-heritage-top d-flex flex-column gap-2">
-                  <button
-                    className="btn btn-espresso-primary w-100 justify-content-between py-2.5 px-3"
-                    onClick={() => {
-                      onOpenVipModal();
-                      setMobileMenuOpen(false);
-                    }}
-                  >
-                    <span className="d-flex align-items-center gap-2">
-                      <i className="bi bi-award text-gold"></i>
-                      <span>VIP Resident Pass (20% Off)</span>
-                    </span>
-                    <i className="bi bi-arrow-right text-gold"></i>
-                  </button>
+                    <button
+                      className={`mobile-menu-link ${currentTab === 'services' ? 'active' : ''}`}
+                      onClick={() => handleNavClick('services')}
+                    >
+                      <span className="d-flex align-items-center">
+                        <i className="bi bi-scissors text-gold me-2.5 fs-5"></i>
+                        <span className="fw-medium">Services &amp; Rituals Menu</span>
+                      </span>
+                      {currentTab === 'services' ? (
+                        <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                      ) : (
+                        <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                      )}
+                    </button>
 
-                  <a
-                    href="tel:+923001234567"
-                    className="btn btn-heritage-outline w-100 justify-content-center py-2.5 px-3"
-                  >
-                    <i className="bi bi-telephone-fill text-gold me-2"></i>
-                    <span>Call Concierge: +92 300 1234567</span>
-                  </a>
+                    <button
+                      className={`mobile-menu-link ${currentTab === 'gallery' ? 'active' : ''}`}
+                      onClick={() => handleNavClick('gallery')}
+                    >
+                      <span className="d-flex align-items-center">
+                        <i className="bi bi-camera text-gold me-2.5 fs-5"></i>
+                        <span className="fw-medium">Studio Gallery &amp; Archive</span>
+                      </span>
+                      {currentTab === 'gallery' ? (
+                        <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                      ) : (
+                        <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                      )}
+                    </button>
 
-                  <div className="text-center pt-2">
-                    <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
-                      Open 10:00 AM – 11:00 PM • 117 Neelum Block, Iqbal Town
-                    </span>
+                    <button
+                      className={`mobile-menu-link ${currentTab === 'booking' ? 'active' : ''}`}
+                      onClick={() => handleNavClick('booking')}
+                    >
+                      <span className="d-flex align-items-center">
+                        <i className="bi bi-calendar-check text-gold me-2.5 fs-5"></i>
+                        <span className="fw-medium">Reserve Chair &amp; Barber</span>
+                      </span>
+                      {currentTab === 'booking' ? (
+                        <span className="badge bg-gold text-espresso label-caps py-0.5 px-2">Active</span>
+                      ) : (
+                        <i className="bi bi-chevron-right text-muted-heritage" style={{ fontSize: '12px' }}></i>
+                      )}
+                    </button>
+                  </div>
+
+                  <div className="pt-2 border-heritage-top d-flex flex-column gap-2">
+                    <button
+                      className="btn btn-espresso-primary w-100 justify-content-between py-2.5 px-3"
+                      onClick={() => {
+                        onOpenVipModal();
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      <span className="d-flex align-items-center gap-2">
+                        <i className="bi bi-award text-gold"></i>
+                        <span className="fw-bold">VIP Resident Pass (20% Off)</span>
+                      </span>
+                      <i className="bi bi-arrow-right text-gold"></i>
+                    </button>
+
+                    <a
+                      href="tel:+923001234567"
+                      className="btn btn-heritage-outline w-100 justify-content-center py-2.5 px-3"
+                    >
+                      <i className="bi bi-telephone-fill text-gold me-2"></i>
+                      <span>Call Concierge: +92 300 1234567</span>
+                    </a>
+
+                    <div className="text-center pt-2">
+                      <span className="label-caps text-muted-heritage" style={{ fontSize: '10px' }}>
+                        Open 10:00 AM – 11:00 PM • 117 Neelum Block, Iqbal Town
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </React.Fragment>
           )}
         </header>
       );
@@ -1937,40 +2131,29 @@ html, body {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
       };
 
+      const navItems = [
+        { id: 'home', label: 'Home', icon: 'bi-house-door' },
+        { id: 'services', label: 'Services', icon: 'bi-scissors' },
+        { id: 'gallery', label: 'Gallery', icon: 'bi-camera' },
+        { id: 'booking', label: 'Book Chair', icon: 'bi-calendar-check' }
+      ];
+
       return (
         <nav className="mobile-bottom-nav d-lg-none" aria-label="Mobile Bottom Navigation">
-          <button 
-            type="button"
-            className={`mobile-nav-item ${currentTab === 'home' ? 'active' : ''}`}
-            onClick={() => handleNavClick('home')}
-          >
-            <i className="bi bi-house-door"></i>
-            <span>Home</span>
-          </button>
-          <button 
-            type="button"
-            className={`mobile-nav-item ${currentTab === 'services' ? 'active' : ''}`}
-            onClick={() => handleNavClick('services')}
-          >
-            <i className="bi bi-scissors"></i>
-            <span>Services</span>
-          </button>
-          <button 
-            type="button"
-            className={`mobile-nav-item ${currentTab === 'gallery' ? 'active' : ''}`}
-            onClick={() => handleNavClick('gallery')}
-          >
-            <i className="bi bi-camera"></i>
-            <span>Gallery</span>
-          </button>
-          <button 
-            type="button"
-            className={`mobile-nav-item ${currentTab === 'booking' ? 'active' : ''}`}
-            onClick={() => handleNavClick('booking')}
-          >
-            <i className="bi bi-calendar-check"></i>
-            <span>Book</span>
-          </button>
+          {navItems.map((item) => {
+            const isActive = currentTab === item.id;
+            return (
+              <button 
+                key={item.id}
+                type="button"
+                className={`mobile-nav-item ${isActive ? 'active' : ''}`}
+                onClick={() => handleNavClick(item.id)}
+              >
+                <i className={`bi ${item.icon}`}></i>
+                <span>{item.label}</span>
+              </button>
+            );
+          })}
         </nav>
       );
     }
@@ -2010,6 +2193,16 @@ html, body {
                   animate="visible"
                   variants={staggerContainer}
                 >
+                  {/* Editorial Pill Badge */}
+                  <motion.div variants={fadeInUp} className="mb-2">
+                    <div className="d-inline-flex align-items-center gap-2 px-3 py-1.5 bg-card border-heritage shadow-sm mobile-hero-badge">
+                      <i className="bi bi-scissors text-gold"></i>
+                      <span className="label-caps text-espresso fw-bold" style={{ fontSize: '10px' }}>
+                        EST. 8 YEARS • LAHORE'S PREMIER BARBER ATELIER
+                      </span>
+                    </div>
+                  </motion.div>
+
                   {/* Main Headline */}
                   <motion.h1 
                     variants={fadeInUp}
@@ -2022,14 +2215,62 @@ html, body {
                   {/* Description */}
                   <motion.p 
                     variants={fadeInUp}
-                    className="body-muted fs-6 mb-4" 
+                    className="body-muted fs-6 mb-3 mb-md-4" 
                     style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7, fontSize: 'clamp(13.5px, 3.6vw, 15px)' }}
                   >
                     Traditional straight-razor geometry meets contemporary bespoke grooming in Allama Iqbal Town. Steeped eucalyptus hot towels, hospital-grade single-use blades, and tailored tapers crafted for gentlemen of distinction.
                   </motion.p>
 
-                  {/* CTA Button Group with Magnetic Interaction */}
-                  <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+                  {/* Mobile Hero Featured Visual Card (Impressive Mobile Imagery) */}
+                  <motion.div 
+                    variants={fadeInUp}
+                    className="mobile-hero-visual position-relative overflow-hidden mb-3.5 d-block d-lg-none shadow-sm"
+                    style={{
+                      height: 'clamp(210px, 52vw, 290px)',
+                      backgroundColor: 'var(--color-espresso)'
+                    }}
+                  >
+                    <img 
+                      src="./gallery_atelier_studio.jpg" 
+                      alt="Jerry Hair Saloon Atelier" 
+                      className="w-100 h-100 mobile-hero-img"
+                      style={{
+                        objectFit: 'cover',
+                        objectPosition: 'center 40%',
+                        filter: 'contrast(106%) brightness(95%)'
+                      }}
+                      onError={(e) => { e.target.src = './Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg'; }}
+                    />
+                    <div 
+                      className="position-absolute top-0 start-0 w-100 h-100"
+                      style={{
+                        background: 'linear-gradient(to top, rgba(36, 33, 30, 0.88) 0%, rgba(36, 33, 30, 0.25) 55%, rgba(36, 33, 30, 0) 100%)',
+                        pointerEvents: 'none'
+                      }}
+                    />
+                    <div className="position-absolute top-0 start-0 m-2.5">
+                      <span className="badge bg-espresso text-ivory label-caps px-2.5 py-1.5 shadow-sm" style={{ border: '1px solid rgba(176, 138, 85, 0.4)', fontSize: '9px' }}>
+                        <i className="bi bi-geo-alt-fill text-gold me-1"></i> 117 Neelum Block
+                      </span>
+                    </div>
+                    <div className="position-absolute top-0 end-0 m-2.5">
+                      <span className="badge bg-gold text-espresso label-caps px-2.5 py-1.5 fw-bold shadow-sm" style={{ fontSize: '9.5px' }}>
+                        <i className="bi bi-star-fill me-1"></i> 4.9 ★ Rating
+                      </span>
+                    </div>
+                    <div className="position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-end">
+                      <div>
+                        <span className="label-caps text-gold d-block mb-1" style={{ fontSize: '9px' }}>FLAGSHIP ATELIER</span>
+                        <span className="font-serif text-ivory fw-bold" style={{ fontSize: '15px' }}>Sanctuary of Vintage Grooming</span>
+                      </div>
+                      <span className="badge bg-card text-espresso label-caps px-2 py-1 shadow-sm d-flex align-items-center gap-1.5" style={{ fontSize: '9px' }}>
+                        <span className="pulse-indicator bg-gold"></span> 3 Chairs
+                      </span>
+                    </div>
+                  </motion.div>
+
+                  {/* Desktop CTA Button Group */}
+                  <motion.div variants={fadeInUp} className="d-none d-md-flex flex-wrap align-items-center gap-2 gap-sm-3">
                     <MagneticButton 
                       className="btn btn-gold-primary px-3 px-sm-4 py-2.5 py-sm-3 flex-grow-1 flex-sm-grow-0"
                       onClick={() => {
@@ -2057,6 +2298,42 @@ html, body {
                     >
                       <i className="bi bi-telephone text-gold"></i>
                     </a>
+                  </motion.div>
+
+                  {/* Modern Mobile CTA Button Group */}
+                  <motion.div variants={fadeInUp} className="d-flex d-md-none flex-column gap-2 w-100">
+                    <MagneticButton 
+                      className="btn btn-gold-primary w-100 py-3 d-flex align-items-center justify-content-center gap-2 shadow-sm"
+                      onClick={() => {
+                        setCurrentTab('booking');
+                        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                      }}
+                    >
+                      <i className="bi bi-calendar-check fs-6"></i>
+                      <span className="fw-bold">Reserve Your Chair</span>
+                    </MagneticButton>
+
+                    <div className="d-flex gap-2 w-100">
+                      <MagneticButton 
+                        className="btn btn-heritage-outline flex-grow-1 py-2.5 d-flex align-items-center justify-content-center gap-1.5"
+                        onClick={() => {
+                          setCurrentTab('services');
+                          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                        }}
+                      >
+                        <i className="bi bi-card-list text-gold"></i>
+                        <span>Explore Menu</span>
+                      </MagneticButton>
+
+                      <a 
+                        href="tel:+923001234567"
+                        className="btn btn-heritage-outline px-3 py-2.5 d-flex align-items-center justify-content-center gap-1.5"
+                        title="Call Atelier"
+                      >
+                        <i className="bi bi-telephone text-gold"></i>
+                        <span>Call</span>
+                      </a>
+                    </div>
                   </motion.div>
                 </motion.div>
               </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from '../animations/motion';
 
 export default function BottomNav({ currentTab, setCurrentTab }) {
   const handleNavClick = (tab) => {
@@ -6,43 +7,31 @@ export default function BottomNav({ currentTab, setCurrentTab }) {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
+  const navItems = [
+    { id: 'home', label: 'Home', icon: 'bi-house-door' },
+    { id: 'services', label: 'Services', icon: 'bi-scissors' },
+    { id: 'gallery', label: 'Gallery', icon: 'bi-camera' },
+    { id: 'booking', label: 'Book Chair', icon: 'bi-calendar-check' }
+  ];
+
   return (
     <nav className="mobile-bottom-nav d-lg-none" aria-label="Mobile Bottom Navigation">
-      <button 
-        type="button"
-        className={`mobile-nav-item ${currentTab === 'home' ? 'active' : ''}`}
-        onClick={() => handleNavClick('home')}
-      >
-        <i className="bi bi-house-door"></i>
-        <span>Home</span>
-      </button>
-
-      <button 
-        type="button"
-        className={`mobile-nav-item ${currentTab === 'services' ? 'active' : ''}`}
-        onClick={() => handleNavClick('services')}
-      >
-        <i className="bi bi-scissors"></i>
-        <span>Services</span>
-      </button>
-
-      <button 
-        type="button"
-        className={`mobile-nav-item ${currentTab === 'gallery' ? 'active' : ''}`}
-        onClick={() => handleNavClick('gallery')}
-      >
-        <i className="bi bi-camera"></i>
-        <span>Gallery</span>
-      </button>
-
-      <button 
-        type="button"
-        className={`mobile-nav-item ${currentTab === 'booking' ? 'active' : ''}`}
-        onClick={() => handleNavClick('booking')}
-      >
-        <i className="bi bi-calendar-check"></i>
-        <span>Book</span>
-      </button>
+      {navItems.map((item) => {
+        const isActive = currentTab === item.id;
+        return (
+          <motion.button
+            key={item.id}
+            type="button"
+            className={`mobile-nav-item ${isActive ? 'active' : ''}`}
+            onClick={() => handleNavClick(item.id)}
+            whileTap={{ scale: 0.92 }}
+            transition={{ duration: 0.12 }}
+          >
+            <i className={`bi ${item.icon}`}></i>
+            <span>{item.label}</span>
+          </motion.button>
+        );
+      })}
     </nav>
   );
 }

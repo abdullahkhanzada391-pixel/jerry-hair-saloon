@@ -48,6 +48,16 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
               animate="visible"
               variants={staggerContainer}
             >
+              {/* Editorial Pill Badge */}
+              <motion.div variants={fadeInUp} className="mb-2">
+                <div className="d-inline-flex align-items-center gap-2 px-3 py-1.5 bg-card border-heritage shadow-sm mobile-hero-badge">
+                  <i className="bi bi-scissors text-gold"></i>
+                  <span className="label-caps text-espresso fw-bold" style={{ fontSize: '10px' }}>
+                    EST. 8 YEARS • LAHORE'S PREMIER BARBER ATELIER
+                  </span>
+                </div>
+              </motion.div>
+
               {/* Main Headline */}
               <motion.h1 
                 variants={fadeInUp}
@@ -60,14 +70,62 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
               {/* Description */}
               <motion.p 
                 variants={fadeInUp}
-                className="body-muted fs-6 mb-4" 
+                className="body-muted fs-6 mb-3 mb-md-4" 
                 style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7, fontSize: 'clamp(13.5px, 3.6vw, 15px)' }}
               >
                 Traditional straight-razor geometry meets contemporary bespoke grooming in Allama Iqbal Town. Steeped eucalyptus hot towels, hospital-grade single-use blades, and tailored tapers crafted for gentlemen of distinction.
               </motion.p>
 
-              {/* CTA Button Group with Magnetic Interaction */}
-              <motion.div variants={fadeInUp} className="d-flex flex-wrap align-items-center gap-2 gap-sm-3">
+              {/* Mobile Hero Featured Visual Card (Impressive Mobile Imagery) */}
+              <motion.div 
+                variants={fadeInUp}
+                className="mobile-hero-visual position-relative overflow-hidden mb-3.5 d-block d-lg-none shadow-sm"
+                style={{
+                  height: 'clamp(210px, 52vw, 290px)',
+                  backgroundColor: 'var(--color-espresso)'
+                }}
+              >
+                <img 
+                  src="./gallery_atelier_studio.jpg" 
+                  alt="Jerry Hair Saloon Atelier" 
+                  className="w-100 h-100 mobile-hero-img"
+                  style={{
+                    objectFit: 'cover',
+                    objectPosition: 'center 40%',
+                    filter: 'contrast(106%) brightness(95%)'
+                  }}
+                  onError={(e) => { e.target.src = './Gemini_Generated_Image_sa2mwssa2mwssa2m.jpg'; }}
+                />
+                <div 
+                  className="position-absolute top-0 start-0 w-100 h-100"
+                  style={{
+                    background: 'linear-gradient(to top, rgba(36, 33, 30, 0.88) 0%, rgba(36, 33, 30, 0.25) 55%, rgba(36, 33, 30, 0) 100%)',
+                    pointerEvents: 'none'
+                  }}
+                />
+                <div className="position-absolute top-0 start-0 m-2.5">
+                  <span className="badge bg-espresso text-ivory label-caps px-2.5 py-1.5 shadow-sm" style={{ border: '1px solid rgba(176, 138, 85, 0.4)', fontSize: '9px' }}>
+                    <i className="bi bi-geo-alt-fill text-gold me-1"></i> 117 Neelum Block
+                  </span>
+                </div>
+                <div className="position-absolute top-0 end-0 m-2.5">
+                  <span className="badge bg-gold text-espresso label-caps px-2.5 py-1.5 fw-bold shadow-sm" style={{ fontSize: '9.5px' }}>
+                    <i className="bi bi-star-fill me-1"></i> 4.9 ★ Rating
+                  </span>
+                </div>
+                <div className="position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-end">
+                  <div>
+                    <span className="label-caps text-gold d-block mb-1" style={{ fontSize: '9px' }}>FLAGSHIP ATELIER</span>
+                    <span className="font-serif text-ivory fw-bold" style={{ fontSize: '15px' }}>Sanctuary of Vintage Grooming</span>
+                  </div>
+                  <span className="badge bg-card text-espresso label-caps px-2 py-1 shadow-sm d-flex align-items-center gap-1.5" style={{ fontSize: '9px' }}>
+                    <span className="pulse-indicator bg-gold"></span> 3 Chairs
+                  </span>
+                </div>
+              </motion.div>
+
+              {/* Desktop CTA Button Group */}
+              <motion.div variants={fadeInUp} className="d-none d-md-flex flex-wrap align-items-center gap-2 gap-sm-3">
                 <MagneticButton 
                   className="btn btn-gold-primary px-3 px-sm-4 py-2.5 py-sm-3 flex-grow-1 flex-sm-grow-0"
                   onClick={() => {
@@ -95,6 +153,42 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                 >
                   <i className="bi bi-telephone text-gold"></i>
                 </a>
+              </motion.div>
+
+              {/* Modern Mobile CTA Button Group */}
+              <motion.div variants={fadeInUp} className="d-flex d-md-none flex-column gap-2 w-100">
+                <MagneticButton 
+                  className="btn btn-gold-primary w-100 py-3 d-flex align-items-center justify-content-center gap-2 shadow-sm"
+                  onClick={() => {
+                    setCurrentTab('booking');
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                  }}
+                >
+                  <i className="bi bi-calendar-check fs-6"></i>
+                  <span className="fw-bold">Reserve Your Chair</span>
+                </MagneticButton>
+
+                <div className="d-flex gap-2 w-100">
+                  <MagneticButton 
+                    className="btn btn-heritage-outline flex-grow-1 py-2.5 d-flex align-items-center justify-content-center gap-1.5"
+                    onClick={() => {
+                      setCurrentTab('services');
+                      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                    }}
+                  >
+                    <i className="bi bi-card-list text-gold"></i>
+                    <span>Explore Menu</span>
+                  </MagneticButton>
+
+                  <a 
+                    href="tel:+923001234567"
+                    className="btn btn-heritage-outline px-3 py-2.5 d-flex align-items-center justify-content-center gap-1.5"
+                    title="Call Atelier"
+                  >
+                    <i className="bi bi-telephone text-gold"></i>
+                    <span>Call</span>
+                  </a>
+                </div>
               </motion.div>
             </motion.div>
           </div>
