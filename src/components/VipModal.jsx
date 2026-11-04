@@ -22,9 +22,10 @@ export default function VipModal({ isOpen, onClose }) {
           maxWidth: '460px', 
           maxHeight: '92vh', 
           overflowY: 'auto',
-          backgroundColor: '#1E1B18',
-          border: '1px solid rgba(176, 138, 85, 0.45)',
-          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(176, 138, 85, 0.25)'
+          backgroundColor: '#1B1B1B',
+          borderRadius: '14px',
+          border: '1px solid #303030',
+          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(200, 164, 93, 0.2)'
         }}
         initial={{ opacity: 0, scale: 0.95, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -32,14 +33,14 @@ export default function VipModal({ isOpen, onClose }) {
         transition={{ duration: 0.25, ease: easeLuxury }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="d-flex justify-content-between align-items-center pb-2 mb-3" style={{ borderBottom: '1px solid rgba(176, 138, 85, 0.25)' }}>
+        <div className="d-flex justify-content-between align-items-center pb-2 mb-3" style={{ borderBottom: '1px solid #303030' }}>
           <div className="d-flex align-items-center gap-2">
             <i className="bi bi-award text-gold fs-5"></i>
             <span className="label-caps text-ivory fw-bold" style={{ fontSize: '11px', letterSpacing: '0.12em' }}>Jerry VIP Club</span>
           </div>
           <button
             className="btn btn-heritage-outline btn-heritage-sm py-1 px-2 text-ivory"
-            style={{ borderColor: 'rgba(176, 138, 85, 0.4)' }}
+            style={{ borderRadius: '8px' }}
             onClick={onClose}
           >
             <i className="bi bi-x-lg"></i>
@@ -49,18 +50,18 @@ export default function VipModal({ isOpen, onClose }) {
         {!claimed ? (
           <div>
             <div className="text-center py-1 mb-3">
-              <span className="badge bg-gold text-espresso label-caps px-2 py-1 mb-2 fw-bold" style={{ fontSize: '10px' }}>
+              <span className="badge bg-gold text-espresso label-caps px-3 py-1 mb-2 fw-bold" style={{ fontSize: '10px' }}>
                 8th Anniversary Privilege Pass
               </span>
               <h2 className="headline-serif text-ivory fs-4 mb-1">
                 Neelum Block Resident Club
               </h2>
-              <p className="mb-0" style={{ fontSize: '12.5px', color: '#B5AEA5' }}>
+              <p className="mb-0 body-muted" style={{ fontSize: '12.5px' }}>
                 Complimentary VIP privilege pass for Allama Iqbal Town clients. Valid for 12 months.
               </p>
             </div>
 
-            <div className="p-3 mb-3" style={{ backgroundColor: 'rgba(0, 0, 0, 0.35)', border: '1px solid rgba(176, 138, 85, 0.25)' }}>
+            <div className="p-3 mb-3" style={{ backgroundColor: '#141414', border: '1px solid #303030', borderRadius: '10px' }}>
               <div className="d-flex align-items-center gap-2 mb-2">
                 <i className="bi bi-check2 text-gold fs-5"></i>
                 <span className="label-caps text-ivory" style={{ fontSize: '11px' }}>20% Off all Head Spa &amp; Scalp Massages</span>
@@ -81,10 +82,10 @@ export default function VipModal({ isOpen, onClose }) {
                 type="tel"
                 className="form-control"
                 style={{ 
-                  backgroundColor: '#12100E', 
-                  border: '1px solid rgba(176, 138, 85, 0.45)', 
-                  color: '#F3EFE6',
-                  borderRadius: 0,
+                  backgroundColor: '#141414', 
+                  border: '1px solid #303030', 
+                  color: '#FFFFFF',
+                  borderRadius: '8px',
                   padding: '10px 12px'
                 }}
                 placeholder="03XX XXXXXXX"
@@ -113,12 +114,12 @@ export default function VipModal({ isOpen, onClose }) {
             <div 
               className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3" 
               style={{ 
-                width: '52px', 
-                height: '52px', 
+                width: '56px', 
+                height: '56px', 
                 border: '2px solid var(--color-gold)', 
                 color: 'var(--color-gold)', 
-                backgroundColor: 'rgba(176, 138, 85, 0.12)',
-                boxShadow: '0 0 20px rgba(176, 138, 85, 0.25)'
+                backgroundColor: 'rgba(200, 164, 93, 0.12)',
+                boxShadow: '0 0 24px rgba(200, 164, 93, 0.3)'
               }}
             >
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -130,12 +131,12 @@ export default function VipModal({ isOpen, onClose }) {
             <h2 className="headline-serif text-ivory fs-3 fw-bold mb-1" style={{ letterSpacing: '0.01em' }}>
               VIP Membership Activated!
             </h2>
-            <p className="mb-3" style={{ fontSize: '13px', color: '#B5AEA5' }}>
+            <p className="mb-3 body-muted" style={{ fontSize: '13px' }}>
               Welcome to our exclusive VIP community.
             </p>
 
             {/* Green VIP Member Pill Badge */}
-            <div className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-2" style={{ backgroundColor: '#073B22', border: '1px solid #0F6E3F' }}>
+            <div className="d-inline-flex align-items-center px-3 py-1 rounded-pill mb-2" style={{ backgroundColor: 'rgba(7, 59, 34, 0.7)', border: '1px solid #00E676' }}>
               <span className="label-caps fw-bold" style={{ color: '#00E676', fontSize: '11px', letterSpacing: '0.14em' }}>
                 VIP MEMBER
               </span>
@@ -143,13 +144,13 @@ export default function VipModal({ isOpen, onClose }) {
 
             {/* 20% OFF in Gold */}
             <div className="my-1">
-              <span className="headline-serif text-gold fw-bold d-block" style={{ fontSize: '2.6rem', lineHeight: 1.1, letterSpacing: '0.02em' }}>
+              <span className="headline-serif text-gold fw-bold d-block" style={{ fontSize: '2.8rem', lineHeight: 1.1, letterSpacing: '0.02em' }}>
                 20% OFF
               </span>
             </div>
 
             {/* Subtitle */}
-            <p className="mb-2" style={{ fontSize: '12.5px', color: '#B5AEA5' }}>
+            <p className="mb-2 body-muted" style={{ fontSize: '12.5px' }}>
               Your exclusive discount is now active.
             </p>
 
@@ -157,14 +158,14 @@ export default function VipModal({ isOpen, onClose }) {
             <div className="d-flex justify-content-center my-2">
               <div 
                 className="d-inline-flex align-items-center justify-content-center rounded-circle" 
-                style={{ width: '28px', height: '28px', border: '1px solid rgba(176, 138, 85, 0.5)', color: 'var(--color-gold)' }}
+                style={{ width: '30px', height: '30px', border: '1px solid #303030', backgroundColor: '#141414', color: 'var(--color-gold)' }}
               >
                 <i className="bi bi-arrow-down" style={{ fontSize: '13px' }}></i>
               </div>
             </div>
 
             {/* Instruction */}
-            <p className="mt-2 mb-4 px-2" style={{ fontSize: '13px', lineHeight: 1.5, color: '#D9D0C2' }}>
+            <p className="mt-2 mb-4 px-2" style={{ fontSize: '13px', lineHeight: 1.5, color: '#A5A5A5' }}>
               Your VIP benefits are ready to enjoy! Simply present your membership at checkout.
             </p>
 

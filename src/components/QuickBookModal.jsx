@@ -38,21 +38,28 @@ export default function QuickBookModal({ isOpen, onClose, onQuickBookConfirm }) 
       onClick={onClose}
     >
       <motion.div 
-        className="border-heritage bg-card p-4 max-w-md w-100 shadow-lg" 
-        style={{ maxWidth: '460px' }}
+        className="p-4 max-w-md w-100 shadow-lg text-ivory position-relative" 
+        style={{ 
+          maxWidth: '460px',
+          backgroundColor: '#1B1B1B',
+          borderRadius: '14px',
+          border: '1px solid #303030',
+          boxShadow: '0 24px 60px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(200, 164, 93, 0.2)'
+        }}
         initial={{ opacity: 0, scale: 0.95, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 15 }}
         transition={{ duration: 0.25, ease: easeLuxury }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom">
+        <div className="d-flex justify-content-between align-items-center pb-2 mb-3" style={{ borderBottom: '1px solid #303030' }}>
           <div>
             <span className="label-caps text-gold fw-bold">Fast Reservation</span>
-            <h3 className="headline-serif text-espresso fs-5 mb-0">Select Date &amp; Stylist</h3>
+            <h3 className="headline-serif text-ivory fs-5 mb-0">Select Date &amp; Stylist</h3>
           </div>
           <button 
-            className="btn btn-heritage-outline btn-heritage-sm py-1 px-2"
+            className="btn btn-heritage-outline btn-heritage-sm py-1 px-2 text-ivory"
+            style={{ borderRadius: '8px' }}
             onClick={onClose}
           >
             <i className="bi bi-x-lg"></i>
@@ -62,13 +69,14 @@ export default function QuickBookModal({ isOpen, onClose, onQuickBookConfirm }) 
         <form onSubmit={handleSubmit}>
           {/* Day Selector */}
           <div className="mb-3">
-            <span className="label-caps text-espresso fw-bold mb-2 d-block">Select Day</span>
+            <span className="label-caps text-ivory fw-bold mb-2 d-block">Select Day</span>
             <div className="row g-2">
               {days.map((d) => (
                 <div key={d.label} className="col-3">
                   <button
                     type="button"
                     className={`btn w-100 p-2 text-center d-flex flex-column align-items-center ${selectedDay === d.label ? 'btn-gold-primary' : 'btn-heritage-outline'}`}
+                    style={{ borderRadius: '8px' }}
                     onClick={() => setSelectedDay(d.label)}
                   >
                     <span className="label-caps" style={{ fontSize: '9px' }}>{d.label}</span>
@@ -81,14 +89,14 @@ export default function QuickBookModal({ isOpen, onClose, onQuickBookConfirm }) 
 
           {/* Time Slot Matrix */}
           <div className="mb-3">
-            <span className="label-caps text-espresso fw-bold mb-2 d-block">Available Time Slots</span>
+            <span className="label-caps text-ivory fw-bold mb-2 d-block">Available Time Slots</span>
             <div className="row g-2">
               {slots.map((s) => (
                 <div key={s} className="col-4">
                   <button
                     type="button"
                     className={`btn w-100 p-2 text-center label-caps ${selectedSlot === s ? 'btn-gold-primary' : 'btn-heritage-outline'}`}
-                    style={{ fontSize: '11px' }}
+                    style={{ fontSize: '11px', borderRadius: '8px' }}
                     onClick={() => setSelectedSlot(s)}
                   >
                     {s}
@@ -100,17 +108,22 @@ export default function QuickBookModal({ isOpen, onClose, onQuickBookConfirm }) 
 
           {/* Barber Selector */}
           <div className="mb-4">
-            <span className="label-caps text-espresso fw-bold mb-2 d-block">Select Specialist</span>
+            <span className="label-caps text-ivory fw-bold mb-2 d-block">Select Specialist</span>
             <div className="d-flex flex-column gap-2">
               {barbersData.map((b) => (
                 <div 
                   key={b.id}
-                  className={`border-heritage p-2 cursor-pointer d-flex justify-content-between align-items-center ${barber === b.name ? 'bg-gold-light' : 'bg-card'}`}
-                  style={{ borderColor: barber === b.name ? 'var(--color-gold)' : 'var(--color-border)', cursor: 'pointer' }}
+                  className="p-2.5 cursor-pointer d-flex justify-content-between align-items-center"
+                  style={{ 
+                    backgroundColor: barber === b.name ? 'rgba(200, 164, 93, 0.15)' : '#141414',
+                    border: `1px solid ${barber === b.name ? 'var(--color-gold)' : '#303030'}`, 
+                    borderRadius: '8px',
+                    cursor: 'pointer' 
+                  }}
                   onClick={() => setBarber(b.name)}
                 >
-                  <span className="label-caps text-espresso fw-bold">{b.name} ({b.role})</span>
-                  <span className="label-caps text-muted-heritage">{b.chair}</span>
+                  <span className="label-caps text-ivory fw-bold">{b.name} ({b.role})</span>
+                  <span className="label-caps text-gold">{b.chair}</span>
                 </div>
               ))}
             </div>
@@ -119,6 +132,7 @@ export default function QuickBookModal({ isOpen, onClose, onQuickBookConfirm }) 
           <button 
             type="submit" 
             className="btn btn-gold-primary w-100 py-3"
+            style={{ borderRadius: '8px' }}
           >
             Confirm Chair Reservation
           </button>

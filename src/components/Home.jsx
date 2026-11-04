@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { servicesData } from '../data/services';
 import { barbersData } from '../data/barbers';
 import { reviewsData } from '../data/reviews';
 import { 
   motion, 
+  AnimatePresence,
   staggerContainer, 
   fadeInUp, 
   cardItemAnim, 
@@ -14,6 +15,27 @@ import {
 
 export default function Home({ setCurrentTab, onSelectService, onSelectBarber, onOpenVipModal }) {
   const featuredServices = servicesData.slice(0, 4);
+
+  // React Effect: Real-time Chair Availability Tracker
+  const [chairStatus, setChairStatus] = useState({ open: 1, busy: 2 });
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setChairStatus(prev => ({
+        open: prev.open === 1 ? 2 : 1,
+        busy: prev.open === 1 ? 1 : 2
+      }));
+    }, 12000);
+    return () => clearInterval(timer);
+  }, []);
+
+  // React Effect: Elegant Mobile VIP Resident Privilege Floating Toast
+  const [showVipBanner, setShowVipBanner] = useState(false);
+  useEffect(() => {
+    const bannerTimer = setTimeout(() => {
+      setShowVipBanner(true);
+    }, 1800);
+    return () => clearTimeout(bannerTimer);
+  }, []);
 
   return (
     <div className="home-view">
@@ -50,9 +72,9 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
             >
               {/* Editorial Pill Badge */}
               <motion.div variants={fadeInUp} className="mb-2">
-                <div className="d-inline-flex align-items-center gap-2 px-3 py-1.5 bg-card border-heritage shadow-sm mobile-hero-badge">
+                <div className="d-inline-flex align-items-center gap-2 px-3 py-1.5 bg-card border-heritage shadow-sm mobile-hero-badge" style={{ borderRadius: '30px', borderColor: '#303030' }}>
                   <i className="bi bi-scissors text-gold"></i>
-                  <span className="label-caps text-espresso fw-bold" style={{ fontSize: '10px' }}>
+                  <span className="label-caps text-gold-secondary fw-bold" style={{ fontSize: '10px', letterSpacing: '0.12em' }}>
                     EST. 8 YEARS • LAHORE'S PREMIER BARBER ATELIER
                   </span>
                 </div>
@@ -61,17 +83,17 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
               {/* Main Headline */}
               <motion.h1 
                 variants={fadeInUp}
-                className="display-title text-espresso mb-3 hero-headline" 
-                style={{ fontSize: 'clamp(1.75rem, 5.5vw, 3.8rem)', wordBreak: 'break-word', hyphens: 'auto' }}
+                className="display-title text-ivory mb-3 hero-headline" 
+                style={{ fontSize: 'clamp(2rem, 5.5vw, 4rem)', wordBreak: 'break-word', hyphens: 'auto' }}
               >
-                Master Craftsmanship &amp; Gentlemen's Grooming
+                Master <span className="text-gold">Craftsmanship</span> &amp; Modern <span className="text-gold">Luxury</span> Grooming
               </motion.h1>
 
               {/* Description */}
               <motion.p 
                 variants={fadeInUp}
                 className="body-muted fs-6 mb-3 mb-md-4" 
-                style={{ maxWidth: '520px', color: '#4A4540', lineHeight: 1.7, fontSize: 'clamp(13.5px, 3.6vw, 15px)' }}
+                style={{ maxWidth: '520px', lineHeight: 1.7, fontSize: 'clamp(14px, 3.6vw, 15.5px)' }}
               >
                 Traditional straight-razor geometry meets contemporary bespoke grooming in Allama Iqbal Town. Steeped eucalyptus hot towels, hospital-grade single-use blades, and tailored tapers crafted for gentlemen of distinction.
               </motion.p>
@@ -82,7 +104,9 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                 className="mobile-hero-visual position-relative overflow-hidden mb-3.5 d-block d-lg-none shadow-sm"
                 style={{
                   height: 'clamp(210px, 52vw, 290px)',
-                  backgroundColor: 'var(--color-espresso)'
+                  backgroundColor: '#141414',
+                  borderRadius: '12px',
+                  border: '1px solid #303030'
                 }}
               >
                 <img 
@@ -99,12 +123,12 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                 <div 
                   className="position-absolute top-0 start-0 w-100 h-100"
                   style={{
-                    background: 'linear-gradient(to top, rgba(36, 33, 30, 0.88) 0%, rgba(36, 33, 30, 0.25) 55%, rgba(36, 33, 30, 0) 100%)',
+                    background: 'linear-gradient(to top, rgba(11, 11, 11, 0.95) 0%, rgba(11, 11, 11, 0.45) 55%, rgba(11, 11, 11, 0) 100%)',
                     pointerEvents: 'none'
                   }}
                 />
                 <div className="position-absolute top-0 start-0 m-2.5">
-                  <span className="badge bg-espresso text-ivory label-caps px-2.5 py-1.5 shadow-sm" style={{ border: '1px solid rgba(176, 138, 85, 0.4)', fontSize: '9px' }}>
+                  <span className="badge bg-espresso text-ivory label-caps px-2.5 py-1.5 shadow-sm" style={{ border: '1px solid rgba(200, 164, 93, 0.4)', fontSize: '9px' }}>
                     <i className="bi bi-geo-alt-fill text-gold me-1"></i> 117 Neelum Block
                   </span>
                 </div>
@@ -119,7 +143,7 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
                     <span className="font-serif text-ivory fw-bold" style={{ fontSize: '15px' }}>Sanctuary of Vintage Grooming</span>
                   </div>
                   <span className="badge bg-card text-espresso label-caps px-2 py-1 shadow-sm d-flex align-items-center gap-1.5" style={{ fontSize: '9px' }}>
-                    <span className="pulse-indicator bg-gold"></span> 3 Chairs
+                    <span className="pulse-indicator bg-gold"></span> {chairStatus.open} Chair Open • Walk-in Ready
                   </span>
                 </div>
               </motion.div>
@@ -479,34 +503,34 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
 
             <div className="col-12 col-lg-6">
               <span className="label-caps text-gold fw-bold">The Atelier Standard</span>
-              <h2 className="display-title text-espresso fs-2 mb-3">
-                Uncompromising Hygiene &amp; Vintage Comfort
+              <h2 className="display-title text-ivory fs-2 mb-3">
+                Uncompromising <span className="text-gold">Hygiene</span> &amp; Vintage Comfort
               </h2>
               <p className="body-muted mb-4" style={{ lineHeight: 1.7 }}>
-                Step into a welcoming grooming sanctuary. Restored hydraulic recliners from vintage barber heritage paired with medical-grade ultraviolet sterilizers and single-use Japanese blades.
+                Step into an exclusive sanctuary built on <span className="text-gold">8 years of heritage</span> in Neelum Block. Restored hydraulic recliners paired with <span className="text-gold">medical-grade ultraviolet sterilizers</span> and Japanese single-use blades.
               </p>
 
               <div className="row g-3 mb-4">
                 <div className="col-4">
-                  <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                  <div className="border-heritage p-3 text-center bg-card shadow-sm h-100" style={{ borderRadius: '10px' }}>
                     <i className="bi bi-shield-check fs-4 text-gold d-block mb-1"></i>
-                    <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>
+                    <span className="label-caps text-ivory" style={{ fontSize: '10px' }}>
                       UV Sanitized
                     </span>
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                  <div className="border-heritage p-3 text-center bg-card shadow-sm h-100" style={{ borderRadius: '10px' }}>
                     <i className="bi bi-droplet fs-4 text-gold d-block mb-1"></i>
-                    <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>
+                    <span className="label-caps text-ivory" style={{ fontSize: '10px' }}>
                       Single Blades
                     </span>
                   </div>
                 </div>
                 <div className="col-4">
-                  <div className="border-heritage p-3 text-center bg-card shadow-sm h-100">
+                  <div className="border-heritage p-3 text-center bg-card shadow-sm h-100" style={{ borderRadius: '10px' }}>
                     <i className="bi bi-cup-hot fs-4 text-gold d-block mb-1"></i>
-                    <span className="label-caps text-espresso" style={{ fontSize: '10px' }}>
+                    <span className="label-caps text-ivory" style={{ fontSize: '10px' }}>
                       House Brew
                     </span>
                   </div>
@@ -525,23 +549,23 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
         </div>
       </section>
 
-      {/* Dark Espresso Section: VIP Club Privilege (Dramatic Luxury Contrast) */}
-      <section className="py-5 bg-espresso position-relative overflow-hidden">
+      {/* Dark Luxury VIP Club Privilege Section */}
+      <section className="py-5 bg-canvas position-relative overflow-hidden">
         <ParallaxBox speed={0.15} className="position-absolute end-0 top-0 bottom-0 col-6 d-none d-lg-block opacity-10 pointer-events-none">
           <i className="bi bi-scissors" style={{ fontSize: '320px', color: 'var(--color-gold)', position: 'absolute', right: '-40px', top: '10%' }}></i>
         </ParallaxBox>
 
         <div className="container position-relative" style={{ zIndex: 2 }}>
-          <div className="border-dark-section p-3 p-sm-4 p-md-5 position-relative overflow-hidden" style={{ backgroundColor: '#2E2B27' }}>
+          <div className="border-heritage p-3 p-sm-4 p-md-5 position-relative overflow-hidden shadow-lg" style={{ backgroundColor: '#141414', border: '1px solid #303030', borderRadius: '14px' }}>
             <div className="row align-items-center">
               <div className="col-12 col-lg-8">
-                <span className="badge bg-gold text-espresso label-caps py-1 px-2 mb-2 fw-bold">
+                <span className="badge bg-gold text-espresso label-caps py-1 px-3 mb-2 fw-bold">
                   8th Anniversary Privilege
                 </span>
                 <h2 className="headline-serif text-ivory fs-3 mb-2">
                   Jerry VIP Club • Neelum Block Resident Pass
                 </h2>
-                <p className="body-muted mb-0" style={{ color: '#D9D0C2' }}>
+                <p className="body-muted mb-0">
                   Exclusive grooming privileges for Allama Iqbal Town residents. Enjoy 20% off all scalp therapies, priority chair reservation during weekend peak hours, and quarterly complimentary beard detailing.
                 </p>
               </div>
@@ -618,6 +642,61 @@ export default function Home({ setCurrentTab, onSelectService, onSelectBarber, o
           </motion.div>
         </div>
       </section>
+
+      {/* Floating Interactive Mobile VIP Toast */}
+      <AnimatePresence>
+        {showVipBanner && (
+          <motion.div
+            initial={{ y: 60, opacity: 0, scale: 0.95 }}
+            animate={{ y: 0, opacity: 1, scale: 1 }}
+            exit={{ y: 60, opacity: 0, scale: 0.95 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 220 }}
+            className="position-fixed d-lg-none"
+            style={{
+              bottom: 'calc(74px + env(safe-area-inset-bottom, 0px))',
+              left: '12px',
+              right: '12px',
+              zIndex: 1020,
+              pointerEvents: 'auto'
+            }}
+          >
+            <div 
+              className="p-2.5 px-3 bg-espresso border-heritage shadow-lg d-flex align-items-center justify-content-between"
+              style={{ 
+                borderRadius: '14px', 
+                border: '1px solid var(--color-gold)',
+                boxShadow: '0 8px 30px rgba(36, 33, 30, 0.45)'
+              }}
+            >
+              <div className="d-flex align-items-center gap-2 cursor-pointer flex-grow-1" onClick={onOpenVipModal} style={{ cursor: 'pointer' }}>
+                <span className="badge bg-gold text-espresso label-caps py-1 px-1.5 fw-bold flex-shrink-0" style={{ fontSize: '9px' }}>
+                  20% OFF
+                </span>
+                <div className="d-flex flex-column">
+                  <span className="text-ivory fw-bold" style={{ fontSize: '11.5px', lineHeight: 1.2 }}>
+                    Resident VIP Pass Active
+                  </span>
+                  <span className="text-gold" style={{ fontSize: '10px' }}>
+                    Tap to view your member privileges <i className="bi bi-chevron-right ms-0.5"></i>
+                  </span>
+                </div>
+              </div>
+              <button 
+                type="button"
+                className="btn btn-sm text-ivory p-1 ms-2 flex-shrink-0"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowVipBanner(false);
+                }}
+                aria-label="Close notification"
+                style={{ fontSize: '14px', opacity: 0.7, background: 'transparent', border: 'none' }}
+              >
+                <i className="bi bi-x-lg"></i>
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

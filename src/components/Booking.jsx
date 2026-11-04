@@ -829,10 +829,10 @@ export default function Booking({
             </AnimatePresence>
           </div>
 
-          {/* Real-time Dossier Summary Right Column (Rich Espresso Card) */}
+          {/* Real-time Dossier Summary Right Column (Dark Luxury Card) */}
           <div className="col-12 col-lg-4">
-            <div className="border-dark-section p-3 p-sm-4 bg-espresso sticky-top shadow" style={{ top: '90px' }}>
-              <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom border-dark-section">
+            <div className="border-heritage p-3 p-sm-4 bg-card sticky-top shadow-lg" style={{ top: '90px', borderRadius: '12px' }}>
+              <div className="d-flex justify-content-between align-items-center pb-2 mb-3 border-heritage-bottom">
                 <div className="d-flex align-items-center gap-2">
                   <i className="bi bi-receipt text-gold"></i>
                   <span className="label-caps text-ivory fw-bold">Booking Dossier</span>
@@ -844,7 +844,7 @@ export default function Booking({
               <div className="mb-3">
                 <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Services Selected:</span>
                 {selectedServices.length === 0 ? (
-                  <span className="body-muted fst-italic" style={{ color: '#D9D0C2' }}>No services selected</span>
+                  <span className="body-muted fst-italic" style={{ fontSize: '12px' }}>No services selected yet</span>
                 ) : (
                   <div className="mt-1">
                     {selectedServices.map((s) => (
@@ -857,21 +857,21 @@ export default function Booking({
                 )}
               </div>
 
-              <div className="mb-3 pt-2 border-top border-dark-section">
+              <div className="mb-3 pt-2 border-heritage-top">
                 <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Assigned Master:</span>
                 <span className="headline-serif text-ivory fs-6">
                   {selectedBarber ? `${selectedBarber.name} (${selectedBarber.chair})` : 'Jerry (Chair #01)'}
                 </span>
               </div>
 
-              <div className="mb-3 pt-2 border-top border-dark-section">
+              <div className="mb-3 pt-2 border-heritage-top">
                 <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Date &amp; Arrival Slot:</span>
                 <span className="headline-serif text-ivory fs-6">
                   {selectedDate} • {selectedTime}
                 </span>
               </div>
 
-              <div className="mb-3 pt-2 border-top border-dark-section">
+              <div className="mb-3 pt-2 border-heritage-top">
                 <span className="label-caps text-gold d-block" style={{ fontSize: '10px' }}>Session Duration:</span>
                 <span className="headline-serif text-ivory fs-6" style={{ opacity: 0.85 }}>
                   Approx. {totalDuration}
@@ -879,27 +879,38 @@ export default function Booking({
               </div>
 
               {/* Total Investment */}
-              <div className="p-3 bg-card border-heritage mt-3 mb-3 shadow-sm">
+              <div className="p-3 bg-card border-heritage mt-3 mb-3 shadow-sm" style={{ borderRadius: '8px', backgroundColor: '#141414' }}>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
                     <span className="label-caps text-muted-heritage d-block" style={{ fontSize: '10px' }}>Total Investment:</span>
                     <span className="label-caps text-muted-heritage" style={{ fontSize: '9px' }}>Pay at checkout</span>
                   </div>
-                  <span className="headline-serif text-espresso fs-3 fw-bold">
+                  <span className="headline-serif text-gold fs-3 fw-bold">
                     PKR {totalPrice.toLocaleString()}
                   </span>
                 </div>
               </div>
 
-              {/* Guarantee Ribbon */}
-              <div className="p-2 border-dark-section d-flex align-items-center gap-2" style={{ backgroundColor: '#2E2B27' }}>
-                <i className="bi bi-whatsapp text-gold fs-5"></i>
-                <div>
-                  <span className="label-caps text-ivory d-block" style={{ fontSize: '10px' }}>Instant Dispatch</span>
-                  <span className="body-muted" style={{ fontSize: '11px', color: '#D9D0C2' }}>
-                    Digital pass sent via WhatsApp with live queue tracking.
-                  </span>
+              {/* WhatsApp Concierge Assistance */}
+              <div className="p-3 border-heritage mt-2" style={{ backgroundColor: '#141414', borderRadius: '10px' }}>
+                <div className="d-flex align-items-center gap-2 mb-2">
+                  <i className="bi bi-whatsapp text-gold fs-5"></i>
+                  <div>
+                    <span className="label-caps text-ivory d-block fw-bold" style={{ fontSize: '10.5px' }}>Concierge Assistance</span>
+                    <span className="body-muted d-block" style={{ fontSize: '11px' }}>
+                      Questions about appointments or custom styling?
+                    </span>
+                  </div>
                 </div>
+                <a 
+                  href="https://wa.me/923001234567?text=Hello%20Jerry%20Hair%20Saloon%2C%20I%20would%20like%20to%20inquire%20about%20booking%20an%20appointment." 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="btn btn-heritage-outline btn-heritage-sm w-100 d-flex align-items-center justify-content-center gap-2 mt-2"
+                >
+                  <i className="bi bi-whatsapp text-gold"></i>
+                  <span>WhatsApp Concierge</span>
+                </a>
               </div>
             </div>
           </div>

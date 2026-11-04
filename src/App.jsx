@@ -114,10 +114,10 @@ export default function App() {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentTab}
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -14 }}
-            transition={{ duration: 0.3, ease: easeLuxury }}
+            initial={{ opacity: 0, y: 16, scale: 0.988 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -16, scale: 0.988 }}
+            transition={{ duration: 0.28, ease: easeLuxury }}
           >
             {currentTab === 'home' && (
               <Home 

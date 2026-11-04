@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MagneticButton, motion, AnimatePresence, easeLuxury } from '../animations/motion';
 
 export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onOpenVipModal }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 15);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNavClick = (tab) => {
     setCurrentTab(tab);
@@ -12,10 +21,14 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
 
   return (
     <header 
-      className="sticky-top border-heritage-bottom" 
+      className={`sticky-top border-heritage-bottom ${isScrolled ? 'header-scrolled shadow-sm' : ''}`} 
       style={{ 
-        backgroundColor: 'rgba(243, 239, 230, 0.96)', 
-        backdropFilter: 'blur(16px)', 
+        backgroundColor: isScrolled ? 'rgba(11, 11, 11, 0.96)' : 'rgba(11, 11, 11, 0.90)', 
+        backdropFilter: 'blur(20px)', 
+        WebkitBackdropFilter: 'blur(20px)',
+        borderBottom: '1px solid var(--color-border)',
+        boxShadow: isScrolled ? '0 4px 24px rgba(0, 0, 0, 0.85), 0 1px 0 rgba(200, 164, 93, 0.2)' : 'none',
+        transition: 'all 0.3s cubic-bezier(0.22, 1, 0.36, 1)',
         zIndex: 1030 
       }}
     >
@@ -32,8 +45,10 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
             style={{ 
               width: '40px', 
               height: '40px', 
-              backgroundColor: 'var(--color-espresso)',
-              boxShadow: '0 2px 8px rgba(36, 33, 30, 0.12)'
+              backgroundColor: '#1B1B1B',
+              borderColor: 'rgba(200, 164, 93, 0.4)',
+              borderRadius: '8px',
+              boxShadow: '0 2px 10px rgba(0, 0, 0, 0.5)'
             }}
           >
             <i className="bi bi-scissors fs-5 text-gold"></i>
@@ -42,7 +57,7 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
           <div className="d-flex flex-column">
             <div className="d-flex align-items-center gap-1 gap-sm-2">
               <span 
-                className="font-serif fw-bold text-espresso text-uppercase header-brand-title fs-5" 
+                className="font-serif fw-bold text-ivory text-uppercase header-brand-title fs-5" 
                 style={{ letterSpacing: '0.06em', whiteSpace: 'nowrap' }}
               >
                 Jerry Hair Saloon
@@ -147,9 +162,9 @@ export default function Header({ currentTab, setCurrentTab, onOpenQuickBook, onO
                 left: 0, 
                 right: 0, 
                 bottom: 0, 
-                backgroundColor: '#24211E', 
+                backgroundColor: 'rgba(0, 0, 0, 0.75)', 
                 zIndex: 1025,
-                backdropFilter: 'blur(3px)'
+                backdropFilter: 'blur(6px)'
               }}
               onClick={() => setMobileMenuOpen(false)}
             />
